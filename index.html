@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vancouver · World Cup 2026 · Travel Agenda</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght=0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Archivo:wght=400;500;600;700&family=Archivo+Expanded:wght=600;700&display=swap');
+
+  :root{
+    --ink:#16241f;
+    --paper:#f5f2eb;
+    --paper-deep:#e2dcce;
+    --white:#ffffff;
+    --moss:#2f5d4f;
+    --moss-deep:#1f4138;
+    --rain:#3b6f8c;
+    --sun:#d98a3d;
+    --pitch:#0e2a22;
+    --line:rgba(22,36,31,.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Archivo',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:linear-gradient(135deg, var(--pitch) 0%, var(--moss-deep) 50%, var(--moss) 100%);
+    color:var(--white);
+    padding:70px 0 50px;
+    text-align:center;
+    border-bottom: 6px solid var(--sun);
+  }
+  .eyebrow{
+    font-family:'Archivo Expanded','Archivo',sans-serif;
+    font-weight:700;
+    letter-spacing:.35em;
+    text-transform:uppercase;
+    font-size:.75rem;
+    color:#cfe3d3;
+    margin-bottom:16px;
+  }
+  .hero h1{
+    font-family:'Fraunces',serif;
+    font-weight:900;
+    font-size:clamp(2.2rem, 5vw, 4rem);
+    line-height:1.1;
+    letter-spacing:-.02em;
+  }
+  .hero h1 em{font-style:italic;font-weight:500;color:#f0c79a}
+  .flags{font-size:clamp(1.8rem,5vw,2.5rem);margin:16px 0;letter-spacing:.15em}
+  .hero-meta{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:16px 32px;
+    padding-top:20px;margin-top:20px;
+    border-top:1px solid rgba(255,255,255,0.15);
+    font-size:.95rem;color:#dceadd;
+  }
+  .hero-meta b{color:#fff;font-weight:600}
+
+  /* ---------- MATCH STRIP ---------- */
+  .match-strip{
+    background:#113228;
+    color:#eaf3ec;
+    border-bottom:1px solid var(--line);
+  }
+  .match-strip .wrap{
+    display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+    gap:14px;padding:16px 24px;
+  }
+  .match-strip .ms-teams{font-family:'Fraunces',serif;font-weight:600;font-size:1.25rem}
+  .match-strip .ms-kick{
+    font-family:'Archivo Expanded','Archivo',sans-serif;font-weight:700;
+    letter-spacing:.04em;font-size:1rem;color:#f0c79a;text-align:right;
+  }
+  .match-strip .ms-kick span{display:block;font-size:.68rem;letter-spacing:.2em;color:#9db8a8;text-transform:uppercase;font-weight:600;margin-top:2px}
+
+  /* ---------- INTRO ---------- */
+  .intro{padding:40px 0 10px;text-align:center}
+  .intro p{max-width:65ch;font-size:1.05rem;color:#33433c;margin:0 auto 16px}
+  .intro .lede{font-family:'Fraunces',serif;font-size:1.35rem;line-height:1.4;color:var(--moss-deep);font-weight:500}
+
+  /* ---------- TABS SYSTEM ---------- */
+  .tab-system { margin: 30px auto 60px; }
+  .tab-selectors {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: -1px;
+    position: relative;
+    z-index: 10;
+  }
+  .tab-label {
+    background: var(--paper-deep);
+    padding: 14px 28px;
+    font-family: 'Archivo Expanded', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-radius: 12px 12px 0 0;
+    cursor: pointer;
+    border: 1px solid var(--line);
+    border-bottom: none;
+    color: var(--moss);
+    transition: all 0.2s ease;
+  }
+  .tab-label:hover { background: #e0d8c6; }
+  .tab-radio { display: none; }
+
+  .tab-panels {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 35px;
+    box-shadow: 0 12px 30px -15px rgba(22,36,31,0.12);
+  }
+  .tab-panel { display: none; }
+
+  #tab-accom:checked ~ .tab-selectors label[for="tab-accom"],
+  #tab-day1:checked ~ .tab-selectors label[for="tab-day1"],
+  #tab-day2:checked ~ .tab-selectors label[for="tab-day2"],
+  #tab-day3:checked ~ .tab-selectors label[for="tab-day3"] {
+    background: var(--white);
+    color: var(--pitch);
+    padding-bottom: 15px;
+    margin-top: -4px;
+    border-top: 4px solid var(--sun);
+  }
+
+  #tab-accom:checked ~ .tab-panels #panel-accom,
+  #tab-day1:checked ~ .tab-panels #panel-day1,
+  #tab-day2:checked ~ .tab-panels #panel-day2,
+  #tab-day3:checked ~ .tab-panels #panel-day3 {
+    display: block;
+    animation: fadeIn 0.35s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ---------- LAYOUT GRID ---------- */
+  .panel-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 35px;
+  }
+  .day-header {
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 16px;
+  }
+  .day-title {
+    font-family:'Fraunces',serif;
+    font-weight:900;
+    font-size:2rem;
+    color:var(--pitch);
+  }
+  .day-sub { color:#6c7d74; font-size:0.95rem; margin-top:4px; }
+  
+  /* Timeline */
+  .tl { list-style:none; position:relative; }
+  .tl::before { content:""; position:absolute; left:7px; top:6px; bottom:10px; width:2px; background:linear-gradient(var(--moss),transparent) }
+  .tl li { position:relative; padding:0 0 45px 32px; }
+  .tl li:last-child { padding-bottom:0; }
+  .tl li::before {
+    content:""; position:absolute; left:0; top:4px;
+    width:16px;height:16px; border-radius:50%;
+    background:var(--white); border:3px solid var(--moss);
+  }
+  
+  .time-block {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  .tl .tm {
+    font-family:'Archivo Expanded',sans-serif; font-weight:700;
+    font-size:.74rem; letter-spacing:.08em; color:var(--moss-deep); text-transform:uppercase;
+  }
+  .tl .duration-tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    background: var(--paper-deep);
+    color: var(--ink);
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+  .tl .ev { font-weight:700; font-size:1.15rem; color:var(--ink); margin:2px 0 4px }
+  .tl .nt { font-size:.95rem; color:#4a5a51; margin-bottom:12px; max-width:55ch; }
+
+  /* Visual Media Row */
+  .media-row {
+    display: flex;
+    gap: 12px;
+    margin: 12px 0;
+  }
+  .media-card {
+    flex: 1;
+    position: relative;
+    height: 160px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #eef1f0;
+    border: 1px solid rgba(0,0,0,0.05);
+  }
+  .media-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .media-tag {
+    position: absolute;
+    bottom: 6px;
+    left: 6px;
+    background: rgba(14, 42, 34, 0.85);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    backdrop-filter: blur(2px);
+  }
+
+  /* Inline Small Map Widgets (Auto-Bounding Fixed) */
+  .inline-map-box {
+    margin: 14px 0 6px 0;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fdfdfd;
+  }
+  .inline-map-frame {
+    width: 100%;
+    height: 240px;
+    border: none;
+    display: block;
+  }
+  .inline-map-lbl {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #6c7d74;
+    background: #faf8f5;
+    padding: 10px 12px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .inline-map-lbl b { color: var(--sun); }
+
+  /* Sticky Map Sidebar */
+  .map-sidebar { position: relative; }
+  .map-sticky {
+    position: sticky;
+    top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .map-frame {
+    width: 100%;
+    height: 540px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: #eef1f0;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+  }
+  .map-meta {
+    background: var(--paper);
+    padding: 16px;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+  }
+  .map-meta h4 {
+    font-family: 'Archivo Expanded', sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--moss-deep);
+    margin-bottom: 4px;
+  }
+  .map-meta p { font-size: 0.85rem; color: #55645c; }
+
+  .btn-map {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--rain);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  .btn-map:hover { text-decoration: underline; }
+
+  /* Squad Table Additions */
+  .squad-table { width: 100%; text-align: left; border-collapse: collapse; margin-top: 10px; font-size: 0.8rem;}
+  .squad-table th { padding: 6px; border-bottom: 2px solid var(--line); color: var(--moss-deep); }
+  .squad-table td { padding: 6px; border-bottom: 1px solid var(--line); }
+
+  /* ---------- LOGISTICS & ROSTER ---------- */
+  .logi{background:var(--moss-deep); color:#e7f0e8; padding:55px 0; margin-top:40px; border-top: 4px solid var(--sun)}
+  .logi h2{font-family:'Fraunces',serif; font-weight:900; font-size:2rem; margin-bottom:6px; color:#fff}
+  .logi .sub{color:#a9c4b5; font-size:.95rem; margin-bottom:24px}
+  .logi-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px}
+  .lcard{background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:14px; padding:20px}
+  .lcard h3{font-family:'Archivo Expanded',sans-serif; font-size:.8rem; letter-spacing:.12em; text-transform:uppercase; color:#f0c79a; margin-bottom:10px}
+  .lcard p{font-size:.92rem; color:#dceadd}
+  .lcard b{color:#fff; font-weight:600}
+
+  .roster{padding:50px 0 30px}
+  .roster h2{font-family:'Fraunces',serif; font-weight:900; font-size:1.6rem; margin-bottom:20px}
+  .crew{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:16px}
+  .cm{border:1px solid var(--line); border-radius:13px; padding:16px; background:#fcfaf3}
+  .cm .init{font-family:'Fraunces',serif; font-weight:900; font-size:1.3rem; color:var(--moss)}
+  .cm .who{font-weight:600; margin-top:2px; font-size:.95rem}
+  .cm .from{font-size:.82rem; color:#7a8b82}
+
+  footer{background:var(--pitch); color:#9db8a8; text-align:center; padding:35px 24px; font-size:.85rem}
+  footer b{color:#f0c79a;}
+
+  @media (max-width:900px){
+    .panel-grid { grid-template-columns: 1fr; }
+    .map-frame { height: 340px; }
+    .tab-label { padding: 12px 16px; font-size: 0.75rem; }
+    .tab-panels { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div class="eyebrow">FIFA World Cup 2026 · Vancouver, BC</div>
+    <h1>Four Days<br>on the <em>West Coast</em></h1>
+    <div class="flags">🇪🇬  vs  🇳🇿</div>
+    <div class="hero-meta">
+      <span>📆 <b>June 19 – 21, 2026</b></span>
+      <span>📍 Base · <b>Kitsilano</b></span>
+      <span>⚽ Match · <b>New Zealand v Egypt</b></span>
+    </div>
+  </div>
+</header>
+
+<div class="match-strip">
+  <div class="wrap">
+    <div class="ms-teams">🇳🇿 New Zealand  ·  Egypt 🇪🇬</div>
+    <div class="ms-kick">6:00 PM PT · Sun Jun 21 <span>BC Place · Group Stage</span></div>
+  </div>
+</div>
+
+<section class="intro">
+  <div class="wrap">
+    <p class="lede">A long weekend built around one match — and the city around it.</p>
+    <p>Seawall mornings, a suspension bridge over the rainforest, market breakfasts, and a Sunday evening at BC Place for the Pharaohs. Click through the pages below to view schedules, housing details, and dynamically framed route maps for each day.</p>
+  </div>
+</section>
+
+<main class="wrap">
+  <div class="tab-system">
+    
+    <input type="radio" id="tab-accom" name="agenda-pages" class="tab-radio" checked>
+    <input type="radio" id="tab-day1" name="agenda-pages" class="tab-radio">
+    <input type="radio" id="tab-day2" name="agenda-pages" class="tab-radio">
+    <input type="radio" id="tab-day3" name="agenda-pages" class="tab-radio">
+
+    <div class="tab-selectors">
+      <label for="tab-accom" class="tab-label">Accommodation</label>
+      <label for="tab-day1" class="tab-label">Day 1: Friday</label>
+      <label for="tab-day2" class="tab-label">Day 2: Saturday</label>
+      <label for="tab-day3" class="tab-label">Day 3: Sunday</label>
+    </div>
+
+    <div class="tab-panels">
+      
+      <div class="tab-panel" id="panel-accom">
+        <div class="panel-grid">
+          <div class="day-schedule">
+            <div class="day-header">
+              <h2 class="day-title">Arrivals & Accommodations</h2>
+              <div class="day-sub">Logistics, Host Instructions & House Rules</div>
+            </div>
+            
+            <ul class="tl">
+              <li>
+                <div class="time-block">
+                  <div class="tm">Flight Schedule</div>
+                  <div class="duration-tag">✈️ Arrivals & Departures</div>
+                </div>
+                <div class="ev">YVR Airport Timelines</div>
+                <div class="nt">
+                  <strong>Thursday, June 18:</strong><br>
+                  • H&H Arrival: 12:00 PM<br>
+                  • MR & MS Arrival: 11:30 PM<br><br>
+                  <strong>Monday, June 22:</strong><br>
+                  • Airbnb Checkout: 11:00 AM<br>
+                  • Departure Flight to Toronto (All): 6:00 AM
+                </div>
+              </li>
+              <li>
+                <div class="time-block">
+                  <div class="tm">Airbnb Details</div>
+                  <div class="duration-tag">🏠 Kitsilano Unit</div>
+                </div>
+                <div class="ev">Access Instructions</div>
+                <div class="nt">
+                  Upon arriving at the address, please go to the back side of the house using the path on the left side of the house. There will be a set of stairs going down to your Airbnb.<br><br>
+                  <strong>Entrance Code: 9054</strong><br>
+                  Please press 9054 and then confirm the code by pressing the "Kwikset" Lock logo button. The door should unlock. To lock the door upon exiting the airbnb, please press the "Kwikset" Lock logo button again.
+                </div>
+              </li>
+              <li>
+                <div class="time-block">
+                  <div class="tm">House Rules</div>
+                  <div class="duration-tag">⚠️ Important</div>
+                </div>
+                <div class="ev">Host Requests</div>
+                <div class="nt">
+                  • <strong>Shoes:</strong> Please do not have shoes inside the house.<br><br>
+                  • <strong>Spills:</strong> Please be careful not to spill anything on the living room couch or carpet, otherwise there will be a $40 CAD charge for any stains found. If the stain isn't removable, we may have to replace the whole carpet/couch, and that may cost a lot.<br><br>
+                  • <strong>Hot Water:</strong> ⭐️🚿🛀 Just a quick note about hot water usage! Since our home doesn’t have a large commercial water heater like hotels, hot water is limited at times. To ensure everyone has a warm and comfortable shower, we kindly ask guests to keep showers brief or space them out.
+                </div>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="map-sidebar">
+            <div class="map-sticky">
+              <div class="map-meta" style="background: var(--pitch); color: var(--white); border: none;">
+                <h4 style="color: var(--sun);">Contact Host</h4>
+                <p style="color: #a9c4b5;">"Please feel to reach out over text if you have any questions and we will answer as soon as possible!"</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="panel-day1">
+        <div class="panel-grid">
+          <div class="day-schedule">
+            <div class="day-header">
+              <h2 class="day-title">The Big Epic Outdoor Loop</h2>
+              <div class="day-sub">Friday, June 19 · Rainforest, Seawall & Gastown</div>
+            </div>
+            
+            <ul class="tl">
+              <li>
+                <div class="time-block">
+                  <div class="tm">09:00 AM</div>
+                  <div class="duration-tag">⏱️ 2 Hours</div>
+                </div>
+                <div class="ev">Breakfast at Café Medina</div>
+                <div class="nt">Start downtown with Medina's signature lavender lattes and Moroccan-spiced tagine brunch bowls.</div>
+                <div class="media-row">
+                  <div class="media-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Breakfast_at_Cafe_Medina.jpg" alt="User upload of eggs benedict plate">
+                    <div class="media-tag">User Food Photo</div>
+                  </div>
+                </div>
+                <div class="inline-map-box">
+                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?saddr=4589+Haggart+St,Vancouver&daddr=Cafe+Medina,Richards+Street,Vancouver&dirflg=d&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                  <div class="inline-map-lbl"><span>🚗 Drive from <b>Kitsilano Base</b>  ·  <b>12 mins</b> (5.2 km)</span><a href="https://maps.google.com/?saddr=4589+Haggart+St,Vancouver&daddr=Cafe+Medina,Richards+Street,Vancouver&dirflg=d" target="_blank" class="btn-map">Open Route</a></div>
+                </div>
+              </li>
+
+              <li>
+                <div class="time-block">
+                  <div class="tm">11:30 AM</div>
+                  <div class="duration-tag">⏱️ 3 Hours</div>
+                </div>
+                <div class="ev">Capilano Suspension Bridge Park</div>
+                <div class="nt">Cross the Lions Gate Bridge into the old-growth rainforest canyon. Walk the sweeping suspension wire and explore high boardwalk paths.</div>
+                <div class="media-row">
+                  <div class="media-card" style="flex: 2;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Capilano_Suspension_Bridge_2.jpg" alt="Actual landscape user view of Capilano Suspension Bridge across the canyon">
+                    <div class="media-tag">Authentic Bridge View</div>
+                  </div>
+                </div>
+                <div class="inline-map-box">
+                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?saddr=Cafe+Medina,Richards+Street,Vancouver&daddr=Capilano+Suspension+Bridge+Park,North+Vancouver&dirflg=d&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                  <div class="inline-map-lbl"><span>🚗 Drive from <b>Café Medina</b>  ·  <b>20 mins</b> (10.1 km)</span><a href="https://maps.google.com/?saddr=Cafe+Medina,Richards+Street,Vancouver&daddr=Capilano+Suspension+Bridge+Park,North+Vancouver&dirflg=d" target="_blank" class="btn-map">Open Route</a></div>
+                </div>
+              </li>
+
+              <li>
+                <div class="time-block">
+                  <div class="tm">03:30 PM</div>
+                  <div class="duration-tag">⏱️ 2.5 Hours</div>
+                </div>
+                <div class="ev">Stanley Park Seawall & English Bay</div>
+                <div class="nt">Head back from the North Shore into Stanley Park. Cycle or stroll the iconic ocean seawall corridor, finishing right where the beach opens up at English Bay.</div>
+                <div class="media-row">
+                  <div class="media-card" style="flex: 2;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/English_Bay_Vancouver_BC.jpg" alt="Authentic travel guide view of English Bay beach sandy shores and ocean horizon">
+                    <div class="media-tag">English Bay Landscape</div>
+                  </div>
+                </div>
+                <div class="inline-map-box">
+                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?saddr=Capilano+Suspension+Bridge+Park,North+Vancouver&daddr=English+Bay+Beach,Vancouver&dirflg=d&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                  <div class="inline-map-lbl"><span>🚗 Drive from <b>Capilano Bridge</b>  ·  <b>18 mins</b> (9.5 km)</span><a href="https://maps.google.com/?saddr=Capilano+Suspension+Bridge+Park,North+Vancouver&daddr=English+Bay+Beach,Vancouver&dirflg=d" target="_blank" class="btn-map">Open Route</a></div>
+                </div>
+              </li>
+
+              <li>
+                <div class="time-block">
+                  <div class="tm">07:00 PM</div>
+                  <div class="duration-tag">⏱️ 3 Hours+</div>
+                </div>
+                <div class="ev">Dinner & Drinks in Gastown</div>
+                <div class="nt">Wind down in Vancouver's oldest brick neighborhood. Sample clean Northwest dining options right alongside the heritage architecture.</div>
+                <div class="media-row">
+                  <div class="media-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Gastown_Vancouver_BC_Canada.jpg" alt="Gastown Steam Clock Intersection Real View">
+                    <div class="media-tag">Gastown Documentation</div>
+                  </div>
+                </div>
+                <div class="inline-map-box">
+                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?saddr=English+Bay+Beach,Vancouver&daddr=Gastown+Steam+Clock,Vancouver&dirflg=d&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                  <div class="inline-map-lbl"><span>🚗 Drive from <b>English Bay</b>  ·  <b>12 mins</b> (3.8 km)</span><a href="https://maps.google.com/?saddr=English+Bay+Beach,Vancouver&daddr=Gastown+Steam+Clock,Vancouver&dirflg=d" target="_blank" class="btn-map">Open Route</a></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="map-sidebar">
+            <div class="map-sticky">
+              <iframe class="map-frame" src="https://maps.google.com/maps?saddr=4589+Haggart+St,Vancouver&daddr=Cafe+Medina,Vancouver+to:Capilano+Suspension+Bridge+Park,North+Vancouver+to:Stanley+Park,Vancouver+to:English+Bay+Beach,Vancouver+to:Gastown,Vancouver&dirflg=d&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+              <div class="map-meta">
+                <h4>🗺️ Friday Auto-Framed Loop</h4>
+                <p>Tracks vehicle transit from Kitsilano housing, across Lions Gate north to the suspension canyon, wrapping back down the coastal peninsula loop ending in Gastown.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="panel-day2">
+        <div class="panel-grid">
+          <div class="day-schedule">
+            <div class="day-header">
+              <h2 class="day-title">Markets & Late Night Bar Hop</h2>
+              <div class="day-sub">Saturday, June 20 · Granville Island & Urban Bar Crawl</div>
+            </div>
+            
+            <ul class="tl">
+              <li>
+                <div class="time-block">
+                  <div class="tm">09:30 AM</div>
+                  <div class="duration-tag">⏱️ 2.5 Hours</div>
+                </div>
+                <div class="ev">Granville Island Public Market</div>
+                <div class="nt">Take the pedestrian Aquabus ferry or Evo across False Creek to search the lively public market stalls. Grab fresh baked treats and morning fuel.</div>
+                <div class="media-row">
+                  <div class="media-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/df/Granville_Island_Public_Market_interior.jpg" alt="Granville Island Market Exterior">
+                    <div class="media-tag">Market Entry Point</div>
+                  </div>
+                </div>
+                <div class="inline-map-box">
+                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?saddr=4589+Haggart+St,Vancouver&daddr=Granville+Island+Public+Market,Vancouver&dirflg=d&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                  <div class="inline-map-lbl"><span>🚗 Drive from <b>Kitsilano Base</b>  ·  <b>8 mins</b> (3.1 km)</span><a href="https://maps.google.com/?saddr=4589+Haggart+St,Vancouver&daddr=Granville+Island+Public+Market,Vancouver&dirflg=d" target="_blank" class="btn-map">Open Route</a></div>
+                </div>
+              </li>
+
+              <li>
+                <div class="time-block">
+                  <div class="tm">12:30 PM</div>
+                  <div class="duration-tag">⏱️ 1.5 Hours</div>
+                </div>
+                <div class="ev">Sam's Must-Visit Coffee Spot (Pallet Coffee)</div>
+                <div class="nt">A top specialty espresso destination specifically selected by local crew member Sam. Cozy interior vibes paired with highly technical brewing methods.</div>
+                <div class="inline-map-box">
+                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?saddr=Granville+Island+Public+Market,Vancouver&daddr=Pallet+Coffee+Roasters,2002+W+Broadway,Vancouver&dirflg=d&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                  <div class="inline-map-lbl"><span>🚗 Drive from <b>Granville Island</b>  ·  <b>6 mins</b> (2.4 km)</span><a href="https://maps.google.com/?saddr=Granville+Island+Public+Market,Vancouver&daddr=Pallet+Coffee+Roasters,2002+W+Broadway,Vancouver&dirflg=d" target="_blank" class="btn-map">Open Route</a></div>
+                </div>
+              </li>
+
+              <li>
+                <div class="time-block">
+                  <div class="tm">03:00 PM</div>
+                  <div class="duration-tag">⏱️ 2 Hours</div>
+                </div>
+                <div class="ev">Kitsilano Beach Downtime</div>
+                <div class="nt">A relaxed seaside pocket right down from the house. Rest up on the giant beach logs and check out the open water views before the night begins.</div>
+                <div class="inline-map-box">
+                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?saddr=Pallet+Coffee+Roasters,2002+W+Broadway,Vancouver&daddr=Kitsilano+Beach,Vancouver&dirflg=w&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                  <div class="inline-map-lbl"><span>🚶 Walk from <b>Pallet Coffee</b>  ·  <b>12 mins</b> (1.0 km down Maple St)</span><a href="https://maps.google.com/?saddr=Pallet+Coffee+Roasters,2002+W+Broadway,Vancouver&daddr=Kitsilano+Beach,Vancouver&dirflg=w" target="_blank" class="btn-map">Open Route</a></div>
+                </div>
+              </li>
+
+              <li>
+                <div class="time-block">
+                  <div class="tm">07:00 PM</div>
+                  <div class="duration-tag">⏱️ 4 Hours+</div>
+                </div>
+                <div class="ev">Granville & Gastown Bar Hop Circuit</div>
+                <div class="nt">Transition into a high-energy evening. Start on the main Granville Street neon strip hitting legendary watering holes, then trace east into Gastown for specialized underground cocktail bars and draft rooms.</div>
+                <div class="inline-map-box">
+                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?saddr=Kitsilano+Beach,Vancouver&daddr=Granville+Street+Entertainment+District,Vancouver&dirflg=d&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                  <div class="inline-map-lbl"><span>🚗 Drive from <b>Kits Beach</b>  ·  <b>7 mins</b> (2.9 km via Burrard Bridge)</span><a href="https://maps.google.com/?saddr=Kitsilano+Beach,Vancouver&daddr=Granville+Street+Entertainment+District,Vancouver&dirflg=d" target="_blank" class="btn-map">Open Route</a></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="map-sidebar">
+            <div class="map-sticky">
+              <iframe class="map-frame" src="https://maps.google.com/maps?saddr=4589+Haggart+St,Vancouver&daddr=Granville+Island+Public+Market,Vancouver+to:Kitsilano+Beach,Vancouver+to:Granville+St,Vancouver+to:Gastown,Vancouver&dirflg=w&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+              <div class="map-meta">
+                <h4>🗺️ Saturday Full Route Auto-Framed</h4>
+                <p>Maps daytime pedestrian routes through Granville Island and Kitsilano Beach, extending directly into late-night entertainment corridors across Granville and Gastown.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="panel-day3">
+        <div class="panel-grid">
+          <div class="day-schedule">
+            <div class="day-header">
+              <h2 class="day-title">🏆 Match Day: Egypt vs New Zealand</h2>
+              <div class="day-sub">Sunday, June 21 · The Official Spectator Corridor</div>
+            </div>
+            
+            <ul class="tl">
+              <li>
+                <div class="time-block">
+                  <div class="tm">11:00 AM</div>
+                  <div class="duration-tag">⏱️ 2 Hours</div>
+                </div>
+                <div class="ev">Pre-Match Brunch at Brunch Vancouver</div>
+                <div class="nt">Fuel up directly on Granville Street with thick French toast stacks, eggs benedict variations, and hot coffee.</div>
+                <div class="inline-map-box">
+                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?saddr=4589+Haggart+St,Vancouver&daddr=Brunch+Vancouver,Granville+Street,Vancouver&dirflg=d&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                  <div class="inline-map-lbl"><span>🚗 Drive from <b>Kitsilano Base</b>  ·  <b>10 mins</b> (4.3 km)</span><a href="https://maps.google.com/?saddr=4589+Haggart+St,Vancouver&daddr=Brunch+Vancouver,Granville+Street,Vancouver&dirflg=d" target="_blank" class="btn-map">Open Route</a></div>
+                </div>
+              </li>
+
+              <li>
+                <div class="time-block">
+                  <div class="tm">04:00 PM</div>
+                  <div class="duration-tag">⏱️ 30 Mins</div>
+                </div>
+                <div class="ev">Transit Hub Entry: Main Street–Science World</div>
+                <div class="nt">Take SkyTrain transit straight to Main Street Station (marked by the massive geometric Science World orb). This serves as the primary spectator entry corridor.</div>
+                <div class="inline-map-box">
+                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?saddr=Brunch+Vancouver,Granville+Street,Vancouver&daddr=Main+Street+Science+World+Station,Vancouver&dirflg=d&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                  <div class="inline-map-lbl"><span>🚗 Drive/Uber from <b>Brunch</b>  ·  <b>6 mins</b> (2.1 km across town)</span><a href="https://maps.google.com/?saddr=Brunch+Vancouver,Granville+Street,Vancouver&daddr=Main+Street+Science+World+Station,Vancouver&dirflg=d" target="_blank" class="btn-map">Open Route</a></div>
+                </div>
+              </li>
+
+              <li>
+                <div class="time-block">
+                  <div class="tm">04:30 PM</div>
+                  <div class="duration-tag">⏱️ 45 Mins</div>
+                </div>
+                <div class="ev">The Immersive Fan Walk ("The Last Mile")</div>
+                <div class="nt">Follow the vehicle-free pedestrian pathway moving north along Quebec Street and routing west straight down Pacific Boulevard directly to the stadium doors.</div>
+                <div class="inline-map-box">
+                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?saddr=Main+Street+Science+World+Station,Vancouver&daddr=BC+Place,Vancouver&dirflg=w&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                  <div class="inline-map-lbl"><span>🚶 Fan Walk from <b>Science World</b>  ·  <b>14 mins</b> (1.1 km on foot)</span><a href="https://maps.google.com/?saddr=Main+Street+Science+World+Station,Vancouver&daddr=BC+Place,Vancouver&dirflg=w" target="_blank" class="btn-map">Open Route</a></div>
+                </div>
+              </li>
+
+              <li>
+                <div class="time-block">
+                  <div class="tm">06:00 PM</div>
+                  <div class="duration-tag">⏱️ 3 Hours</div>
+                </div>
+                <div class="ev">Match 40: Egypt vs New Zealand</div>
+                <div class="nt">
+                  <strong>Ticket Details:</strong> Category 1: Main Stand - Lower Tier - Block 212 - Row V - Seat(s): 110 - 107 (These tickets are for Hatem, Mahmoud, Mohamed S., and Rania).<br><br>
+                  Take your stadium seats inside BC Place via the southeast gates. Ensure strict compliance with the stadium clear-bag policy guidelines.
+                </div>
+                <div class="media-row">
+                  <div class="media-card" style="height: 220px;">
+                    <img src="https://lh3.googleusercontent.com/p/APNQkAGhLmtJJWLanAeObmjQH0JBPfwzGw9Yc6sakzH7FdxuibnZSfqHvDS98I9eXZI7YKlSgaNsB_D6PCLrNVC6HNMFw_tge_Uj3EH6x2ah-TJSNGsppeoVntic0kIX6VyTKfBsJlW4qR9i2LrR=s1360-w1360-h1020" alt="BC Place Arena Real View from User Maps Image">
+                    <div class="media-tag">Stadium Seats View</div>
+                  </div>
+                </div>
+                <div class="inline-map-box">
+                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?q=BC+Place,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                  <div class="inline-map-lbl"><span>Stadium Entry Gates at BC Place Core</span><a href="https://maps.google.com/?q=BC+Place" target="_blank" class="btn-map">Open Location</a></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="map-sidebar">
+            <div class="map-sticky">
+              
+              <div class="map-meta" style="margin-bottom: 16px;">
+                <h4>👕 Expected Starting Squads</h4>
+                <p style="font-size: 0.75rem; margin-bottom: 8px;"><em>Note: HTML pages are static and cannot actively fetch live API sports data automatically. These are the current expected starting elevens.</em></p>
+                <table class="squad-table">
+                  <tr>
+                    <th>🇪🇬 Egypt</th>
+                    <th>🇳🇿 New Zealand</th>
+                  </tr>
+                  <tr>
+                    <td>M. El Shenawy (GK)</td>
+                    <td>M. Crocombe (GK)</td>
+                  </tr>
+                  <tr>
+                    <td>M. Abdelmonem (DEF)</td>
+                    <td>M. Boxall (DEF)</td>
+                  </tr>
+                  <tr>
+                    <td>M. Hany (DEF)</td>
+                    <td>L. Cacace (DEF)</td>
+                  </tr>
+                  <tr>
+                    <td>E. Ashour (MID)</td>
+                    <td>M. Stamenić (MID)</td>
+                  </tr>
+                  <tr>
+                    <td>M. Salah (FWD)</td>
+                    <td>C. Wood (FWD)</td>
+                  </tr>
+                  <tr>
+                    <td>O. Marmoush (FWD)</td>
+                    <td>E. Just (FWD)</td>
+                  </tr>
+                </table>
+              </div>
+
+              <iframe class="map-frame" style="height: 350px;" src="https://maps.google.com/maps?saddr=Main+Street-Science+World+Station,vancouver&daddr=Quebec+St+and+Pacific+Blvd,vancouver+to:BC+Place,vancouver&dirflg=w&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+              <div class="map-meta">
+                <h4>🗺️ Auto-Framed Sunday Official Fan Walk</h4>
+                <p>Highlights the direct, designated foot march moving out from Main Street–Science World Station along False Creek straight into BC Place.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<section class="logi">
+  <div class="wrap">
+    <h2>Good to Know</h2>
+    <p class="sub">Essential parameters to guarantee structural cohesion for the group.</p>
+    <div class="logi-grid">
+      <div class="lcard">
+        <h3>Home Base Location</h3>
+        <p><b>4589 Haggart Street</b>, Kitsilano</p>
+        <p>Convenient walking corridors straight to Kitsilano Shore and localized café rows.</p>
+      </div>
+      <div class="lcard">
+        <h3>Mobility Blueprint</h3>
+        <p>Friday uses a vehicle setup to reach the suspension canyon comfortably. Utilize the local shared EVO car fleet (built-in gas and park matching rules apply).</p>
+        <p>Saturday and Matchday operate cleanly via localized train routing and footpaths.</p>
+      </div>
+      <div class="lcard">
+        <h3>Match Day Entry</h3>
+        <p>Avoid lower access points along Expo Blvd. Route exclusively via the Main Street–Science World walking lane. Only clear vinyl bags permitted inside the gates.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="roster">
+  <div class="wrap">
+    <h2>The Crew</h2>
+    <div class="crew">
+      <div class="cm"><div class="init">H&H</div><div class="who">Hatem & Habiba</div><div class="from">Austin Hub · Arriving Early</div></div>
+      <div class="cm"><div class="init">M&R</div><div class="who">Mohamed S. & Rania</div><div class="from">Toronto Crew</div></div>
+      <div class="cm"><div class="init">M&K</div><div class="who">Mohamed G. & Kristine</div><div class="from">Toronto Crew</div></div>
+      <div class="cm"><div class="init">S</div><div class="who">Sam</div><div class="from">Vancouver · On-Site Liaison</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><b>Egypt vs New Zealand</b> · FIFA World Cup 2026 · BC Place</p>
+</footer>
+
+</body>
+</html>
