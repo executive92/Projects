@@ -208,7 +208,7 @@
   .tl .ev { font-weight:700; font-size:1.15rem; color:var(--ink); margin:2px 0 4px }
   .tl .nt { font-size:.95rem; color:#4a5a51; margin-bottom:12px; max-width:55ch; }
 
-  /* Huge Access Code Styling */
+  /* Highlight Boxes */
   .access-code-box {
     margin: 15px 0;
     padding: 20px;
@@ -235,7 +235,26 @@
     line-height: 1;
   }
 
-  /* Rich Maps Button styling */
+  .ticket-box {
+    margin: 20px 0 10px;
+    padding: 20px;
+    background: #113228;
+    color: #fdfaf3;
+    border-left: 4px solid var(--sun);
+    border-radius: 8px;
+  }
+  .ticket-box h4 {
+    font-family: 'Archivo Expanded', sans-serif;
+    color: #f0c79a;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+  .ticket-box p { font-size: 0.95rem; margin-bottom: 4px; color: #eaf3ec; }
+  .ticket-box b { color: #fff; }
+
+  /* Map Buttons */
   .rich-btn {
     display: inline-flex;
     align-items: center;
@@ -254,15 +273,10 @@
     max-width: 350px;
     transition: background 0.2s;
   }
-  .rich-btn:hover {
-    background: #d8ceb9;
-  }
-  .rich-btn span {
-    margin-right: 8px;
-    font-size: 1.2rem;
-  }
+  .rich-btn:hover { background: #d8ceb9; }
+  .rich-btn span { margin-right: 8px; font-size: 1.2rem; }
 
-  /* Inline Small Map Widgets (Card Style Embed) */
+  /* Inline Small Map Widgets */
   .inline-map-box {
     margin: 14px 0 6px 0;
     border: 1px solid var(--line);
@@ -388,7 +402,6 @@
   footer{background:var(--pitch); color:#9db8a8; text-align:center; padding:35px 24px; font-size:.85rem}
   footer b{color:#f0c79a;}
 
-  /* --- MOBILE FIX: Map jumps to top --- */
   @media (max-width:900px){
     .panel-grid { flex-direction: column; }
     .map-sidebar { order: -1; margin-bottom: 15px; }
@@ -402,12 +415,11 @@
 </head>
 <body>
 
-<!-- ===== HERO ===== -->
 <header class="hero">
   <div class="wrap hero-inner">
     <div class="eyebrow">FIFA World Cup 2026 · Vancouver, BC</div>
     <h1>Four Days<br>on the <em>West Coast</em></h1>
-    <div class="flags">🇪🇬  vs  🇳🇿</div>
+    <div class="flags">🇳🇿  vs  🇪🇬</div>
     <div class="hero-meta">
       <span>📆 <b>June 19 – 21, 2026</b></span>
       <span>📍 Base · <b>Kitsilano</b></span>
@@ -416,7 +428,6 @@
   </div>
 </header>
 
-<!-- ===== MATCH STRIP ===== -->
 <div class="match-strip">
   <div class="wrap">
     <div class="ms-teams">🇳🇿 New Zealand  ·  Egypt 🇪🇬</div>
@@ -424,7 +435,6 @@
   </div>
 </div>
 
-<!-- ===== INTRO ===== -->
 <section class="intro">
   <div class="wrap">
     <p class="lede">A long weekend built around one match — and the city around it.</p>
@@ -432,7 +442,6 @@
   </div>
 </section>
 
-<!-- ===== MAIN INTERACTIVE AGENDA ===== -->
 <main class="wrap">
   <div class="tab-system">
     
@@ -441,7 +450,6 @@
     <input type="radio" id="tab-day2" name="agenda-pages" class="tab-radio">
     <input type="radio" id="tab-day3" name="agenda-pages" class="tab-radio">
 
-    <!-- Page Selector Tabs -->
     <div class="tab-selectors">
       <label for="tab-accom" class="tab-label">Accommodation</label>
       <label for="tab-day1" class="tab-label">Day 1: Friday</label>
@@ -449,7 +457,6 @@
       <label for="tab-day3" class="tab-label">Day 3: Sunday</label>
     </div>
 
-    <!-- Multi-Page Window Container -->
     <div class="tab-panels">
       
       <!-- ================= ACCOMMODATION ================= -->
@@ -531,10 +538,10 @@
           
           <div class="map-sidebar">
             <div class="map-sticky">
-              <iframe class="map-frame" src="https://maps.google.com/maps?saddr=4589+Haggart+St,Vancouver&daddr=Cafe+Medina,Vancouver+to:Capilano+Suspension+Bridge+Park,North+Vancouver+to:Stanley+Park,Vancouver+to:English+Bay+Beach,Vancouver+to:Gastown,Vancouver&dirflg=d&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+              <iframe class="map-frame" src="https://maps.google.com/maps?q=Capilano+Suspension+Bridge+Park,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
               <div class="map-meta">
-                <h4>🗺️ Friday Overview Route</h4>
-                <p>Tracks vehicle transit from Kitsilano housing, across Lions Gate north to the suspension canyon, wrapping back down the coastal peninsula loop ending in Gastown.</p>
+                <h4>🗺️ Friday Target Highlight</h4>
+                <p>Features the massive suspension canyon located directly across the Lions Gate Bridge from the downtown core.</p>
               </div>
             </div>
           </div>
@@ -555,12 +562,12 @@
                 <div class="nt">Start downtown with Medina's signature lavender lattes and Moroccan-spiced tagine brunch bowls.</div>
                 
                 <div class="inline-map-box">
-                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?saddr=4589+Haggart+St,Vancouver&daddr=Cafe+Medina,Richards+Street,Vancouver&dirflg=d&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?q=Cafe+Medina,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
                   <div class="inline-map-lbl">
-                    <span>🚗 <b>12 mins</b> from base (5.2 km)</span>
+                    <span>🚗 <b>12 mins</b> from base</span>
                     <div class="map-actions">
-                      <a href="https://www.google.com/maps/place/Cafe+Medina,+Vancouver" target="_blank" class="btn-map btn-outline">📍 Location</a>
-                      <a href="https://maps.google.com/?saddr=4589+Haggart+St,Vancouver&daddr=Cafe+Medina,Richards+Street,Vancouver&dirflg=d" target="_blank" class="btn-map">🗺️ Route</a>
+                      <a href="https://www.google.com/maps/search/?api=1&query=Cafe+Medina+Vancouver" target="_blank" class="btn-map btn-outline">📍 Location</a>
+                      <a href="https://www.google.com/maps/dir/?api=1&origin=4589+Haggart+St,+Vancouver&destination=Cafe+Medina,+Vancouver&travelmode=driving" target="_blank" class="btn-map">🗺️ Route</a>
                     </div>
                   </div>
                 </div>
@@ -575,12 +582,12 @@
                 <div class="nt">Cross the Lions Gate Bridge into the old-growth rainforest canyon. Walk the sweeping suspension wire and explore high boardwalk paths.</div>
                 
                 <div class="inline-map-box">
-                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?saddr=Cafe+Medina,Richards+Street,Vancouver&daddr=Capilano+Suspension+Bridge+Park,North+Vancouver&dirflg=d&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?q=Capilano+Suspension+Bridge+Park&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
                   <div class="inline-map-lbl">
-                    <span>🚗 <b>20 mins</b> from Cafe Medina (10.1 km)</span>
+                    <span>🚗 <b>20 mins</b> from Cafe Medina</span>
                     <div class="map-actions">
                       <a href="https://maps.app.goo.gl/Eabg94hHjfq2ovn86?g_st=ic" target="_blank" class="btn-map btn-outline">📍 Location</a>
-                      <a href="https://maps.google.com/?saddr=Cafe+Medina,Richards+Street,Vancouver&daddr=Capilano+Suspension+Bridge+Park,North+Vancouver&dirflg=d" target="_blank" class="btn-map">🗺️ Route</a>
+                      <a href="https://www.google.com/maps/dir/?api=1&origin=Cafe+Medina,+Vancouver&destination=Capilano+Suspension+Bridge+Park&travelmode=driving" target="_blank" class="btn-map">🗺️ Route</a>
                     </div>
                   </div>
                 </div>
@@ -595,12 +602,12 @@
                 <div class="nt">Head back from the North Shore into Stanley Park. Cycle or stroll the iconic ocean seawall corridor, finishing right where the beach opens up at English Bay.</div>
                 
                 <div class="inline-map-box">
-                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?saddr=Capilano+Suspension+Bridge+Park,North+Vancouver&daddr=English+Bay+Beach,Vancouver&dirflg=d&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?q=English+Bay+Beach,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
                   <div class="inline-map-lbl">
-                    <span>🚗 <b>18 mins</b> from Bridge (9.5 km)</span>
+                    <span>🚗 <b>18 mins</b> from Bridge</span>
                     <div class="map-actions">
-                      <a href="https://www.google.com/maps/place/English+Bay+Beach,+Vancouver" target="_blank" class="btn-map btn-outline">📍 Location</a>
-                      <a href="https://maps.google.com/?saddr=Capilano+Suspension+Bridge+Park,North+Vancouver&daddr=English+Bay+Beach,Vancouver&dirflg=d" target="_blank" class="btn-map">🗺️ Route</a>
+                      <a href="https://www.google.com/maps/search/?api=1&query=English+Bay+Beach+Vancouver" target="_blank" class="btn-map btn-outline">📍 Location</a>
+                      <a href="https://www.google.com/maps/dir/?api=1&origin=Capilano+Suspension+Bridge+Park&destination=English+Bay+Beach,+Vancouver&travelmode=driving" target="_blank" class="btn-map">🗺️ Route</a>
                     </div>
                   </div>
                 </div>
@@ -615,12 +622,12 @@
                 <div class="nt">Wind down in Vancouver's oldest brick neighborhood. Sample clean Northwest dining options right alongside the heritage architecture.</div>
                 
                 <div class="inline-map-box">
-                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?saddr=English+Bay+Beach,Vancouver&daddr=Gastown+Steam+Clock,Vancouver&dirflg=d&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?q=Gastown+Steam+Clock,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
                   <div class="inline-map-lbl">
-                    <span>🚗 <b>12 mins</b> from English Bay (3.8 km)</span>
+                    <span>🚗 <b>12 mins</b> from English Bay</span>
                     <div class="map-actions">
-                      <a href="https://www.google.com/maps/place/Gastown,+Vancouver" target="_blank" class="btn-map btn-outline">📍 Location</a>
-                      <a href="https://maps.google.com/?saddr=English+Bay+Beach,Vancouver&daddr=Gastown+Steam+Clock,Vancouver&dirflg=d" target="_blank" class="btn-map">🗺️ Route</a>
+                      <a href="https://www.google.com/maps/search/?api=1&query=Gastown+Steam+Clock+Vancouver" target="_blank" class="btn-map btn-outline">📍 Location</a>
+                      <a href="https://www.google.com/maps/dir/?api=1&origin=English+Bay+Beach,+Vancouver&destination=Gastown+Steam+Clock,+Vancouver&travelmode=driving" target="_blank" class="btn-map">🗺️ Route</a>
                     </div>
                   </div>
                 </div>
@@ -636,10 +643,10 @@
           
           <div class="map-sidebar">
             <div class="map-sticky">
-              <iframe class="map-frame" src="https://maps.google.com/maps?saddr=4589+Haggart+St,Vancouver&daddr=Granville+Island+Public+Market,Vancouver+to:Kitsilano+Beach,Vancouver+to:Granville+St,Vancouver+to:Gastown,Vancouver&dirflg=w&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+              <iframe class="map-frame" src="https://maps.google.com/maps?q=Granville+Island+Public+Market,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
               <div class="map-meta">
-                <h4>🗺️ Saturday Overview Route</h4>
-                <p>Maps daytime pedestrian routes through Granville Island and Kitsilano Beach, extending directly into late-night entertainment corridors across Granville and Gastown.</p>
+                <h4>🗺️ Saturday Target Highlight</h4>
+                <p>Pinpoints the Granville Island public zone where you will start the day touring local food stalls and craft roasters.</p>
               </div>
             </div>
           </div>
@@ -660,12 +667,12 @@
                 <div class="nt">Take the pedestrian Aquabus ferry or Evo across False Creek to search the lively public market stalls. Grab fresh baked treats and morning fuel.</div>
                 
                 <div class="inline-map-box">
-                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?saddr=4589+Haggart+St,Vancouver&daddr=Granville+Island+Public+Market,Vancouver&dirflg=d&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?q=Granville+Island+Public+Market,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
                   <div class="inline-map-lbl">
-                    <span>🚗 <b>8 mins</b> from base (3.1 km)</span>
+                    <span>🚗 <b>8 mins</b> from base</span>
                     <div class="map-actions">
-                      <a href="https://www.google.com/maps/place/Granville+Island+Public+Market" target="_blank" class="btn-map btn-outline">📍 Location</a>
-                      <a href="https://maps.google.com/?saddr=4589+Haggart+St,Vancouver&daddr=Granville+Island+Public+Market,Vancouver&dirflg=d" target="_blank" class="btn-map">🗺️ Route</a>
+                      <a href="https://maps.app.goo.gl/TuQcGMcFpsrx8P8r8?g_st=ic" target="_blank" class="btn-map btn-outline">📍 Location</a>
+                      <a href="https://www.google.com/maps/dir/?api=1&origin=4589+Haggart+St,+Vancouver&destination=Granville+Island+Public+Market,+Vancouver&travelmode=driving" target="_blank" class="btn-map">🗺️ Route</a>
                     </div>
                   </div>
                 </div>
@@ -680,12 +687,12 @@
                 <div class="nt">Pallet Coffee Kitsilano: A top specialty espresso destination specifically selected by local crew member Sam. Cozy interior vibes paired with highly technical brewing methods.</div>
                 
                 <div class="inline-map-box">
-                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?saddr=Granville+Island+Public+Market,Vancouver&daddr=Pallet+Coffee+Roasters,2002+W+Broadway,Vancouver&dirflg=d&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?q=Pallet+Coffee+Roasters,2002+W+Broadway,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
                   <div class="inline-map-lbl">
-                    <span>🚗 <b>6 mins</b> from Island (2.4 km)</span>
+                    <span>🚗 <b>6 mins</b> from Island</span>
                     <div class="map-actions">
-                      <a href="https://www.google.com/maps/place/Pallet+Coffee+Roasters+Kitsilano" target="_blank" class="btn-map btn-outline">📍 Location</a>
-                      <a href="https://maps.google.com/?saddr=Granville+Island+Public+Market,Vancouver&daddr=Pallet+Coffee+Roasters,2002+W+Broadway,Vancouver&dirflg=d" target="_blank" class="btn-map">🗺️ Route</a>
+                      <a href="https://www.google.com/maps/search/?api=1&query=Pallet+Coffee+Roasters+W+Broadway+Vancouver" target="_blank" class="btn-map btn-outline">📍 Location</a>
+                      <a href="https://www.google.com/maps/dir/?api=1&origin=Granville+Island+Public+Market,+Vancouver&destination=Pallet+Coffee+Roasters,+2002+W+Broadway,+Vancouver&travelmode=driving" target="_blank" class="btn-map">🗺️ Route</a>
                     </div>
                   </div>
                 </div>
@@ -700,12 +707,12 @@
                 <div class="nt">A relaxed seaside pocket right down from the house. Rest up on the giant beach logs and check out the open water views before the night begins.</div>
                 
                 <div class="inline-map-box">
-                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?saddr=Pallet+Coffee+Roasters,2002+W+Broadway,Vancouver&daddr=Kitsilano+Beach,Vancouver&dirflg=w&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?q=Kitsilano+Beach,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
                   <div class="inline-map-lbl">
-                    <span>🚶 <b>12 mins</b> from Coffee (1.0 km)</span>
+                    <span>🚶 <b>12 mins</b> from Coffee</span>
                     <div class="map-actions">
-                      <a href="https://www.google.com/maps/place/Kitsilano+Beach" target="_blank" class="btn-map btn-outline">📍 Location</a>
-                      <a href="https://maps.google.com/?saddr=Pallet+Coffee+Roasters,2002+W+Broadway,Vancouver&daddr=Kitsilano+Beach,Vancouver&dirflg=w" target="_blank" class="btn-map">🗺️ Route</a>
+                      <a href="https://www.google.com/maps/search/?api=1&query=Kitsilano+Beach+Vancouver" target="_blank" class="btn-map btn-outline">📍 Location</a>
+                      <a href="https://www.google.com/maps/dir/?api=1&origin=Pallet+Coffee+Roasters,+2002+W+Broadway,+Vancouver&destination=Kitsilano+Beach,+Vancouver&travelmode=walking" target="_blank" class="btn-map">🗺️ Route</a>
                     </div>
                   </div>
                 </div>
@@ -720,12 +727,12 @@
                 <div class="nt">Transition into a high-energy evening. Start on the main Granville Street neon strip hitting legendary watering holes, then trace east into Gastown for specialized underground cocktail bars and draft rooms.</div>
                 
                 <div class="inline-map-box">
-                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?saddr=Kitsilano+Beach,Vancouver&daddr=Granville+Street+Entertainment+District,Vancouver&dirflg=d&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?q=Granville+Street,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
                   <div class="inline-map-lbl">
-                    <span>🚗 <b>7 mins</b> from Beach (2.9 km)</span>
+                    <span>🚗 <b>7 mins</b> from Beach</span>
                     <div class="map-actions">
-                      <a href="https://www.google.com/maps/place/Granville+Street,+Vancouver" target="_blank" class="btn-map btn-outline">📍 Location</a>
-                      <a href="https://maps.google.com/?saddr=Kitsilano+Beach,Vancouver&daddr=Granville+Street+Entertainment+District,Vancouver&dirflg=d" target="_blank" class="btn-map">🗺️ Route</a>
+                      <a href="https://www.google.com/maps/search/?api=1&query=Granville+Street+Entertainment+District+Vancouver" target="_blank" class="btn-map btn-outline">📍 Location</a>
+                      <a href="https://www.google.com/maps/dir/?api=1&origin=Kitsilano+Beach,+Vancouver&destination=Granville+Street+Entertainment+District,+Vancouver&travelmode=driving" target="_blank" class="btn-map">🗺️ Route</a>
                     </div>
                   </div>
                 </div>
@@ -744,8 +751,8 @@
               
               <!-- Group G Standings -->
               <div class="map-meta" style="margin-bottom: 16px; padding-bottom: 8px;">
-                <h4>📊 Group G Standings</h4>
-                <p style="font-size: 0.7rem; color: #7a8b82; margin-bottom: 6px;"><em>*Pre-match outlook / Projected format</em></p>
+                <h4>📊 World Cup 2026 Group G</h4>
+                <p style="font-size: 0.7rem; color: #7a8b82; margin-bottom: 6px;"><em>*Current Standings</em></p>
                 <table class="squad-table" style="text-align: center;">
                   <tr>
                     <th style="text-align: left;">Team</th>
@@ -754,53 +761,36 @@
                     <th>Pts</th>
                   </tr>
                   <tr>
-                    <td style="text-align: left;">1. 🇦🇷 Argentina</td>
+                    <td style="text-align: left;">1. 🇳🇿 New Zealand</td>
                     <td>1</td>
-                    <td>+2</td>
-                    <td><b>3</b></td>
+                    <td>0</td>
+                    <td><b>1</b></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: left;">2. 🇮🇷 Iran</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td><b>1</b></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: left;">3. 🇧🇪 Belgium</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td><b>1</b></td>
                   </tr>
                   <tr class="standings-highlight">
-                    <td style="text-align: left;">2. 🇪🇬 Egypt</td>
+                    <td style="text-align: left;">4. 🇪🇬 Egypt</td>
                     <td>1</td>
-                    <td>+1</td>
-                    <td><b>3</b></td>
-                  </tr>
-                  <tr>
-                    <td style="text-align: left;">3. 🇳🇿 New Zealand</td>
-                    <td>1</td>
-                    <td>-1</td>
-                    <td><b>0</b></td>
-                  </tr>
-                  <tr>
-                    <td style="text-align: left;">4. 🇸🇪 Sweden</td>
-                    <td>1</td>
-                    <td>-2</td>
-                    <td><b>0</b></td>
+                    <td>0</td>
+                    <td><b>1</b></td>
                   </tr>
                 </table>
               </div>
 
-              <!-- Squad Table -->
-              <div class="map-meta" style="margin-bottom: 16px;">
-                <h4>👕 Expected Starting Squads</h4>
-                <table class="squad-table">
-                  <tr>
-                    <th>🇪🇬 Egypt</th>
-                    <th>🇳🇿 New Zealand</th>
-                  </tr>
-                  <tr><td>M. El Shenawy (GK)</td><td>M. Crocombe (GK)</td></tr>
-                  <tr><td>M. Abdelmonem (DEF)</td><td>M. Boxall (DEF)</td></tr>
-                  <tr><td>M. Hany (DEF)</td><td>L. Cacace (DEF)</td></tr>
-                  <tr><td>E. Ashour (MID)</td><td>M. Stamenić (MID)</td></tr>
-                  <tr><td>M. Salah (FWD)</td><td>C. Wood (FWD)</td></tr>
-                  <tr><td>O. Marmoush (FWD)</td><td>E. Just (FWD)</td></tr>
-                </table>
-              </div>
-
-              <iframe class="map-frame" style="height: 300px;" src="https://maps.google.com/maps?saddr=Main+Street-Science+World+Station,vancouver&daddr=Quebec+St+and+Pacific+Blvd,vancouver+to:BC+Place,vancouver&dirflg=w&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+              <iframe class="map-frame" style="height: 380px;" src="https://maps.google.com/maps?q=BC+Place,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
               <div class="map-meta">
-                <h4>🗺️ Sunday Official Fan Walk</h4>
-                <p>Highlights the direct, designated foot march moving out from Main Street–Science World Station along False Creek straight into BC Place.</p>
+                <h4>🗺️ Match Venue Highlight</h4>
+                <p>The iconic multi-purpose stadium directly adjacent to the False Creek water basin in the city core.</p>
               </div>
             </div>
           </div>
@@ -821,12 +811,12 @@
                 <div class="nt">Fuel up directly on Granville Street with thick French toast stacks, eggs benedict variations, and hot coffee.</div>
                 
                 <div class="inline-map-box">
-                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?saddr=4589+Haggart+St,Vancouver&daddr=Brunch+Vancouver,Granville+Street,Vancouver&dirflg=d&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?q=Brunch+Vancouver,Granville+Street&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
                   <div class="inline-map-lbl">
-                    <span>🚗 <b>10 mins</b> from base (4.3 km)</span>
+                    <span>🚗 <b>10 mins</b> from base</span>
                     <div class="map-actions">
-                      <a href="https://www.google.com/maps/place/Brunch+Vancouver" target="_blank" class="btn-map btn-outline">📍 Location</a>
-                      <a href="https://maps.google.com/?saddr=4589+Haggart+St,Vancouver&daddr=Brunch+Vancouver,Granville+Street,Vancouver&dirflg=d" target="_blank" class="btn-map">🗺️ Route</a>
+                      <a href="https://www.google.com/maps/search/?api=1&query=Brunch+Vancouver+Granville+Street" target="_blank" class="btn-map btn-outline">📍 Location</a>
+                      <a href="https://www.google.com/maps/dir/?api=1&origin=4589+Haggart+St,+Vancouver&destination=Brunch+Vancouver,+Granville+Street&travelmode=driving" target="_blank" class="btn-map">🗺️ Route</a>
                     </div>
                   </div>
                 </div>
@@ -841,12 +831,12 @@
                 <div class="nt">Take SkyTrain transit straight to Main Street Station (marked by the massive geometric Science World orb). This serves as the primary spectator entry corridor.</div>
                 
                 <div class="inline-map-box">
-                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?saddr=Brunch+Vancouver,Granville+Street,Vancouver&daddr=Main+Street+Science+World+Station,Vancouver&dirflg=d&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?q=Science+World,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
                   <div class="inline-map-lbl">
-                    <span>🚗 <b>6 mins</b> from Brunch (2.1 km)</span>
+                    <span>🚗 <b>6 mins</b> from Brunch</span>
                     <div class="map-actions">
-                      <a href="https://www.google.com/maps/place/Science+World,+Vancouver" target="_blank" class="btn-map btn-outline">📍 Location</a>
-                      <a href="https://maps.google.com/?saddr=Brunch+Vancouver,Granville+Street,Vancouver&daddr=Main+Street+Science+World+Station,Vancouver&dirflg=d" target="_blank" class="btn-map">🗺️ Route</a>
+                      <a href="https://www.google.com/maps/search/?api=1&query=Science+World+Vancouver" target="_blank" class="btn-map btn-outline">📍 Location</a>
+                      <a href="https://www.google.com/maps/dir/?api=1&origin=Brunch+Vancouver,+Granville+Street&destination=Science+World,+Vancouver&travelmode=driving" target="_blank" class="btn-map">🗺️ Route</a>
                     </div>
                   </div>
                 </div>
@@ -861,11 +851,11 @@
                 <div class="nt">Follow the vehicle-free pedestrian pathway moving north along Quebec Street and routing west straight down Pacific Boulevard directly to the stadium doors.</div>
                 
                 <div class="inline-map-box">
-                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?saddr=Main+Street+Science+World+Station,Vancouver&daddr=BC+Place,Vancouver&dirflg=w&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?q=BC+Place,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
                   <div class="inline-map-lbl">
-                    <span>🚶 <b>14 mins</b> walking (1.1 km)</span>
+                    <span>🚶 <b>14 mins</b> walking</span>
                     <div class="map-actions">
-                      <a href="https://maps.google.com/?saddr=Main+Street+Science+World+Station,Vancouver&daddr=BC+Place,Vancouver&dirflg=w" target="_blank" class="btn-map">🗺️ Route</a>
+                      <a href="https://www.google.com/maps/dir/?api=1&origin=Science+World,+Vancouver&destination=BC+Place,+Vancouver&travelmode=walking" target="_blank" class="btn-map">🗺️ Route</a>
                     </div>
                   </div>
                 </div>
@@ -876,17 +866,16 @@
                   <div class="tm">06:00 PM</div>
                   <div class="duration-tag">⏱️ 3 Hours</div>
                 </div>
-                <div class="ev">Kickoff: Egypt vs New Zealand</div>
-                <div class="nt">Take your stadium seats inside BC Place via the southeast gates. Ensure strict compliance with the stadium clear-bag policy guidelines.<br><br>
-                <strong>Ticket Details:</strong> Category 1: Main Stand - Lower Tier - Block 212 - Row V - Seat(s): 110 - 107 (Hatem, Mahmoud, Mohamed S., and Rania).</div>
-                
-                <div class="inline-map-box">
-                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?q=BC+Place,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
-                  <div class="inline-map-lbl">
-                    <span>🏟️ <b>BC Place Arena</b> Gates</span>
-                    <div class="map-actions">
-                      <a href="https://www.google.com/maps/place/BC+Place" target="_blank" class="btn-map btn-outline">📍 Location</a>
-                    </div>
+                <div class="ev">Kickoff: New Zealand vs Egypt</div>
+                <div class="nt">
+                  Take your stadium seats inside BC Place via the southeast gates. Ensure strict compliance with the stadium clear-bag policy guidelines.
+                  
+                  <div class="ticket-box">
+                    <h4>🎟️ Official Match Tickets</h4>
+                    <p><b>Category 1:</b> Main Stand - Lower Tier</p>
+                    <p><b>Block:</b> 212  |  <b>Row:</b> V</p>
+                    <p><b>Seats:</b> 107, 108, 109, 110</p>
+                    <p style="margin-top: 8px; font-size: 0.85rem; color: #a9c4b5;">Assigned to: Hatem, Habiba, Mohamed S., and Rania.</p>
                   </div>
                 </div>
               </li>
@@ -899,7 +888,6 @@
   </div>
 </main>
 
-<!-- ===== GENERAL LOGISTICS & HOUSING ===== -->
 <section class="logi">
   <div class="wrap">
     <h2>Good to Know</h2>
@@ -924,7 +912,6 @@
   </div>
 </section>
 
-<!-- ===== SQUAD ROSTER ===== -->
 <section class="roster">
   <div class="wrap">
     <h2>The Crew</h2>
@@ -937,9 +924,8 @@
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
 <footer>
-  <p><b>Egypt vs New Zealand</b> · FIFA World Cup 2026 · BC Place</p>
+  <p><b>New Zealand vs Egypt</b> · FIFA World Cup 2026 · BC Place</p>
 </footer>
 
 </body>
