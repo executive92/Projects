@@ -588,6 +588,27 @@ details.map > summary:focus-visible, .bar:focus-visible {
 .wbadge-likely { color:var(--red); background:#FEF0F0; border:1px solid var(--red2); }
 .wbadge-danger { color:var(--amber); background:#FEF8F0; border:1px solid var(--amber2); }
 
+/* ====== LIVE SCORE CARD ====== */
+.live-score-wrap { padding: 14px 18px 4px; }
+.ls-card { background:#1A1814; border-radius:18px; padding:18px 20px; border-top:4px solid var(--red); }
+.ls-lbl { font:600 .68rem 'IBM Plex Mono',monospace; color:#7A9890; text-align:center; margin-bottom:12px; letter-spacing:.08em; text-transform:uppercase; }
+.ls-lbl.ls-live { color:#ef4444; }
+.ls-lbl.ls-ft { color:var(--gold2); }
+.ls-body { display:flex; align-items:center; justify-content:space-between; gap:8px; }
+.ls-side { display:flex; align-items:center; gap:8px; flex:1; }
+.ls-side.ls-away { flex-direction:row-reverse; }
+.ls-flag { font-size:1.5rem; }
+.ls-tname { font:600 .82rem 'Inter',sans-serif; color:#B8B0A0; }
+.ls-score { font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:2.6rem; color:#fff; min-width:1.5ch; text-align:center; }
+.ls-mid-col { font:700 .72rem 'IBM Plex Mono',monospace; color:var(--red); text-align:center; min-width:36px; flex-shrink:0; }
+.ls-events { margin-top:12px; font:400 .8rem 'Inter',sans-serif; color:#8AA8A0; text-align:center; line-height:1.95; }
+.ls-events .goal-row { color:#C8BFB0; }
+.ls-refresh { margin-top:8px; font:400 .62rem 'IBM Plex Mono',monospace; color:#3A3028; text-align:center; }
+.ls-no-key { font:400 .76rem 'Inter',sans-serif; color:#5A5248; text-align:center; padding:8px 0; }
+/* WC goals column */
+.squad-tbl .wc { font:600 .78rem 'IBM Plex Mono',monospace; text-align:center; color:var(--muted); }
+.squad-tbl .wc.scored { color:var(--red); font-weight:700; }
+
 /* ====== PRINT ====== */
 @media print {
   *, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
@@ -1076,6 +1097,29 @@ details.map > summary:focus-visible, .bar:focus-visible {
         </div>
       </div>
 
+      <!-- LIVE MATCH SCORE -->
+      <div class="live-score-wrap shell" id="live-match-card">
+        <div class="ls-card">
+          <div class="ls-lbl" id="ls-lbl">⏱ KO 18:00 · Sun Jun 21 · BC Place</div>
+          <div class="ls-body">
+            <div class="ls-side">
+              <span class="ls-flag">🇪🇬</span>
+              <span class="ls-tname">Egypt</span>
+              <span class="ls-score" id="ls-home">–</span>
+            </div>
+            <div class="ls-mid-col" id="ls-mid">vs</div>
+            <div class="ls-side ls-away">
+              <span class="ls-score" id="ls-away">–</span>
+              <span class="ls-tname">New Zealand</span>
+              <span class="ls-flag">🇳🇿</span>
+            </div>
+          </div>
+          <div class="ls-events" id="ls-events"></div>
+          <div class="ls-refresh" id="ls-refresh" style="display:none"></div>
+          <div class="ls-no-key" id="ls-no-key"></div>
+        </div>
+      </div>
+
       <div class="pgrid">
         <div class="dhead">
           <div class="dtag">Sunday · Jun 21 · Match Day</div>
@@ -1228,43 +1272,6 @@ details.map > summary:focus-visible, .bar:focus-visible {
           <p style="font:400 .7rem 'Inter',sans-serif;color:var(--muted);margin-top:6px">* After MD1: Belgium beat Egypt 2–0; Iran and NZ drew 2–2 (Wood 2 assists for NZ). Egypt must win MD2.</p>
         </div>
 
-        <h4 class="squad-sub-h">Full Squad</h4>
-        <div class="squad-scroll">
-          <table class="squad-tbl">
-            <thead>
-              <tr><th>#</th><th>Pos</th><th>Player</th><th>Age</th><th>Club</th><th>Value</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="jersey">1</td><td class="pos gk">GK</td><td class="name">Mohamed El-Shenawy</td><td class="age">36</td><td>Al-Ahly (EGY)</td><td class="val">€0.5m</td></tr>
-              <tr><td class="jersey">2</td><td class="pos df">RB</td><td class="name">Yasser Ibrahim</td><td class="age">27</td><td>Al-Ahly (EGY)</td><td class="val">€1.0m</td></tr>
-              <tr><td class="jersey">3</td><td class="pos df">CB</td><td class="name">Mohamed Hany</td><td class="age">27</td><td>Al-Ahly (EGY)</td><td class="val">€1.5m</td></tr>
-              <tr><td class="jersey">4</td><td class="pos df">LB</td><td class="name">Hossam Abdelmaguid</td><td class="age">26</td><td>Zamalek (EGY)</td><td class="val">€0.8m</td></tr>
-              <tr><td class="jersey">5</td><td class="pos df">RB</td><td class="name">Ramy Rabia</td><td class="age">30</td><td>Al Ain (UAE)</td><td class="val">€1.2m</td></tr>
-              <tr><td class="jersey">6</td><td class="pos df">CB</td><td class="name">Mohamed Abdelmonem</td><td class="age">27</td><td>OGC Nice (FRA)</td><td class="val">€7.0m</td></tr>
-              <tr><td class="jersey">7</td><td class="pos mf">CAM</td><td class="name">Trezeguet (M. Hassan)</td><td class="age">34</td><td>Al-Ahly (EGY)</td><td class="val">€0.8m</td></tr>
-              <tr><td class="jersey">8</td><td class="pos mf">CDM</td><td class="name">Emam Ashour</td><td class="age">29</td><td>Al-Ahly (EGY)</td><td class="val">€1.5m</td></tr>
-              <tr><td class="jersey">9</td><td class="pos fw">ST</td><td class="name">Hamza Abdelkarim</td><td class="age">18</td><td>Barcelona B (ESP)</td><td class="val">€2.5m</td></tr>
-              <tr class="star"><td class="jersey">10</td><td class="pos fw">RW</td><td class="name">Mohamed Salah ©</td><td class="age">34</td><td>Liverpool † (ENG)</td><td class="val">€18m</td></tr>
-              <tr><td class="jersey">11</td><td class="pos mf">CM</td><td class="name">Mostafa Ziko</td><td class="age">28</td><td>Pyramids FC (EGY)</td><td class="val">€0.8m</td></tr>
-              <tr><td class="jersey">12</td><td class="pos fw">LW</td><td class="name">Haissem Hassan</td><td class="age">27</td><td>Real Oviedo (ESP)</td><td class="val">€2.5m</td></tr>
-              <tr><td class="jersey">13</td><td class="pos df">LB</td><td class="name">Ahmed Fatouh</td><td class="age">25</td><td>Zamalek (EGY)</td><td class="val">€0.5m</td></tr>
-              <tr><td class="jersey">14</td><td class="pos mf">CDM</td><td class="name">Hamdy Fathy</td><td class="age">35</td><td>Al-Wakrah (QAT)</td><td class="val">€0.5m</td></tr>
-              <tr><td class="jersey">15</td><td class="pos df">CB</td><td class="name">Karim Hafez</td><td class="age">24</td><td>Pyramids FC (EGY)</td><td class="val">€0.5m</td></tr>
-              <tr><td class="jersey">16</td><td class="pos gk">GK</td><td class="name">El Mahdy Soliman</td><td class="age">25</td><td>Zamalek (EGY)</td><td class="val">€0.4m</td></tr>
-              <tr><td class="jersey">17</td><td class="pos fw">LW</td><td class="name">Mohanad Lasheen</td><td class="age">27</td><td>Pyramids FC (EGY)</td><td class="val">€0.8m</td></tr>
-              <tr><td class="jersey">18</td><td class="pos mf">CM</td><td class="name">Nabil Emad</td><td class="age">22</td><td>Al-Najma (BHR)</td><td class="val">€0.3m</td></tr>
-              <tr><td class="jersey">19</td><td class="pos mf">CDM</td><td class="name">Marwan Attia</td><td class="age">24</td><td>Al-Ahly (EGY)</td><td class="val">€1.0m</td></tr>
-              <tr><td class="jersey">20</td><td class="pos fw">LW</td><td class="name">Ibrahim Adel</td><td class="age">22</td><td>FC Nordsjaelland (DEN)</td><td class="val">€4.0m</td></tr>
-              <tr><td class="jersey">21</td><td class="pos mf">CM</td><td class="name">Mahmoud Saber</td><td class="age">26</td><td>ZED FC (EGY)</td><td class="val">€0.5m</td></tr>
-              <tr class="star"><td class="jersey">22</td><td class="pos fw">ST</td><td class="name">Omar Marmoush</td><td class="age">27</td><td>Man City (ENG)</td><td class="val">€60m</td></tr>
-              <tr><td class="jersey">23</td><td class="pos gk">GK</td><td class="name">Mostafa Shobeir</td><td class="age">29</td><td>Al-Ahly (EGY)</td><td class="val">€0.8m</td></tr>
-              <tr><td class="jersey">24</td><td class="pos df">CB</td><td class="name">Tarek Alaa</td><td class="age">25</td><td>ZED FC (EGY)</td><td class="val">€0.4m</td></tr>
-              <tr><td class="jersey">25</td><td class="pos fw">LW</td><td class="name">Zizo (A. Sayed)</td><td class="age">31</td><td>Al-Ahly (EGY)</td><td class="val">€0.8m</td></tr>
-              <tr><td class="jersey">26</td><td class="pos gk">GK</td><td class="name">Mohamed Alaa</td><td class="age">24</td><td>El Gouna (EGY)</td><td class="val">€0.3m</td></tr>
-            </tbody>
-          </table>
-        </div>
-
         <!-- ── FORMATION DIAGRAM ── -->
         <div class="formation-wrap">
           <h4>Expected Lineup vs New Zealand · 4-2-3-1</h4>
@@ -1309,67 +1316,67 @@ details.map > summary:focus-visible, .bar:focus-visible {
 
             <!-- ── PLAYERS ── -->
             <!-- GK: El-Shenawy #1 -->
-            <g transform="translate(160,424)">
+            <g id="eg-gk" transform="translate(160,424)">
               <circle r="17" fill="#C8921A" stroke="#fff" stroke-width="2.5"/>
               <text text-anchor="middle" y="5" font-family="'IBM Plex Mono',monospace" font-weight="700" font-size="13" fill="#fff">1</text>
               <text text-anchor="middle" y="28" font-family="Inter,sans-serif" font-size="7.8" fill="rgba(255,255,255,0.9)">El-Shenawy</text>
             </g>
             <!-- RB: Fatouh #13 -->
-            <g transform="translate(262,354)">
+            <g id="eg-rb" transform="translate(262,354)">
               <circle r="17" fill="#B53028" stroke="#fff" stroke-width="2.5"/>
               <text text-anchor="middle" y="5" font-family="'IBM Plex Mono',monospace" font-weight="700" font-size="13" fill="#fff">13</text>
               <text text-anchor="middle" y="28" font-family="Inter,sans-serif" font-size="7.8" fill="rgba(255,255,255,0.9)">Fatouh</text>
             </g>
             <!-- CB: M. Hany #3 -->
-            <g transform="translate(198,345)">
+            <g id="eg-cb1" transform="translate(198,345)">
               <circle r="17" fill="#B53028" stroke="#fff" stroke-width="2.5"/>
               <text text-anchor="middle" y="5" font-family="'IBM Plex Mono',monospace" font-weight="700" font-size="13" fill="#fff">3</text>
               <text text-anchor="middle" y="28" font-family="Inter,sans-serif" font-size="7.8" fill="rgba(255,255,255,0.9)">M. Hany</text>
             </g>
             <!-- CB: Abdelmonem #6 -->
-            <g transform="translate(122,345)">
+            <g id="eg-cb2" transform="translate(122,345)">
               <circle r="17" fill="#B53028" stroke="#fff" stroke-width="2.5"/>
               <text text-anchor="middle" y="5" font-family="'IBM Plex Mono',monospace" font-weight="700" font-size="13" fill="#fff">6</text>
               <text text-anchor="middle" y="28" font-family="Inter,sans-serif" font-size="7" fill="rgba(255,255,255,0.9)">Abdelmonem</text>
             </g>
             <!-- LB: Abdelmaguid #4 -->
-            <g transform="translate(58,354)">
+            <g id="eg-lb" transform="translate(58,354)">
               <circle r="17" fill="#B53028" stroke="#fff" stroke-width="2.5"/>
               <text text-anchor="middle" y="5" font-family="'IBM Plex Mono',monospace" font-weight="700" font-size="13" fill="#fff">4</text>
               <text text-anchor="middle" y="28" font-family="Inter,sans-serif" font-size="7" fill="rgba(255,255,255,0.9)">Abdelmaguid</text>
             </g>
             <!-- CDM: Ashour #8 -->
-            <g transform="translate(122,265)">
+            <g id="eg-cdm1" transform="translate(122,265)">
               <circle r="17" fill="#B53028" stroke="#fff" stroke-width="2.5"/>
               <text text-anchor="middle" y="5" font-family="'IBM Plex Mono',monospace" font-weight="700" font-size="13" fill="#fff">8</text>
               <text text-anchor="middle" y="28" font-family="Inter,sans-serif" font-size="7.8" fill="rgba(255,255,255,0.9)">Ashour</text>
             </g>
             <!-- CDM: Attia #19 -->
-            <g transform="translate(198,265)">
+            <g id="eg-cdm2" transform="translate(198,265)">
               <circle r="17" fill="#B53028" stroke="#fff" stroke-width="2.5"/>
               <text text-anchor="middle" y="5" font-family="'IBM Plex Mono',monospace" font-weight="700" font-size="13" fill="#fff">19</text>
               <text text-anchor="middle" y="28" font-family="Inter,sans-serif" font-size="7.8" fill="rgba(255,255,255,0.9)">M. Attia</text>
             </g>
             <!-- LAM: Zizo #25 -->
-            <g transform="translate(56,178)">
+            <g id="eg-lam" transform="translate(56,178)">
               <circle r="17" fill="#B53028" stroke="#fff" stroke-width="2.5"/>
               <text text-anchor="middle" y="5" font-family="'IBM Plex Mono',monospace" font-weight="700" font-size="13" fill="#fff">25</text>
               <text text-anchor="middle" y="28" font-family="Inter,sans-serif" font-size="7.8" fill="rgba(255,255,255,0.9)">Zizo</text>
             </g>
             <!-- CAM: Trezeguet #7 -->
-            <g transform="translate(160,168)">
+            <g id="eg-cam" transform="translate(160,168)">
               <circle r="17" fill="#B53028" stroke="#fff" stroke-width="2.5"/>
               <text text-anchor="middle" y="5" font-family="'IBM Plex Mono',monospace" font-weight="700" font-size="13" fill="#fff">7</text>
               <text text-anchor="middle" y="28" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(255,255,255,0.9)">Trezeguet</text>
             </g>
             <!-- RAM: Salah #10 (captain — gold stroke) -->
-            <g transform="translate(264,178)">
+            <g id="eg-ram" transform="translate(264,178)">
               <circle r="17" fill="#B53028" stroke="#C8921A" stroke-width="3.5"/>
               <text text-anchor="middle" y="4" font-family="'IBM Plex Mono',monospace" font-weight="700" font-size="13" fill="#fff">10</text>
               <text text-anchor="middle" y="27" font-family="Inter,sans-serif" font-size="7.8" fill="rgba(255,255,255,0.9)">Salah (C)</text>
             </g>
             <!-- ST: Marmoush #22 -->
-            <g transform="translate(160,86)">
+            <g id="eg-st" transform="translate(160,86)">
               <circle r="17" fill="#B53028" stroke="#fff" stroke-width="2.5"/>
               <text text-anchor="middle" y="5" font-family="'IBM Plex Mono',monospace" font-weight="700" font-size="13" fill="#fff">22</text>
               <text text-anchor="middle" y="28" font-family="Inter,sans-serif" font-size="7.8" fill="rgba(255,255,255,0.9)">Marmoush</text>
@@ -1379,53 +1386,6 @@ details.map > summary:focus-visible, .bar:focus-visible {
           </svg>
         </div>
 
-        <p class="squad-foot">Values approx. from Transfermarkt, Jun 2026. Ages as of tournament. † Salah is a free agent after leaving Liverpool; squad registered while still contracted. Formation shows expected starting XI.</p>
-      </div>
-
-
-      <!-- NZ SQUAD SECTION -->
-      <div class="squad-section shell" style="border-top:none;padding-top:0;margin-top:0">
-        <div class="squad-head">
-          <h3>🇳🇿 New Zealand · World Cup 2026 Squad</h3>
-          <p>Squad of 26 · FIFA Rank #85 · Coach: Darren Bazeley · Formation: 3-4-3</p>
-        </div>
-
-        <h4 class="squad-sub-h">Full Squad</h4>
-        <div class="squad-scroll">
-          <table class="squad-tbl">
-            <thead>
-              <tr><th>#</th><th>Pos</th><th>Player</th><th>Age</th><th>Club</th><th>Value</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="jersey">1</td><td class="pos gk">GK</td><td class="name">Max Crocombe</td><td class="age">33</td><td>Millwall FC (ENG)</td><td class="val">€0.8m</td></tr>
-              <tr><td class="jersey">2</td><td class="pos df">RWB</td><td class="name">Tim Payne</td><td class="age">31</td><td>Wellington Phoenix (NZL)</td><td class="val">€0.6m</td></tr>
-              <tr><td class="jersey">3</td><td class="pos df">CB</td><td class="name">Francis De Vries</td><td class="age">33</td><td>Auckland FC (NZL)</td><td class="val">€0.3m</td></tr>
-              <tr><td class="jersey">4</td><td class="pos df">CB</td><td class="name">Tyler Bindon</td><td class="age">21</td><td>Sheff United FC (ENG)</td><td class="val">€5.0m</td></tr>
-              <tr><td class="jersey">5</td><td class="pos df">CB</td><td class="name">Michael Boxall</td><td class="age">37</td><td>Minnesota United (USA)</td><td class="val">€0.3m</td></tr>
-              <tr><td class="jersey">6</td><td class="pos mf">CM</td><td class="name">Joe Bell</td><td class="age">27</td><td>Viking FK (NOR)</td><td class="val">€1.2m</td></tr>
-              <tr><td class="jersey">7</td><td class="pos mf">CM</td><td class="name">Matt Garbett</td><td class="age">24</td><td>Peterborough United (ENG)</td><td class="val">€1.5m</td></tr>
-              <tr><td class="jersey">8</td><td class="pos mf">CDM</td><td class="name">Marko Stamenić</td><td class="age">24</td><td>Swansea City AFC (WAL)</td><td class="val">€2.5m</td></tr>
-              <tr class="star"><td class="jersey">9</td><td class="pos fw">ST</td><td class="name">Chris Wood © </td><td class="age">34</td><td>Nottingham Forest (ENG)</td><td class="val">€6.4m</td></tr>
-              <tr><td class="jersey">10</td><td class="pos fw">RW</td><td class="name">Sarpreet Singh</td><td class="age">27</td><td>Wellington Phoenix (NZL)</td><td class="val">€0.6m</td></tr>
-              <tr class="star"><td class="jersey">11</td><td class="pos fw">LW</td><td class="name">Eli Just</td><td class="age">25</td><td>Motherwell FC (SCO)</td><td class="val">€2.0m</td></tr>
-              <tr><td class="jersey">12</td><td class="pos gk">GK</td><td class="name">Alex Paulsen</td><td class="age">23</td><td>Lechia Gdańsk (POL)</td><td class="val">€0.5m</td></tr>
-              <tr><td class="jersey">13</td><td class="pos df">LWB</td><td class="name">Liberato Cacace</td><td class="age">25</td><td>Wrexham AFC (WAL)</td><td class="val">€2.5m</td></tr>
-              <tr><td class="jersey">14</td><td class="pos mf">CM</td><td class="name">Alex Rufer</td><td class="age">29</td><td>Wellington Phoenix (NZL)</td><td class="val">€0.4m</td></tr>
-              <tr><td class="jersey">15</td><td class="pos df">CB</td><td class="name">Nando Pijnaker</td><td class="age">26</td><td>Auckland FC (NZL)</td><td class="val">€0.5m</td></tr>
-              <tr><td class="jersey">16</td><td class="pos df">CB</td><td class="name">Finn Surman</td><td class="age">23</td><td>Portland Timbers (USA)</td><td class="val">€0.5m</td></tr>
-              <tr><td class="jersey">17</td><td class="pos fw">FW</td><td class="name">Kosta Barbarouses</td><td class="age">36</td><td>WS Wanderers (AUS)</td><td class="val">€0.3m</td></tr>
-              <tr><td class="jersey">18</td><td class="pos fw">FW</td><td class="name">Ben Waine</td><td class="age">24</td><td>Port Vale FC (ENG)</td><td class="val">€1.5m</td></tr>
-              <tr><td class="jersey">19</td><td class="pos mf">CAM</td><td class="name">Ben Old</td><td class="age">23</td><td>AS Saint-Étienne (FRA)</td><td class="val">€1.5m</td></tr>
-              <tr><td class="jersey">20</td><td class="pos fw">LW</td><td class="name">Callum McCowatt</td><td class="age">26</td><td>Silkeborg IF (DEN)</td><td class="val">€1.5m</td></tr>
-              <tr><td class="jersey">21</td><td class="pos fw">FW</td><td class="name">Jesse Randall</td><td class="age">25</td><td>Auckland FC (NZL)</td><td class="val">€0.6m</td></tr>
-              <tr><td class="jersey">22</td><td class="pos gk">GK</td><td class="name">Michael Woud</td><td class="age">27</td><td>Auckland FC (NZL)</td><td class="val">€0.3m</td></tr>
-              <tr><td class="jersey">23</td><td class="pos mf">RM</td><td class="name">Ryan Thomas</td><td class="age">31</td><td>PEC Zwolle (NED)</td><td class="val">€0.4m</td></tr>
-              <tr><td class="jersey">24</td><td class="pos df">LB</td><td class="name">Callan Elliot</td><td class="age">26</td><td>Auckland FC (NZL)</td><td class="val">€0.5m</td></tr>
-              <tr><td class="jersey">25</td><td class="pos mf">CDM</td><td class="name">Lachlan Bayliss</td><td class="age">23</td><td>Newcastle Jets (AUS)</td><td class="val">€0.5m</td></tr>
-              <tr><td class="jersey">26</td><td class="pos df">CB</td><td class="name">Tommy Smith</td><td class="age">36</td><td>Braintree Town (ENG)</td><td class="val">€0.2m</td></tr>
-            </tbody>
-          </table>
-        </div>
 
         <!-- NZ FORMATION DIAGRAM 3-4-3 -->
         <div class="formation-wrap">
@@ -1461,70 +1421,70 @@ details.map > summary:focus-visible, .bar:focus-visible {
             <text x="160" y="12" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(255,255,255,0.5)" letter-spacing="0.15em">▲ ATTACK</text>
 
             <!-- GK: Crocombe #1 (amber) -->
-            <g transform="translate(160,424)">
+            <g id="nz-gk" transform="translate(160,424)">
               <circle r="17" fill="#C8921A" stroke="#fff" stroke-width="2.5"/>
               <text text-anchor="middle" y="5" font-family="'IBM Plex Mono',monospace" font-weight="700" font-size="13" fill="#fff">1</text>
               <text text-anchor="middle" y="28" font-family="Inter,sans-serif" font-size="7.8" fill="rgba(255,255,255,0.9)">Crocombe</text>
             </g>
             <!-- 3 CBs (white/dark) -->
             <!-- LCB: Smith #26 -->
-            <g transform="translate(70,352)">
+            <g id="nz-lcb" transform="translate(70,352)">
               <circle r="17" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.5"/>
               <text text-anchor="middle" y="5" font-family="'IBM Plex Mono',monospace" font-weight="700" font-size="13" fill="#1A1A1A">26</text>
               <text text-anchor="middle" y="28" font-family="Inter,sans-serif" font-size="7.8" fill="rgba(255,255,255,0.9)">T. Smith</text>
             </g>
             <!-- CCB: Bindon #4 -->
-            <g transform="translate(160,342)">
+            <g id="nz-ccb" transform="translate(160,342)">
               <circle r="17" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.5"/>
               <text text-anchor="middle" y="5" font-family="'IBM Plex Mono',monospace" font-weight="700" font-size="13" fill="#1A1A1A">4</text>
               <text text-anchor="middle" y="28" font-family="Inter,sans-serif" font-size="7.8" fill="rgba(255,255,255,0.9)">Bindon</text>
             </g>
             <!-- RCB: Boxall #5 -->
-            <g transform="translate(250,352)">
+            <g id="nz-rcb" transform="translate(250,352)">
               <circle r="17" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.5"/>
               <text text-anchor="middle" y="5" font-family="'IBM Plex Mono',monospace" font-weight="700" font-size="13" fill="#1A1A1A">5</text>
               <text text-anchor="middle" y="28" font-family="Inter,sans-serif" font-size="7.8" fill="rgba(255,255,255,0.9)">Boxall</text>
             </g>
             <!-- 4 Midfielders -->
             <!-- LWB: Cacace #13 -->
-            <g transform="translate(35,262)">
+            <g id="nz-lwb" transform="translate(35,262)">
               <circle r="17" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.5"/>
               <text text-anchor="middle" y="5" font-family="'IBM Plex Mono',monospace" font-weight="700" font-size="13" fill="#1A1A1A">13</text>
               <text text-anchor="middle" y="28" font-family="Inter,sans-serif" font-size="7.8" fill="rgba(255,255,255,0.9)">Cacace</text>
             </g>
             <!-- LCM: Stamenić #8 -->
-            <g transform="translate(120,254)">
+            <g id="nz-lcm" transform="translate(120,254)">
               <circle r="17" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.5"/>
               <text text-anchor="middle" y="5" font-family="'IBM Plex Mono',monospace" font-weight="700" font-size="13" fill="#1A1A1A">8</text>
               <text text-anchor="middle" y="28" font-family="Inter,sans-serif" font-size="7.5" fill="rgba(255,255,255,0.9)">Stamenić</text>
             </g>
             <!-- RCM: Garbett #7 -->
-            <g transform="translate(200,254)">
+            <g id="nz-rcm" transform="translate(200,254)">
               <circle r="17" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.5"/>
               <text text-anchor="middle" y="5" font-family="'IBM Plex Mono',monospace" font-weight="700" font-size="13" fill="#1A1A1A">7</text>
               <text text-anchor="middle" y="28" font-family="Inter,sans-serif" font-size="7.8" fill="rgba(255,255,255,0.9)">Garbett</text>
             </g>
             <!-- RWB: Payne #2 -->
-            <g transform="translate(285,262)">
+            <g id="nz-rwb" transform="translate(285,262)">
               <circle r="17" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.5"/>
               <text text-anchor="middle" y="5" font-family="'IBM Plex Mono',monospace" font-weight="700" font-size="13" fill="#1A1A1A">2</text>
               <text text-anchor="middle" y="28" font-family="Inter,sans-serif" font-size="7.8" fill="rgba(255,255,255,0.9)">Payne</text>
             </g>
             <!-- 3 Attackers -->
             <!-- LW: Just #11 -->
-            <g transform="translate(58,162)">
+            <g id="nz-lw" transform="translate(58,162)">
               <circle r="17" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.5"/>
               <text text-anchor="middle" y="5" font-family="'IBM Plex Mono',monospace" font-weight="700" font-size="13" fill="#1A1A1A">11</text>
               <text text-anchor="middle" y="28" font-family="Inter,sans-serif" font-size="7.8" fill="rgba(255,255,255,0.9)">E. Just</text>
             </g>
             <!-- ST: Wood #9 (captain — gold stroke) -->
-            <g transform="translate(160,148)">
+            <g id="nz-st" transform="translate(160,148)">
               <circle r="17" fill="#FFFFFF" stroke="#C8921A" stroke-width="3.5"/>
               <text text-anchor="middle" y="4" font-family="'IBM Plex Mono',monospace" font-weight="700" font-size="13" fill="#1A1A1A">9</text>
               <text text-anchor="middle" y="27" font-family="Inter,sans-serif" font-size="7.8" fill="rgba(255,255,255,0.9)">Wood (C)</text>
             </g>
             <!-- RW: Singh #10 -->
-            <g transform="translate(262,162)">
+            <g id="nz-rw" transform="translate(262,162)">
               <circle r="17" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.5"/>
               <text text-anchor="middle" y="5" font-family="'IBM Plex Mono',monospace" font-weight="700" font-size="13" fill="#1A1A1A">10</text>
               <text text-anchor="middle" y="28" font-family="Inter,sans-serif" font-size="7.8" fill="rgba(255,255,255,0.9)">Singh</text>
@@ -1532,6 +1492,44 @@ details.map > summary:focus-visible, .bar:focus-visible {
             <text x="160" y="463" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="rgba(255,255,255,0.45)" letter-spacing="0.2em">3 – 4 – 3</text>
           </svg>
         </div>
+
+
+        <h4 class="squad-sub-h">Full Squad</h4>
+        <div class="squad-scroll">
+          <table class="squad-tbl">
+            <thead>
+              <tr><th>#</th><th>Pos</th><th>Player</th><th>Age</th><th>Club</th><th>Value</th><th>WC ⚽</th></tr>
+            </thead>
+            <tbody>
+              <tr data-player="El-Shenawy"><td class="jersey">1</td><td class="pos gk">GK</td><td class="name">Mohamed El-Shenawy</td><td class="age">36</td><td>Al-Ahly (EGY)</td><td class="val">€0.5m</td></tr>
+              <tr><td class="jersey">2</td><td class="pos df">RB</td><td class="name">Yasser Ibrahim</td><td class="age">27</td><td>Al-Ahly (EGY)</td><td class="val">€1.0m</td><td class="wc" id="eg-wc-2">–</td></tr>              <tr><td class="jersey">3</td><td class="pos df">CB</td><td class="name">Mohamed Hany</td><td class="age">27</td><td>Al-Ahly (EGY)</td><td class="val">€1.5m</td><td class="wc" id="eg-wc-3">–</td></tr>              <tr><td class="jersey">4</td><td class="pos df">LB</td><td class="name">Hossam Abdelmaguid</td><td class="age">26</td><td>Zamalek (EGY)</td><td class="val">€0.8m</td><td class="wc" id="eg-wc-4">–</td></tr>              <tr><td class="jersey">5</td><td class="pos df">RB</td><td class="name">Ramy Rabia</td><td class="age">30</td><td>Al Ain (UAE)</td><td class="val">€1.2m</td><td class="wc" id="eg-wc-5">–</td></tr>              <tr><td class="jersey">6</td><td class="pos df">CB</td><td class="name">Mohamed Abdelmonem</td><td class="age">27</td><td>OGC Nice (FRA)</td><td class="val">€7.0m</td><td class="wc" id="eg-wc-6">–</td></tr>              <tr><td class="jersey">7</td><td class="pos mf">CAM</td><td class="name">Trezeguet (M. Hassan)</td><td class="age">34</td><td>Al-Ahly (EGY)</td><td class="val">€0.8m</td><td class="wc" id="eg-wc-7">–</td></tr>              <tr><td class="jersey">8</td><td class="pos mf">CDM</td><td class="name">Emam Ashour</td><td class="age">29</td><td>Al-Ahly (EGY)</td><td class="val">€1.5m</td><td class="wc" id="eg-wc-8">–</td></tr>              <tr><td class="jersey">9</td><td class="pos fw">ST</td><td class="name">Hamza Abdelkarim</td><td class="age">18</td><td>Barcelona B (ESP)</td><td class="val">€2.5m</td><td class="wc" id="eg-wc-9">–</td></tr>              <tr class="star"><td class="jersey">10</td><td class="pos fw">RW</td><td class="name">Mohamed Salah ©</td><td class="age">34</td><td>Liverpool † (ENG)</td><td class="val">€18m</td><td class="wc" id="eg-wc-10">–</td></tr>              <tr><td class="jersey">11</td><td class="pos mf">CM</td><td class="name">Mostafa Ziko</td><td class="age">28</td><td>Pyramids FC (EGY)</td><td class="val">€0.8m</td><td class="wc" id="eg-wc-11">–</td></tr>              <tr><td class="jersey">12</td><td class="pos fw">LW</td><td class="name">Haissem Hassan</td><td class="age">27</td><td>Real Oviedo (ESP)</td><td class="val">€2.5m</td><td class="wc" id="eg-wc-12">–</td></tr>              <tr><td class="jersey">13</td><td class="pos df">LB</td><td class="name">Ahmed Fatouh</td><td class="age">25</td><td>Zamalek (EGY)</td><td class="val">€0.5m</td><td class="wc" id="eg-wc-13">–</td></tr>              <tr><td class="jersey">14</td><td class="pos mf">CDM</td><td class="name">Hamdy Fathy</td><td class="age">35</td><td>Al-Wakrah (QAT)</td><td class="val">€0.5m</td><td class="wc" id="eg-wc-14">–</td></tr>              <tr><td class="jersey">15</td><td class="pos df">CB</td><td class="name">Karim Hafez</td><td class="age">24</td><td>Pyramids FC (EGY)</td><td class="val">€0.5m</td><td class="wc" id="eg-wc-15">–</td></tr>              <tr><td class="jersey">16</td><td class="pos gk">GK</td><td class="name">El Mahdy Soliman</td><td class="age">25</td><td>Zamalek (EGY)</td><td class="val">€0.4m</td><td class="wc" id="eg-wc-16">–</td></tr>              <tr><td class="jersey">17</td><td class="pos fw">LW</td><td class="name">Mohanad Lasheen</td><td class="age">27</td><td>Pyramids FC (EGY)</td><td class="val">€0.8m</td><td class="wc" id="eg-wc-17">–</td></tr>              <tr><td class="jersey">18</td><td class="pos mf">CM</td><td class="name">Nabil Emad</td><td class="age">22</td><td>Al-Najma (BHR)</td><td class="val">€0.3m</td><td class="wc" id="eg-wc-18">–</td></tr>              <tr><td class="jersey">19</td><td class="pos mf">CDM</td><td class="name">Marwan Attia</td><td class="age">24</td><td>Al-Ahly (EGY)</td><td class="val">€1.0m</td><td class="wc" id="eg-wc-19">–</td></tr>              <tr><td class="jersey">20</td><td class="pos fw">LW</td><td class="name">Ibrahim Adel</td><td class="age">22</td><td>FC Nordsjaelland (DEN)</td><td class="val">€4.0m</td><td class="wc" id="eg-wc-20">–</td></tr>              <tr><td class="jersey">21</td><td class="pos mf">CM</td><td class="name">Mahmoud Saber</td><td class="age">26</td><td>ZED FC (EGY)</td><td class="val">€0.5m</td><td class="wc" id="eg-wc-21">–</td></tr>              <tr class="star"><td class="jersey">22</td><td class="pos fw">ST</td><td class="name">Omar Marmoush</td><td class="age">27</td><td>Man City (ENG)</td><td class="val">€60m</td><td class="wc" id="eg-wc-22">–</td></tr>              <tr><td class="jersey">23</td><td class="pos gk">GK</td><td class="name">Mostafa Shobeir</td><td class="age">29</td><td>Al-Ahly (EGY)</td><td class="val">€0.8m</td><td class="wc" id="eg-wc-23">–</td></tr>              <tr><td class="jersey">24</td><td class="pos df">CB</td><td class="name">Tarek Alaa</td><td class="age">25</td><td>ZED FC (EGY)</td><td class="val">€0.4m</td><td class="wc" id="eg-wc-24">–</td></tr>              <tr><td class="jersey">25</td><td class="pos fw">LW</td><td class="name">Zizo (A. Sayed)</td><td class="age">31</td><td>Al-Ahly (EGY)</td><td class="val">€0.8m</td><td class="wc" id="eg-wc-25">–</td></tr>              <tr><td class="jersey">26</td><td class="pos gk">GK</td><td class="name">Mohamed Alaa</td><td class="age">24</td><td>El Gouna (EGY)</td><td class="val">€0.3m</td><td class="wc" id="eg-wc-26">–</td></tr>            </tbody>
+          </table>
+        </div>
+
+
+        <p class="squad-foot">Values approx. from Transfermarkt, Jun 2026. Ages as of tournament. † Salah is a free agent after leaving Liverpool; squad registered while still contracted. Formation shows expected starting XI.</p>
+      </div>
+
+
+      <!-- NZ SQUAD SECTION -->
+      <div class="squad-section shell" style="border-top:none;padding-top:0;margin-top:0">
+        <div class="squad-head">
+          <h3>🇳🇿 New Zealand · World Cup 2026 Squad</h3>
+          <p>Squad of 26 · FIFA Rank #85 · Coach: Darren Bazeley · Formation: 3-4-3</p>
+        </div>
+
+        <h4 class="squad-sub-h">Full Squad</h4>
+        <div class="squad-scroll">
+          <table class="squad-tbl">
+            <thead>
+              <tr><th>#</th><th>Pos</th><th>Player</th><th>Age</th><th>Club</th><th>Value</th><th>WC ⚽</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="jersey">1</td><td class="pos gk">GK</td><td class="name">Max Crocombe</td><td class="age">33</td><td>Millwall FC (ENG)</td><td class="val">€0.8m</td><td class="wc" id="eg-wc-1">–</td><td class="wc" id="nz-wc-1">–</td></tr>             <tr><td class="jersey">2</td><td class="pos df">RWB</td><td class="name">Tim Payne</td><td class="age">31</td><td>Wellington Phoenix (NZL)</td><td class="val">€0.6m</td><td class="wc" id="nz-wc-2">–</td></tr>              <tr><td class="jersey">3</td><td class="pos df">CB</td><td class="name">Francis De Vries</td><td class="age">33</td><td>Auckland FC (NZL)</td><td class="val">€0.3m</td><td class="wc" id="nz-wc-3">–</td></tr>              <tr><td class="jersey">4</td><td class="pos df">CB</td><td class="name">Tyler Bindon</td><td class="age">21</td><td>Sheff United FC (ENG)</td><td class="val">€5.0m</td><td class="wc" id="nz-wc-4">–</td></tr>              <tr><td class="jersey">5</td><td class="pos df">CB</td><td class="name">Michael Boxall</td><td class="age">37</td><td>Minnesota United (USA)</td><td class="val">€0.3m</td><td class="wc" id="nz-wc-5">–</td></tr>              <tr><td class="jersey">6</td><td class="pos mf">CM</td><td class="name">Joe Bell</td><td class="age">27</td><td>Viking FK (NOR)</td><td class="val">€1.2m</td><td class="wc" id="nz-wc-6">–</td></tr>              <tr><td class="jersey">7</td><td class="pos mf">CM</td><td class="name">Matt Garbett</td><td class="age">24</td><td>Peterborough United (ENG)</td><td class="val">€1.5m</td><td class="wc" id="nz-wc-7">–</td></tr>              <tr><td class="jersey">8</td><td class="pos mf">CDM</td><td class="name">Marko Stamenić</td><td class="age">24</td><td>Swansea City AFC (WAL)</td><td class="val">€2.5m</td><td class="wc" id="nz-wc-8">–</td></tr>              <tr class="star"><td class="jersey">9</td><td class="pos fw">ST</td><td class="name">Chris Wood © </td><td class="age">34</td><td>Nottingham Forest (ENG)</td><td class="val">€6.4m</td><td class="wc" id="nz-wc-9">–</td></tr>              <tr><td class="jersey">10</td><td class="pos fw">RW</td><td class="name">Sarpreet Singh</td><td class="age">27</td><td>Wellington Phoenix (NZL)</td><td class="val">€0.6m</td><td class="wc" id="nz-wc-10">–</td></tr>              <tr class="star"><td class="jersey">11</td><td class="pos fw">LW</td><td class="name">Eli Just</td><td class="age">25</td><td>Motherwell FC (SCO)</td><td class="val">€2.0m</td><td class="wc" id="nz-wc-11">–</td></tr>              <tr><td class="jersey">12</td><td class="pos gk">GK</td><td class="name">Alex Paulsen</td><td class="age">23</td><td>Lechia Gdańsk (POL)</td><td class="val">€0.5m</td><td class="wc" id="nz-wc-12">–</td></tr>              <tr><td class="jersey">13</td><td class="pos df">LWB</td><td class="name">Liberato Cacace</td><td class="age">25</td><td>Wrexham AFC (WAL)</td><td class="val">€2.5m</td><td class="wc" id="nz-wc-13">–</td></tr>              <tr><td class="jersey">14</td><td class="pos mf">CM</td><td class="name">Alex Rufer</td><td class="age">29</td><td>Wellington Phoenix (NZL)</td><td class="val">€0.4m</td><td class="wc" id="nz-wc-14">–</td></tr>              <tr><td class="jersey">15</td><td class="pos df">CB</td><td class="name">Nando Pijnaker</td><td class="age">26</td><td>Auckland FC (NZL)</td><td class="val">€0.5m</td><td class="wc" id="nz-wc-15">–</td></tr>              <tr><td class="jersey">16</td><td class="pos df">CB</td><td class="name">Finn Surman</td><td class="age">23</td><td>Portland Timbers (USA)</td><td class="val">€0.5m</td><td class="wc" id="nz-wc-16">–</td></tr>              <tr><td class="jersey">17</td><td class="pos fw">FW</td><td class="name">Kosta Barbarouses</td><td class="age">36</td><td>WS Wanderers (AUS)</td><td class="val">€0.3m</td><td class="wc" id="nz-wc-17">–</td></tr>              <tr><td class="jersey">18</td><td class="pos fw">FW</td><td class="name">Ben Waine</td><td class="age">24</td><td>Port Vale FC (ENG)</td><td class="val">€1.5m</td><td class="wc" id="nz-wc-18">–</td></tr>              <tr><td class="jersey">19</td><td class="pos mf">CAM</td><td class="name">Ben Old</td><td class="age">23</td><td>AS Saint-Étienne (FRA)</td><td class="val">€1.5m</td><td class="wc" id="nz-wc-19">–</td></tr>              <tr><td class="jersey">20</td><td class="pos fw">LW</td><td class="name">Callum McCowatt</td><td class="age">26</td><td>Silkeborg IF (DEN)</td><td class="val">€1.5m</td><td class="wc" id="nz-wc-20">–</td></tr>             <tr><td class="jersey">21</td><td class="pos fw">FW</td><td class="name">Jesse Randall</td><td class="age">25</td><td>Auckland FC (NZL)</td><td class="val">€0.6m</td><td class="wc" id="nz-wc-21">–</td></tr>              <tr><td class="jersey">22</td><td class="pos gk">GK</td><td class="name">Michael Woud</td><td class="age">27</td><td>Auckland FC (NZL)</td><td class="val">€0.3m</td><td class="wc" id="nz-wc-22">–</td></tr>              <tr><td class="jersey">23</td><td class="pos mf">RM</td><td class="name">Ryan Thomas</td><td class="age">31</td><td>PEC Zwolle (NED)</td><td class="val">€0.4m</td><td class="wc" id="nz-wc-23">–</td></tr>              <tr><td class="jersey">24</td><td class="pos df">LB</td><td class="name">Callan Elliot</td><td class="age">26</td><td>Auckland FC (NZL)</td><td class="val">€0.5m</td><td class="wc" id="nz-wc-24">–</td></tr>              <tr><td class="jersey">25</td><td class="pos mf">CDM</td><td class="name">Lachlan Bayliss</td><td class="age">23</td><td>Newcastle Jets (AUS)</td><td class="val">€0.5m</td><td class="wc" id="nz-wc-25">–</td></tr>              <tr><td class="jersey">26</td><td class="pos df">CB</td><td class="name">Tommy Smith</td><td class="age">36</td><td>Braintree Town (ENG)</td><td class="val">€0.2m</td><td class="wc" id="nz-wc-26">–</td></tr>            </tbody>
+          </table>
+        </div>
+
+
         <p class="squad-foot">Ages as of tournament. Shirt numbers from FIFA official squad list (Jun 2026). NZ return for their 3rd World Cup (1982, 2010, 2026) — first appearance in 16 years.</p>
       </div>
 
@@ -1601,108 +1599,303 @@ details.map > summary:focus-visible, .bar:focus-visible {
 </footer>
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-  LIVE DATA — Group G Standings
-  Powered by football-data.org (free tier)
+  LIVE DATA  —  powered by football-data.org (free tier)
 
-  To activate:
-  1. Get your FREE API key at https://www.football-data.org/client/register
-     (no credit card, just email — takes 30 seconds)
-  2. Replace the empty string below with your key
+  HOW TO ACTIVATE (30 seconds):
+  1. Register at https://www.football-data.org/client/register  (email only, free)
+  2. Paste your key into  API_KEY  below
   3. Re-upload this file to GitHub Pages
+
+  WHAT BECOMES LIVE ONCE A KEY IS ADDED:
+  • Group G standings      — both tables update every 60 s
+  • Match score + events   — card at top of Sunday tab shows live scoreline,
+                             scorers with minute, and current match minute
+  • Goal scorers           — WC ⚽ column in squad tables fills automatically
+  • Official lineup        — formation diagrams update to confirmed starting XIs
+                             once published (~1 h before kickoff)
   ═══════════════════════════════════════════════════════════════════════ -->
 <script>
 (function () {
   /* ── CONFIG ── */
-  const API_KEY = '';   // ← paste your football-data.org key here
-  const POLL_MS = 90000; // refresh every 90 seconds while tab is open
+  const API_KEY  = 'feebd1ca3b8a4ddfa7e0ad8c85c15998';       // football-data.org
+  const POLL_SEC = 60;       // standings/scorers polling interval (seconds)
+  const SCORE_POLL_SEC = 30; // live score polling (faster, active only on match day)
 
-  if (!API_KEY) return; // no key → keep static HTML, nothing changes
+  /* ── POSITION MAP (football-data.org → our SVG slot IDs) ── */
+  const EG_POS = {
+    GOALKEEPER: 'eg-gk',
+    RIGHT_BACK: 'eg-rb', LEFT_BACK: 'eg-lb',
+    CENTRE_BACK: null,          // two slots — assigned by squad index
+    DEFENSIVE_MIDFIELD: null,   // two slots
+    ATTACKING_MIDFIELD: 'eg-cam',
+    RIGHT_MIDFIELD: 'eg-ram', LEFT_MIDFIELD: 'eg-lam',
+    RIGHT_WING: 'eg-ram', LEFT_WING: 'eg-lam',
+    CENTRE_FORWARD: 'eg-st',
+  };
+  const NZ_POS = {
+    GOALKEEPER: 'nz-gk',
+    RIGHT_WING_BACK: 'nz-rwb', LEFT_WING_BACK: 'nz-lwb',
+    CENTRE_BACK: null,          // three slots
+    RIGHT_MIDFIELD: 'nz-rcm', LEFT_MIDFIELD: 'nz-lcm',
+    CENTRAL_MIDFIELD: 'nz-rcm',
+    DEFENSIVE_MIDFIELD: 'nz-lcm',
+    RIGHT_WING: 'nz-rw', LEFT_WING: 'nz-lw',
+    CENTRE_FORWARD: 'nz-st',
+  };
 
-  /* ── STANDINGS ── */
-  async function fetchStandings () {
-    try {
-      const r = await fetch(
-        'https://api.football-data.org/v4/competitions/WC/standings?season=2026',
-        { headers: { 'X-Auth-Token': API_KEY } }
-      );
-      if (!r.ok) return;
-      const data = await r.json();
-      const groupG = (data.standings || []).find(
-        s => s.type === 'TOTAL' && s.group === 'GROUP_G'
-      );
-      if (!groupG) return;
-      renderStandings(groupG.table);
-    } catch (e) { /* silent — static data stays */ }
+  /* ─────────────── UTILITIES ─────────────── */
+  const $ = id => document.getElementById(id);
+  const fmt = (s, a) => s.replace(/%s/g, () => a.shift());
+
+  function setLbl (txt, cls = '') {
+    const el = $('ls-lbl');
+    if (!el) return;
+    el.textContent = txt;
+    el.className = 'ls-lbl' + (cls ? ' ' + cls : '');
   }
 
+  /* ─────────────── LIVE SCORE ─────────────── */
+  let matchId = null;
+
+  async function findMatch () {
+    const r = await apiFetch('/v4/competitions/WC/matches?season=2026&groups=GROUP_G');
+    if (!r) return null;
+    return (r.matches || []).find(m =>
+      ['Egypt','New Zealand'].includes(m.homeTeam.shortName) &&
+      ['Egypt','New Zealand'].includes(m.awayTeam.shortName)
+    );
+  }
+
+  async function fetchScore () {
+    if (!matchId) {
+      const m = await findMatch();
+      if (!m) return;
+      matchId = m.id;
+    }
+    const m = await apiFetch(`/v4/matches/${matchId}`);
+    if (!m) return;
+    renderScore(m);
+  }
+
+  function renderScore (m) {
+    const status  = m.status;          // SCHEDULED IN_PLAY PAUSED FINISHED
+    const hScore  = m.score?.fullTime?.home ?? m.score?.halfTime?.home;
+    const aScore  = m.score?.fullTime?.away ?? m.score?.halfTime?.away;
+    const minute  = m.minute;
+    const isHome  = m.homeTeam.shortName === 'Egypt';
+    const egScore = isHome ? hScore : aScore;
+    const nzScore = isHome ? aScore : hScore;
+
+    if ($('ls-home')) $('ls-home').textContent = egScore ?? '–';
+    if ($('ls-away')) $('ls-away').textContent = nzScore ?? '–';
+
+    const mid = $('ls-mid');
+    if (mid) {
+      if (status === 'IN_PLAY') mid.textContent = (minute ?? '') + ''';
+      else if (status === 'PAUSED') mid.textContent = 'HT';
+      else mid.textContent = status === 'FINISHED' ? 'FT' : 'vs';
+    }
+
+    if (status === 'IN_PLAY')   setLbl('🔴 LIVE  ·  BC Place', 'ls-live');
+    else if (status === 'PAUSED') setLbl('⏸ HALF TIME', 'ls-live');
+    else if (status === 'FINISHED') setLbl('✓ FULL TIME  ·  BC Place', 'ls-ft');
+
+    // Goal events
+    const goals = (m.goals || []).map(g => {
+      const flag = g.team.shortName === 'Egypt' ? '🇪🇬' : '🇳🇿';
+      const scorer = g.scorer?.name?.split(' ').pop() ?? '?';
+      const assist = g.assist?.name ? ` (${g.assist.name.split(' ').pop()})` : '';
+      return `<span class="goal-row">${flag} ${g.minute}' ${scorer}${assist}</span>`;
+    }).join('<br>');
+
+    const evEl = $('ls-events');
+    if (evEl) evEl.innerHTML = goals || (status === 'SCHEDULED' ? 'No events yet' : '');
+
+    const ref = $('ls-refresh');
+    if (ref) { ref.textContent = '↻ ' + new Date().toLocaleTimeString(); ref.style.display = 'block'; }
+
+    // Update WC ⚽ column from goal events
+    (m.goals || []).forEach(g => updateWcCell(g.scorer?.name, g.team.shortName === 'Egypt' ? 'eg' : 'nz'));
+  }
+
+  /* ─────────────── STANDINGS ─────────────── */
+  async function fetchStandings () {
+    const r = await apiFetch('/v4/competitions/WC/standings?season=2026');
+    if (!r) return;
+    const grp = (r.standings || []).find(s => s.group === 'GROUP_G' && s.type === 'TOTAL');
+    if (!grp) return;
+    renderStandings(grp.table);
+  }
+
+  const TEAM_FLAG = { 'Belgium':'🇧🇪', 'Egypt':'🇪🇬', 'New Zealand':'🇳🇿', 'IR Iran':'🇮🇷', 'Iran':'🇮🇷' };
+
   function renderStandings (rows) {
-    // Find the two Group G standing tables (one inside Egypt section, one inside NZ section)
-    const tables = document.querySelectorAll('.group-box table');
-    tables.forEach(table => {
-      const tbody = table.querySelector('tbody');
+    document.querySelectorAll('.group-box table').forEach(tbl => {
+      const tbody = tbl.querySelector('tbody');
       if (!tbody) return;
       tbody.innerHTML = rows.map((r, i) => {
-        const flag = { 'Belgium':'🇧🇪','Egypt':'🇪🇬','New Zealand':'🇳🇿','IR Iran':'🇮🇷','Iran':'🇮🇷' }[r.team.name] || '🏳️';
-        const isBadge = r.team.name === 'Egypt';
-        return `<tr${isBadge?' class="star"':''}>
-          <td class="pos${isBadge?' fw':''}">${i+1}</td>
-          <td>${flag} ${r.team.name}</td>
-          <td>${r.playedGames}</td>
-          <td>${r.won}</td>
-          <td>${r.draw}</td>
-          <td>${r.lost}</td>
-          <td>${r.goalsFor}</td>
-          <td>${r.goalsAgainst}</td>
-          <td>${r.points}</td>
-        </tr>`;
+        const flag = TEAM_FLAG[r.team.name] || '🏳️';
+        const hi = r.team.name === 'Egypt';
+        return `<tr${hi ? ' class="star"' : ''}>`+
+          `<td class="pos${hi?' fw':''}">${i+1}</td>`+
+          `<td>${flag} ${r.team.name}</td>`+
+          `<td>${r.playedGames}</td><td>${r.won}</td><td>${r.draw}</td><td>${r.lost}</td>`+
+          `<td>${r.goalsFor}</td><td>${r.goalsAgainst}</td><td>${r.points}</td></tr>`;
       }).join('');
-      // mark the table header with a live badge
-      const th = table.closest('.group-box').querySelector('h4');
-      if (th && !th.querySelector('.live-badge')) {
-        th.insertAdjacentHTML('beforeend',
-          ' <span class="live-badge" style="display:inline-block;font:600 .6rem IBM Plex Mono,monospace;background:#10b981;color:#fff;border-radius:4px;padding:2px 6px;letter-spacing:.05em;">LIVE</span>'
-        );
-      }
-      // update the footnote
-      const note = table.closest('.group-box').querySelector('p');
-      if (note) note.textContent = '↻ Live from football-data.org · ' + new Date().toLocaleTimeString();
+      const h4 = tbl.closest('.group-box')?.querySelector('h4');
+      if (h4 && !h4.querySelector('.live-badge'))
+        h4.insertAdjacentHTML('beforeend',
+          ' <span class="live-badge" style="display:inline-block;font:700 .58rem IBM Plex Mono,monospace;background:#10b981;color:#fff;border-radius:4px;padding:2px 6px;letter-spacing:.06em">LIVE</span>');
+      const note = tbl.closest('.group-box')?.querySelector('p');
+      if (note) note.textContent = '↻ Live · ' + new Date().toLocaleTimeString();
     });
   }
 
-  /* ── SCORERS ── */
-  async function fetchScorers () {
-    try {
-      const r = await fetch(
-        'https://api.football-data.org/v4/competitions/WC/scorers?season=2026&limit=50',
-        { headers: { 'X-Auth-Token': API_KEY } }
-      );
-      if (!r.ok) return;
-      const data = await r.json();
-      const scorers = data.scorers || [];
-      // annotate Egypt / NZ players in watch cards with goal count
-      scorers.forEach(s => {
-        const name = s.player?.name || '';
-        const goals = s.goals || 0;
-        if (goals < 1) return;
-        // find all .wname elements that match this player's surname
-        document.querySelectorAll('.wname').forEach(el => {
-          if (el.textContent.includes(name.split(' ').pop())) {
-            const badge = el.closest('.watch-player')?.querySelector('.wbadge');
-            if (badge && !badge.dataset.liveupdated) {
-              badge.textContent = `⚽ ${goals} goal${goals>1?'s':''} this WC · Dangerous`;
-              badge.dataset.liveupdated = '1';
-            }
-          }
-        });
-      });
-    } catch (e) { /* silent */ }
+  /* ─────────────── SCORERS → WC column ─────────────── */
+  const wcGoals = {};   // "playerName" → count
+
+  function updateWcCell (fullName, team) {
+    if (!fullName) return;
+    const surname = fullName.split(' ').pop().toLowerCase();
+    const prefix  = team === 'eg' ? 'eg' : 'nz';
+    // scan all WC cells for this team and match by name in parent row
+    document.querySelectorAll(`[id^="${prefix}-wc-"]`).forEach(cell => {
+      const row  = cell.closest('tr');
+      const name = row?.querySelector('.name')?.textContent?.toLowerCase() ?? '';
+      if (name.includes(surname)) {
+        const n = (wcGoals[fullName] = (wcGoals[fullName] ?? 0) + 1);
+        cell.textContent = n;
+        cell.classList.add('scored');
+      }
+    });
   }
 
-  /* ── INIT ── */
+  async function fetchScorers () {
+    const r = await apiFetch('/v4/competitions/WC/scorers?season=2026&limit=100');
+    if (!r) return;
+    (r.scorers || []).forEach(s => {
+      const name  = s.player?.name ?? '';
+      const team  = ['Egypt','New Zealand'].includes(s.team?.shortName) ? s.team.shortName : null;
+      if (!team || !s.goals) return;
+      const prefix = team === 'Egypt' ? 'eg' : 'nz';
+      wcGoals[name] = s.goals;
+      const surname = name.split(' ').pop().toLowerCase();
+      document.querySelectorAll(`[id^="${prefix}-wc-"]`).forEach(cell => {
+        const row  = cell.closest('tr');
+        const pname = row?.querySelector('.name')?.textContent?.toLowerCase() ?? '';
+        if (pname.includes(surname)) {
+          cell.textContent = s.goals;
+          cell.classList.add('scored');
+          // highlight badge in watch section too
+          document.querySelectorAll('.wname').forEach(el => {
+            if (el.textContent.toLowerCase().includes(surname)) {
+              const b = el.closest('.watch-player')?.querySelector('.wbadge');
+              if (b && !b.dataset.live) {
+                b.textContent = `⚽ ${s.goals} goal${s.goals > 1 ? 's' : ''} this WC · Dangerous`;
+                b.dataset.live = '1';
+              }
+            }
+          });
+        }
+      });
+    });
+  }
+
+  /* ─────────────── OFFICIAL LINEUP → SVG update ─────────────── */
+  async function fetchLineup () {
+    if (!matchId) {
+      const m = await findMatch();
+      if (!m) return;
+      matchId = m.id;
+    }
+    const m = await apiFetch(`/v4/matches/${matchId}`);
+    if (!m?.homeTeam?.lineup) return;
+
+    const isEgHome = m.homeTeam.shortName === 'Egypt';
+    applyLineup(isEgHome ? m.homeTeam : m.awayTeam,  'eg', EG_POS);
+    applyLineup(isEgHome ? m.awayTeam : m.homeTeam,  'nz', NZ_POS);
+  }
+
+  function applyLineup (teamData, prefix, posMap) {
+    if (!teamData?.lineup?.length) return;
+    const starters = teamData.lineup;
+    const cbSlots  = prefix === 'eg'
+      ? ['eg-cb1','eg-cb2']
+      : ['nz-lcb','nz-ccb','nz-rcb'];
+    const cdmSlots = ['eg-cdm1','eg-cdm2'];
+    let cbIdx = 0, cdmIdx = 0;
+
+    // Update formation label
+    if (teamData.formation) {
+      const svgEl = document.querySelector(`#${prefix}-gk`)?.closest('svg');
+      const fmtEl = svgEl?.querySelector('text:last-child');
+      if (fmtEl) fmtEl.textContent = teamData.formation.replace(/-/g, ' – ');
+      const wrap = svgEl?.closest('.formation-wrap');
+      const h4   = wrap?.querySelector('h4');
+      if (h4) h4.textContent = `Official Lineup · ${teamData.formation}`;
+    }
+
+    starters.forEach(p => {
+      const pos  = p.position?.toUpperCase().replace(/ /g, '_') ?? '';
+      let slotId = posMap[pos];
+
+      if (!slotId) {
+        if (pos.includes('CENTRE_BACK') || pos === 'CENTRE_BACK') {
+          slotId = cbSlots[cbIdx++];
+        } else if (pos.includes('DEFENSIVE_MID')) {
+          slotId = cdmSlots[cdmIdx++];
+        }
+      }
+      if (!slotId) return;
+
+      const grp  = document.getElementById(slotId);
+      if (!grp) return;
+      const numEl  = grp.querySelectorAll('text')[0];
+      const nameEl = grp.querySelectorAll('text')[1];
+      if (numEl)  numEl.textContent  = p.shirtNumber ?? '';
+      if (nameEl) {
+        const parts = (p.name ?? '').split(' ');
+        nameEl.textContent = parts.length > 1 ? parts[parts.length-1] : parts[0];
+      }
+    });
+  }
+
+  /* ─────────────── API FETCH ─────────────── */
+  async function apiFetch (path) {
+    try {
+      const r = await fetch('https://api.football-data.org/v4' + path,
+        { headers: { 'X-Auth-Token': API_KEY } });
+      if (!r.ok) return null;
+      return r.json();
+    } catch { return null; }
+  }
+
+  /* ─────────────── INIT ─────────────── */
+  function showNoKey () {
+    const el = $('ls-no-key');
+    if (el) {
+      el.textContent = 'Add a free football-data.org API key to enable live score, standings, and lineup updates — instructions at the bottom of the file.';
+      el.style.display = 'block';
+    }
+  }
+
   window.addEventListener('DOMContentLoaded', () => {
+    if (!API_KEY) { showNoKey(); return; }
+
+    // Standings + scorers: every POLL_SEC
     fetchStandings();
     fetchScorers();
-    setInterval(() => { fetchStandings(); fetchScorers(); }, POLL_MS);
+    setInterval(() => { fetchStandings(); fetchScorers(); }, POLL_SEC * 1000);
+
+    // Score: every SCORE_POLL_SEC (active even before the match for pre-match display)
+    fetchScore();
+    setInterval(fetchScore, SCORE_POLL_SEC * 1000);
+
+    // Lineup: try once now and once 30 min before kickoff
+    fetchLineup();
+    const ko = new Date('2026-06-21T18:00:00-07:00'); // PDT
+    const msUntil30 = ko - 30 * 60 * 1000 - Date.now();
+    if (msUntil30 > 0) setTimeout(fetchLineup, msUntil30);
   });
 })();
 </script>
