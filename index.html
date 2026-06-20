@@ -1139,10 +1139,10 @@ details.map > summary:focus-visible, .bar:focus-visible {
             <table class="tbl">
               <thead><tr><th>Team</th><th>MP</th><th>GF</th><th>GA</th><th>Pts</th></tr></thead>
               <tbody>
-                <tr><td>1. 🇧🇪 Belgium</td><td>1</td><td>2</td><td>0</td><td>3</td></tr>
-                <tr><td>2. 🇮🇷 Iran</td><td>1</td><td>2</td><td>2</td><td>1</td></tr>
-                <tr><td>3. 🇳🇿 New Zealand</td><td>1</td><td>2</td><td>2</td><td>1</td></tr>
-                <tr class="hl"><td>4. 🇪🇬 Egypt</td><td>1</td><td>0</td><td>2</td><td>0</td></tr>
+                <tr><td>1. 🇮🇷 Iran</td><td>1</td><td>2</td><td>2</td><td>1</td></tr>
+                <tr><td>1. 🇳🇿 New Zealand</td><td>1</td><td>2</td><td>2</td><td>1</td></tr>
+                <tr><td>3. 🇧🇪 Belgium</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+                <tr class="hl"><td>3. 🇪🇬 Egypt</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
               </tbody>
             </table>
           </div>
@@ -1261,15 +1261,15 @@ details.map > summary:focus-visible, .bar:focus-visible {
           <div class="squad-scroll" style="border:none;border-radius:0">
             <table class="squad-tbl" style="min-width:360px">
               <thead><tr><th></th><th>Team</th><th>MP</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>Pts</th></tr></thead>
-              <tbody>
-                <tr><td class="pos">1</td><td>🇧🇪 Belgium</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td><td>0</td><td>3</td></tr>
-                <tr><td class="pos">2</td><td>🇮🇷 Iran</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>2</td><td>1</td></tr>
-                <tr><td class="pos">3</td><td>🇳🇿 New Zealand</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>2</td><td>1</td></tr>
-                <tr class="star"><td class="pos fw">4</td><td>🇪🇬 Egypt</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>2</td><td>0</td></tr>
+              <tbody id="group-g-live">
+                <tr><td class="pos">1</td><td>🇮🇷 Iran</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>2</td><td>1</td></tr>
+                <tr><td class="pos">1</td><td>🇳🇿 New Zealand</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>2</td><td>1</td></tr>
+                <tr><td class="pos">3</td><td>🇧🇪 Belgium</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+                <tr class="star"><td class="pos fw">3</td><td>🇪🇬 Egypt</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td></tr>
               </tbody>
             </table>
           </div>
-          <p style="font:400 .7rem 'Inter',sans-serif;color:var(--muted);margin-top:6px">* After MD1: Belgium beat Egypt 2–0; Iran and NZ drew 2–2 (Wood 2 assists for NZ). Egypt must win MD2.</p>
+          <p style="font:400 .7rem 'Inter',sans-serif;color:var(--muted);margin-top:6px">* After MD1: Belgium 1–1 Egypt (Egypt led before Hany OG 66'); Iran 2–2 NZ (Just ×2). All 4 teams on 1pt.</p>
         </div>
 
         <!-- ── FORMATION DIAGRAM ── -->
@@ -1536,7 +1536,7 @@ details.map > summary:focus-visible, .bar:focus-visible {
       <!-- MATCHUP: PLAYERS TO WATCH -->
       <div class="squad-section shell watch-section">
         <h3 class="watch-h">⚡ Match-up · Players to Watch</h3>
-        <p class="watch-context"><strong>Match context:</strong> Egypt are yet to score this tournament after losing 0–2 to Belgium in MD1. New Zealand drew 2–2 with Iran — <strong>Chris Wood delivered two assists</strong>, showing exactly how dangerous he is even without scoring. Egypt must win. A draw keeps New Zealand's knockout hopes alive, a win puts them through. Expect a physical, high-stakes game from kickoff.</p>
+        <p class="watch-context"><strong>Match context:</strong> Egypt drew 1–1 with Belgium in MD1 — they took the lead, but a Mohamed Hany own goal in the 66th minute cost them the win. New Zealand drew 2–2 with Iran — <strong>Chris Wood delivered two assists</strong>, showing exactly how dangerous he is even without scoring. Egypt must win. A draw keeps New Zealand's knockout hopes alive, a win puts them through. Expect a physical, high-stakes game from kickoff.</p>
         <div class="watch-grid">
           <div class="watch-col">
             <div class="watch-flag">🇪🇬 Egypt — Watch For</div>
@@ -1599,303 +1599,305 @@ details.map > summary:focus-visible, .bar:focus-visible {
 </footer>
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-  LIVE DATA  —  powered by football-data.org (free tier)
+  LIVE DATA
 
-  HOW TO ACTIVATE (30 seconds):
-  1. Register at https://www.football-data.org/client/register  (email only, free)
-  2. Paste your key into  API_KEY  below
-  3. Re-upload this file to GitHub Pages
+  Standings + live score:  worldcup26.ir  (free, no key, open source)
+  Official lineup update:  football-data.org  (optional, requires paid plan)
 
-  WHAT BECOMES LIVE ONCE A KEY IS ADDED:
-  • Group G standings      — both tables update every 60 s
-  • Match score + events   — card at top of Sunday tab shows live scoreline,
-                             scorers with minute, and current match minute
-  • Goal scorers           — WC ⚽ column in squad tables fills automatically
-  • Official lineup        — formation diagrams update to confirmed starting XIs
-                             once published (~1 h before kickoff)
+  The page works live right now — no configuration needed.
+  To also enable lineup updates, set FDORG_KEY to a football-data.org
+  Tier 2+ key (€29/mo at football-data.org).
   ═══════════════════════════════════════════════════════════════════════ -->
 <script>
 (function () {
-  /* ── CONFIG ── */
-  const API_KEY  = 'feebd1ca3b8a4ddfa7e0ad8c85c15998';       // football-data.org
-  const POLL_SEC = 60;       // standings/scorers polling interval (seconds)
-  const SCORE_POLL_SEC = 30; // live score polling (faster, active only on match day)
 
-  /* ── POSITION MAP (football-data.org → our SVG slot IDs) ── */
+  /* ── CONFIG ── */
+  const FDORG_KEY    = 'feebd1ca3b8a4ddfa7e0ad8c85c15998'; // lineup only (requires paid plan)
+  const BASE_WC      = 'https://worldcup26.ir';              // free, no key, CORS open
+  const POLL_STAND   = 60;   // standings poll interval (s)
+  const POLL_SCORE   = 30;   // score poll interval (s)
+
+  /* ── POSITION MAP for SVG lineup update ── */
   const EG_POS = {
-    GOALKEEPER: 'eg-gk',
-    RIGHT_BACK: 'eg-rb', LEFT_BACK: 'eg-lb',
-    CENTRE_BACK: null,          // two slots — assigned by squad index
-    DEFENSIVE_MIDFIELD: null,   // two slots
-    ATTACKING_MIDFIELD: 'eg-cam',
-    RIGHT_MIDFIELD: 'eg-ram', LEFT_MIDFIELD: 'eg-lam',
-    RIGHT_WING: 'eg-ram', LEFT_WING: 'eg-lam',
-    CENTRE_FORWARD: 'eg-st',
+    Goalkeeper:'eg-gk', 'Right-Back':'eg-rb', 'Left-Back':'eg-lb',
+    'Centre-Back':null,         // filled below (two slots)
+    'Defensive Midfield':null,  // two slots
+    'Attacking Midfield':'eg-cam',
+    'Right Midfield':'eg-ram','Left Midfield':'eg-lam',
+    'Right Winger':'eg-ram','Left Winger':'eg-lam',
+    'Centre-Forward':'eg-st',
   };
   const NZ_POS = {
-    GOALKEEPER: 'nz-gk',
-    RIGHT_WING_BACK: 'nz-rwb', LEFT_WING_BACK: 'nz-lwb',
-    CENTRE_BACK: null,          // three slots
-    RIGHT_MIDFIELD: 'nz-rcm', LEFT_MIDFIELD: 'nz-lcm',
-    CENTRAL_MIDFIELD: 'nz-rcm',
-    DEFENSIVE_MIDFIELD: 'nz-lcm',
-    RIGHT_WING: 'nz-rw', LEFT_WING: 'nz-lw',
-    CENTRE_FORWARD: 'nz-st',
+    Goalkeeper:'nz-gk',
+    'Right-Back':'nz-rwb','Left-Back':'nz-lwb',
+    'Centre-Back':null,         // three slots
+    'Right Midfield':'nz-rcm','Left Midfield':'nz-lcm',
+    'Central Midfield':'nz-rcm',
+    'Defensive Midfield':'nz-lcm',
+    'Right Winger':'nz-rw','Left Winger':'nz-lw',
+    'Centre-Forward':'nz-st',
   };
 
-  /* ─────────────── UTILITIES ─────────────── */
+  const FLAG = { Belgium:'🇧🇪', Egypt:'🇪🇬', 'New Zealand':'🇳🇿', Iran:'🇮🇷', 'IR Iran':'🇮🇷' };
   const $ = id => document.getElementById(id);
-  const fmt = (s, a) => s.replace(/%s/g, () => a.shift());
 
-  function setLbl (txt, cls = '') {
-    const el = $('ls-lbl');
-    if (!el) return;
-    el.textContent = txt;
-    el.className = 'ls-lbl' + (cls ? ' ' + cls : '');
+  /* ═══════════════════ STANDINGS ═══════════════════ */
+  async function fetchStandings() {
+    try {
+      const r = await fetch(BASE_WC + '/get/groups');
+      if (!r.ok) return;
+      const data = await r.json();
+
+      // Find Group G — handle both array and object responses
+      const groups = Array.isArray(data) ? data : (data.groups || data.data || []);
+      const gG = groups.find(g =>
+        (g.name || g.group || g.groupName || '').toString().toUpperCase().includes('G') &&
+        (JSON.stringify(g).includes('Egypt') || JSON.stringify(g).includes('Belgium'))
+      );
+      if (!gG) return;
+
+      const teams = gG.teams || gG.standings || gG.table || [];
+      if (!teams.length) return;
+
+      renderStandings(teams);
+    } catch(e) { /* silent fallback */ }
   }
 
-  /* ─────────────── LIVE SCORE ─────────────── */
-  let matchId = null;
+  function renderStandings(teams) {
+    const rows = teams.map((t, i) => {
+      // normalise varied API field names
+      const name   = t.team?.name || t.name || t.teamName || '';
+      const played = t.played || t.matchesPlayed || t.mp || 0;
+      const won    = t.won || t.wins || t.w || 0;
+      const drawn  = t.drawn || t.draws || t.d || 0;
+      const lost   = t.lost || t.losses || t.l || 0;
+      const gf     = t.goalsFor || t.gf || t.goals_for || 0;
+      const ga     = t.goalsAgainst || t.ga || t.goals_against || 0;
+      const pts    = t.points || t.pts || 0;
+      const flag   = FLAG[name] || '🏳️';
+      const isEg   = name === 'Egypt';
+      return `<tr${isEg?' class="star"':''}>
+        <td class="pos${isEg?' fw':''}">${i+1}</td>
+        <td>${flag} ${name}</td>
+        <td>${played}</td><td>${won}</td><td>${drawn}</td><td>${lost}</td>
+        <td>${gf}</td><td>${ga}</td><td>${pts}</td></tr>`;
+    }).join('');
 
-  async function findMatch () {
-    const r = await apiFetch('/v4/competitions/WC/matches?season=2026&groups=GROUP_G');
-    if (!r) return null;
-    return (r.matches || []).find(m =>
-      ['Egypt','New Zealand'].includes(m.homeTeam.shortName) &&
-      ['Egypt','New Zealand'].includes(m.awayTeam.shortName)
-    );
+    document.querySelectorAll('.group-box table tbody').forEach(tb => {
+      tb.innerHTML = rows;
+    });
+    // Live badge on headers
+    document.querySelectorAll('.group-box h4').forEach(h4 => {
+      if (!h4.querySelector('.live-badge'))
+        h4.insertAdjacentHTML('beforeend',
+          ' <span class="live-badge" style="display:inline-block;font:700 .58rem IBM Plex Mono,monospace;background:#10b981;color:#fff;border-radius:4px;padding:2px 6px">LIVE</span>');
+    });
+    document.querySelectorAll('.group-box p').forEach(p => {
+      p.textContent = '↻ Live · ' + new Date().toLocaleTimeString();
+    });
   }
 
-  async function fetchScore () {
-    if (!matchId) {
-      const m = await findMatch();
-      if (!m) return;
-      matchId = m.id;
+  /* ═══════════════════ LIVE SCORE ═══════════════════ */
+  async function fetchScore() {
+    try {
+      const r = await fetch(BASE_WC + '/get/games');
+      if (!r.ok) return;
+      const data = await r.json();
+
+      const matches = Array.isArray(data) ? data : (data.matches || data.games || data.data || []);
+      const match = matches.find(m => {
+        const teams = JSON.stringify(m).toLowerCase();
+        return teams.includes('egypt') && teams.includes('new zealand');
+      });
+      if (match) renderScore(match);
+    } catch(e) { /* silent */ }
+  }
+
+  function renderScore(m) {
+    // Normalise home/away + scores across API formats
+    const homeName = m.home?.name || m.homeTeam?.name || m.home_team?.name || m.team1 || '';
+    const awayName = m.away?.name || m.awayTeam?.name || m.away_team?.name || m.team2 || '';
+    const isEgHome = homeName.toLowerCase().includes('egypt');
+
+    const rawHome = m.home_score ?? m.homeScore ?? m.score?.home ?? m.result?.home ?? null;
+    const rawAway = m.away_score ?? m.awayScore ?? m.score?.away ?? m.result?.away ?? null;
+    const egScore = isEgHome ? rawHome : rawAway;
+    const nzScore = isEgHome ? rawAway : rawHome;
+
+    if ($('ls-home') && egScore !== null) $('ls-home').textContent = egScore;
+    if ($('ls-away') && nzScore !== null) $('ls-away').textContent = nzScore;
+
+    const status  = (m.status || m.state || m.matchStatus || '').toString().toUpperCase();
+    const minute  = m.minute || m.time || m.elapsed || null;
+    const midEl   = $('ls-mid');
+
+    if (status.includes('LIVE') || status.includes('IN_PLAY') || status.includes('PROGRESS')) {
+      setLbl('🔴 LIVE  ·  BC Place', 'ls-live');
+      if (midEl) midEl.textContent = minute ? minute + ''' : '●';
+    } else if (status.includes('PAUSE') || status.includes('HT') || status.includes('HALF')) {
+      setLbl('⏸ HALF TIME', 'ls-live');
+      if (midEl) midEl.textContent = 'HT';
+    } else if (status.includes('FT') || status.includes('FINISH') || status.includes('ENDED')) {
+      setLbl('✓ FULL TIME  ·  BC Place', 'ls-ft');
+      if (midEl) midEl.textContent = 'FT';
     }
-    const m = await apiFetch(`/v4/matches/${matchId}`);
-    if (!m) return;
-    renderScore(m);
-  }
 
-  function renderScore (m) {
-    const status  = m.status;          // SCHEDULED IN_PLAY PAUSED FINISHED
-    const hScore  = m.score?.fullTime?.home ?? m.score?.halfTime?.home;
-    const aScore  = m.score?.fullTime?.away ?? m.score?.halfTime?.away;
-    const minute  = m.minute;
-    const isHome  = m.homeTeam.shortName === 'Egypt';
-    const egScore = isHome ? hScore : aScore;
-    const nzScore = isHome ? aScore : hScore;
-
-    if ($('ls-home')) $('ls-home').textContent = egScore ?? '–';
-    if ($('ls-away')) $('ls-away').textContent = nzScore ?? '–';
-
-    const mid = $('ls-mid');
-    if (mid) {
-      if (status === 'IN_PLAY') mid.textContent = (minute ?? '') + ''';
-      else if (status === 'PAUSED') mid.textContent = 'HT';
-      else mid.textContent = status === 'FINISHED' ? 'FT' : 'vs';
+    // Goals
+    const goals = m.goals || m.events?.filter(e => e.type === 'goal') || [];
+    const evEl  = $('ls-events');
+    if (evEl && goals.length) {
+      evEl.innerHTML = goals.map(g => {
+        const scorer = g.player || g.scorer || g.name || g.playerName || '?';
+        const surName = scorer.split(' ').pop();
+        const team   = (g.team || g.teamName || '').toLowerCase();
+        const flag   = team.includes('egypt') ? '🇪🇬' : '🇳🇿';
+        const min    = g.minute || g.time || '';
+        return `<span class="goal-row">${flag} ${min}' ${surName}</span>`;
+      }).join('<br>');
+      // Update WC column
+      goals.forEach(g => {
+        const team = (g.team || '').toLowerCase();
+        const pfx  = team.includes('egypt') ? 'eg' : 'nz';
+        updateWcCell(g.player || g.scorer || '', pfx);
+      });
     }
-
-    if (status === 'IN_PLAY')   setLbl('🔴 LIVE  ·  BC Place', 'ls-live');
-    else if (status === 'PAUSED') setLbl('⏸ HALF TIME', 'ls-live');
-    else if (status === 'FINISHED') setLbl('✓ FULL TIME  ·  BC Place', 'ls-ft');
-
-    // Goal events
-    const goals = (m.goals || []).map(g => {
-      const flag = g.team.shortName === 'Egypt' ? '🇪🇬' : '🇳🇿';
-      const scorer = g.scorer?.name?.split(' ').pop() ?? '?';
-      const assist = g.assist?.name ? ` (${g.assist.name.split(' ').pop()})` : '';
-      return `<span class="goal-row">${flag} ${g.minute}' ${scorer}${assist}</span>`;
-    }).join('<br>');
-
-    const evEl = $('ls-events');
-    if (evEl) evEl.innerHTML = goals || (status === 'SCHEDULED' ? 'No events yet' : '');
 
     const ref = $('ls-refresh');
     if (ref) { ref.textContent = '↻ ' + new Date().toLocaleTimeString(); ref.style.display = 'block'; }
-
-    // Update WC ⚽ column from goal events
-    (m.goals || []).forEach(g => updateWcCell(g.scorer?.name, g.team.shortName === 'Egypt' ? 'eg' : 'nz'));
+    const nk = $('ls-no-key');
+    if (nk) nk.style.display = 'none';
   }
 
-  /* ─────────────── STANDINGS ─────────────── */
-  async function fetchStandings () {
-    const r = await apiFetch('/v4/competitions/WC/standings?season=2026');
-    if (!r) return;
-    const grp = (r.standings || []).find(s => s.group === 'GROUP_G' && s.type === 'TOTAL');
-    if (!grp) return;
-    renderStandings(grp.table);
+  function setLbl(txt, cls) {
+    const el = $('ls-lbl');
+    if (!el) return;
+    el.textContent = txt;
+    el.className   = 'ls-lbl' + (cls ? ' ' + cls : '');
   }
 
-  const TEAM_FLAG = { 'Belgium':'🇧🇪', 'Egypt':'🇪🇬', 'New Zealand':'🇳🇿', 'IR Iran':'🇮🇷', 'Iran':'🇮🇷' };
-
-  function renderStandings (rows) {
-    document.querySelectorAll('.group-box table').forEach(tbl => {
-      const tbody = tbl.querySelector('tbody');
-      if (!tbody) return;
-      tbody.innerHTML = rows.map((r, i) => {
-        const flag = TEAM_FLAG[r.team.name] || '🏳️';
-        const hi = r.team.name === 'Egypt';
-        return `<tr${hi ? ' class="star"' : ''}>`+
-          `<td class="pos${hi?' fw':''}">${i+1}</td>`+
-          `<td>${flag} ${r.team.name}</td>`+
-          `<td>${r.playedGames}</td><td>${r.won}</td><td>${r.draw}</td><td>${r.lost}</td>`+
-          `<td>${r.goalsFor}</td><td>${r.goalsAgainst}</td><td>${r.points}</td></tr>`;
-      }).join('');
-      const h4 = tbl.closest('.group-box')?.querySelector('h4');
-      if (h4 && !h4.querySelector('.live-badge'))
-        h4.insertAdjacentHTML('beforeend',
-          ' <span class="live-badge" style="display:inline-block;font:700 .58rem IBM Plex Mono,monospace;background:#10b981;color:#fff;border-radius:4px;padding:2px 6px;letter-spacing:.06em">LIVE</span>');
-      const note = tbl.closest('.group-box')?.querySelector('p');
-      if (note) note.textContent = '↻ Live · ' + new Date().toLocaleTimeString();
-    });
-  }
-
-  /* ─────────────── SCORERS → WC column ─────────────── */
-  const wcGoals = {};   // "playerName" → count
-
-  function updateWcCell (fullName, team) {
-    if (!fullName) return;
-    const surname = fullName.split(' ').pop().toLowerCase();
-    const prefix  = team === 'eg' ? 'eg' : 'nz';
-    // scan all WC cells for this team and match by name in parent row
-    document.querySelectorAll(`[id^="${prefix}-wc-"]`).forEach(cell => {
-      const row  = cell.closest('tr');
-      const name = row?.querySelector('.name')?.textContent?.toLowerCase() ?? '';
-      if (name.includes(surname)) {
-        const n = (wcGoals[fullName] = (wcGoals[fullName] ?? 0) + 1);
-        cell.textContent = n;
-        cell.classList.add('scored');
-      }
-    });
-  }
-
-  async function fetchScorers () {
-    const r = await apiFetch('/v4/competitions/WC/scorers?season=2026&limit=100');
-    if (!r) return;
-    (r.scorers || []).forEach(s => {
-      const name  = s.player?.name ?? '';
-      const team  = ['Egypt','New Zealand'].includes(s.team?.shortName) ? s.team.shortName : null;
-      if (!team || !s.goals) return;
-      const prefix = team === 'Egypt' ? 'eg' : 'nz';
-      wcGoals[name] = s.goals;
-      const surname = name.split(' ').pop().toLowerCase();
-      document.querySelectorAll(`[id^="${prefix}-wc-"]`).forEach(cell => {
-        const row  = cell.closest('tr');
-        const pname = row?.querySelector('.name')?.textContent?.toLowerCase() ?? '';
-        if (pname.includes(surname)) {
-          cell.textContent = s.goals;
-          cell.classList.add('scored');
-          // highlight badge in watch section too
-          document.querySelectorAll('.wname').forEach(el => {
-            if (el.textContent.toLowerCase().includes(surname)) {
-              const b = el.closest('.watch-player')?.querySelector('.wbadge');
-              if (b && !b.dataset.live) {
-                b.textContent = `⚽ ${s.goals} goal${s.goals > 1 ? 's' : ''} this WC · Dangerous`;
-                b.dataset.live = '1';
-              }
-            }
-          });
-        }
-      });
-    });
-  }
-
-  /* ─────────────── OFFICIAL LINEUP → SVG update ─────────────── */
-  async function fetchLineup () {
-    if (!matchId) {
-      const m = await findMatch();
-      if (!m) return;
-      matchId = m.id;
-    }
-    const m = await apiFetch(`/v4/matches/${matchId}`);
-    if (!m?.homeTeam?.lineup) return;
-
-    const isEgHome = m.homeTeam.shortName === 'Egypt';
-    applyLineup(isEgHome ? m.homeTeam : m.awayTeam,  'eg', EG_POS);
-    applyLineup(isEgHome ? m.awayTeam : m.homeTeam,  'nz', NZ_POS);
-  }
-
-  function applyLineup (teamData, prefix, posMap) {
-    if (!teamData?.lineup?.length) return;
-    const starters = teamData.lineup;
-    const cbSlots  = prefix === 'eg'
-      ? ['eg-cb1','eg-cb2']
-      : ['nz-lcb','nz-ccb','nz-rcb'];
-    const cdmSlots = ['eg-cdm1','eg-cdm2'];
-    let cbIdx = 0, cdmIdx = 0;
-
-    // Update formation label
-    if (teamData.formation) {
-      const svgEl = document.querySelector(`#${prefix}-gk`)?.closest('svg');
-      const fmtEl = svgEl?.querySelector('text:last-child');
-      if (fmtEl) fmtEl.textContent = teamData.formation.replace(/-/g, ' – ');
-      const wrap = svgEl?.closest('.formation-wrap');
-      const h4   = wrap?.querySelector('h4');
-      if (h4) h4.textContent = `Official Lineup · ${teamData.formation}`;
-    }
-
-    starters.forEach(p => {
-      const pos  = p.position?.toUpperCase().replace(/ /g, '_') ?? '';
-      let slotId = posMap[pos];
-
-      if (!slotId) {
-        if (pos.includes('CENTRE_BACK') || pos === 'CENTRE_BACK') {
-          slotId = cbSlots[cbIdx++];
-        } else if (pos.includes('DEFENSIVE_MID')) {
-          slotId = cdmSlots[cdmIdx++];
-        }
-      }
-      if (!slotId) return;
-
-      const grp  = document.getElementById(slotId);
-      if (!grp) return;
-      const numEl  = grp.querySelectorAll('text')[0];
-      const nameEl = grp.querySelectorAll('text')[1];
-      if (numEl)  numEl.textContent  = p.shirtNumber ?? '';
-      if (nameEl) {
-        const parts = (p.name ?? '').split(' ');
-        nameEl.textContent = parts.length > 1 ? parts[parts.length-1] : parts[0];
-      }
-    });
-  }
-
-  /* ─────────────── API FETCH ─────────────── */
-  async function apiFetch (path) {
+  /* ═══════════════════ WC GOALS COLUMN ═══════════════════ */
+  async function fetchScorers() {
     try {
-      const r = await fetch('https://api.football-data.org/v4' + path,
-        { headers: { 'X-Auth-Token': API_KEY } });
-      if (!r.ok) return null;
-      return r.json();
-    } catch { return null; }
+      const r = await fetch(BASE_WC + '/get/games');
+      if (!r.ok) return;
+      const data = await r.json();
+      const matches = Array.isArray(data) ? data : (data.matches || data.games || data.data || []);
+
+      // Tally all goals from Group G matches
+      matches
+        .filter(m => {
+          const t = JSON.stringify(m).toLowerCase();
+          return ['egypt','new zealand','iran','belgium'].some(tm => t.includes(tm));
+        })
+        .forEach(m => {
+          const goals = m.goals || m.events?.filter(e => e.type === 'goal') || [];
+          goals.forEach(g => {
+            const team = (g.team || '').toLowerCase();
+            const pfx  = team.includes('egypt') ? 'eg' : team.includes('new zealand') ? 'nz' : null;
+            if (pfx) updateWcCell(g.player || g.scorer || '', pfx);
+          });
+        });
+    } catch(e) { /* silent */ }
   }
 
-  /* ─────────────── INIT ─────────────── */
-  function showNoKey () {
-    const el = $('ls-no-key');
-    if (el) {
-      el.textContent = 'Add a free football-data.org API key to enable live score, standings, and lineup updates — instructions at the bottom of the file.';
-      el.style.display = 'block';
+  const wcTally = {};
+  function updateWcCell(fullName, pfx) {
+    if (!fullName) return;
+    const key  = pfx + '_' + fullName;
+    wcTally[key] = (wcTally[key] || 0) + 1;
+    const sur  = fullName.split(' ').pop().toLowerCase();
+    document.querySelectorAll(`[id^="${pfx}-wc-"]`).forEach(cell => {
+      const name = cell.closest('tr')?.querySelector('.name')?.textContent?.toLowerCase() || '';
+      if (name.includes(sur)) {
+        cell.textContent = wcTally[key];
+        cell.classList.add('scored');
+        // Badge in watch section
+        document.querySelectorAll('.wname').forEach(el => {
+          if (el.textContent.toLowerCase().includes(sur)) {
+            const b = el.closest('.watch-player')?.querySelector('.wbadge');
+            if (b && !b.dataset.live) {
+              b.textContent = `⚽ ${wcTally[key]} goal${wcTally[key]>1?'s':''} this WC`;
+              b.dataset.live = '1';
+            }
+          }
+        });
+      }
+    });
+  }
+
+  /* ═══════════════════ LINEUP (football-data.org paid) ═══════════════════ */
+  let matchId = null;
+
+  async function fetchLineup() {
+    if (!FDORG_KEY) return;
+    try {
+      if (!matchId) {
+        const r = await fetch(
+          'https://api.football-data.org/v4/competitions/WC/matches?season=2026&groups=GROUP_G',
+          { headers: { 'X-Auth-Token': FDORG_KEY } });
+        if (!r.ok) return;
+        const d = await r.json();
+        const m = (d.matches||[]).find(m =>
+          ['Egypt','New Zealand'].includes(m.homeTeam.shortName) &&
+          ['Egypt','New Zealand'].includes(m.awayTeam.shortName));
+        if (!m) return;
+        matchId = m.id;
+      }
+      const r = await fetch(`https://api.football-data.org/v4/matches/${matchId}`,
+        { headers: { 'X-Auth-Token': FDORG_KEY } });
+      if (!r.ok) return;
+      const m = await r.json();
+      if (!m?.homeTeam?.lineup) return;
+
+      const isEgHome = m.homeTeam.shortName === 'Egypt';
+      applyLineup(isEgHome ? m.homeTeam : m.awayTeam, 'eg', EG_POS);
+      applyLineup(isEgHome ? m.awayTeam : m.homeTeam, 'nz', NZ_POS);
+    } catch(e) { /* silent — paid tier required */ }
+  }
+
+  function applyLineup(td, pfx, posMap) {
+    if (!td?.lineup?.length) return;
+    const cbSlots  = pfx==='eg' ? ['eg-cb1','eg-cb2'] : ['nz-lcb','nz-ccb','nz-rcb'];
+    const cdmSlots = ['eg-cdm1','eg-cdm2'];
+    let ci=0, di=0;
+    if (td.formation) {
+      const svgEl = document.getElementById(pfx+'-gk')?.closest('svg');
+      const fEl   = svgEl?.querySelector('text:last-child');
+      if (fEl) fEl.textContent = td.formation.replace(/-/g,' – ');
+      const h4 = svgEl?.closest('.formation-wrap')?.querySelector('h4');
+      if (h4) h4.textContent = 'Official Lineup · ' + td.formation;
     }
+    td.lineup.forEach(p => {
+      const pos = p.position || '';
+      let id = posMap[pos];
+      if (!id) id = pos.includes('Centre-Back')||pos==='Centre-Back' ? cbSlots[ci++]
+                  : pos.includes('Defensive') ? cdmSlots[di++] : null;
+      if (!id) return;
+      const g = document.getElementById(id);
+      if (!g) return;
+      const txts = g.querySelectorAll('text');
+      if (txts[0]) txts[0].textContent = p.shirtNumber ?? '';
+      if (txts[1]) txts[1].textContent = (p.name||'').split(' ').pop();
+    });
   }
 
+  /* ═══════════════════ INIT ═══════════════════ */
   window.addEventListener('DOMContentLoaded', () => {
-    if (!API_KEY) { showNoKey(); return; }
-
-    // Standings + scorers: every POLL_SEC
+    // Standings — always live (no key needed)
     fetchStandings();
-    fetchScorers();
-    setInterval(() => { fetchStandings(); fetchScorers(); }, POLL_SEC * 1000);
+    setInterval(fetchStandings, POLL_STAND * 1000);
 
-    // Score: every SCORE_POLL_SEC (active even before the match for pre-match display)
+    // Score + scorers — always live (no key needed)
     fetchScore();
-    setInterval(fetchScore, SCORE_POLL_SEC * 1000);
+    fetchScorers();
+    setInterval(fetchScore,   POLL_SCORE * 1000);
+    setInterval(fetchScorers, POLL_STAND * 1000);
 
-    // Lineup: try once now and once 30 min before kickoff
+    // Lineup — only if paid key works
     fetchLineup();
-    const ko = new Date('2026-06-21T18:00:00-07:00'); // PDT
-    const msUntil30 = ko - 30 * 60 * 1000 - Date.now();
-    if (msUntil30 > 0) setTimeout(fetchLineup, msUntil30);
+    const ko = new Date('2026-06-21T18:00:00-07:00');
+    const ms = ko - 30*60*1000 - Date.now();
+    if (ms > 0) setTimeout(fetchLineup, ms);
   });
 })();
 </script>
