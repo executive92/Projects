@@ -2,930 +2,1018 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vancouver · World Cup 2026 · Travel Agenda</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Vancouver · World Cup 2026 · Egypt vs New Zealand</title>
+<meta name="description" content="Group trip itinerary — Egypt vs New Zealand at BC Place, Vancouver. June 18–22, 2026.">
+<meta name="theme-color" content="#FDFAF5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161310" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vancouver · World Cup 2026 · Egypt vs New Zealand">
+<meta property="og:description" content="Group trip itinerary — Egypt vs New Zealand at BC Place. June 18–22, 2026.">
+<meta name="twitter:card" content="summary">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght=0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Archivo:wght=400;500;600;700&family=Archivo+Expanded:wght=600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
 
-  :root{
-    --ink:#16241f;
-    --paper:#f5f2eb;
-    --paper-deep:#e2dcce;
-    --white:#ffffff;
-    --moss:#2f5d4f;
-    --moss-deep:#1f4138;
-    --rain:#3b6f8c;
-    --sun:#d98a3d;
-    --pitch:#0e2a22;
-    --line:rgba(22,36,31,.12);
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{
-    font-family:'Archivo',sans-serif;
-    background:var(--paper);
-    color:var(--ink);
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+/* ====== DESIGN TOKENS ====== */
+:root {
+  --paper:  #FDFAF5;
+  --card:   #FFFFFF;
+  --warm:   #F4EFE4;       /* section backgrounds */
+  --ink:    #1C1710;
+  --body:   #4A4130;
+  --muted:  #8C8070;
+  --edge:   #E6DFD0;
 
-  /* ---------- HERO ---------- */
-  .hero{
-    position:relative;
-    background:linear-gradient(135deg, var(--pitch) 0%, var(--moss-deep) 50%, var(--moss) 100%);
-    color:var(--white);
-    padding:70px 0 50px;
-    text-align:center;
-    border-bottom: 6px solid var(--sun);
-  }
-  .eyebrow{
-    font-family:'Archivo Expanded','Archivo',sans-serif;
-    font-weight:700;
-    letter-spacing:.35em;
-    text-transform:uppercase;
-    font-size:.75rem;
-    color:#cfe3d3;
-    margin-bottom:16px;
-  }
-  .hero h1{
-    font-family:'Fraunces',serif;
-    font-weight:900;
-    font-size:clamp(2.2rem, 5vw, 4rem);
-    line-height:1.1;
-    letter-spacing:-.02em;
-  }
-  .hero h1 em{font-style:italic;font-weight:500;color:#f0c79a}
-  .flags{font-size:clamp(1.8rem,5vw,2.5rem);margin:16px 0;letter-spacing:.15em}
-  .hero-meta{
-    display:flex;flex-wrap:wrap;justify-content:center;gap:16px 32px;
-    padding-top:20px;margin-top:20px;
-    border-top:1px solid rgba(255,255,255,0.15);
-    font-size:.95rem;color:#dceadd;
-  }
-  .hero-meta b{color:#fff;font-weight:600}
+  --amber:  #B8692B;       /* main accent */
+  --amber2: #DFA878;       /* light amber */
+  --sage:   #4A7868;       /* nature / stay / friday */
+  --sage2:  #88B4A4;
+  --blue:   #3F75A2;       /* water / saturday */
+  --blue2:  #89B2D0;
+  --red:    #B53028;       /* match / sunday */
+  --red2:   #D4605A;
+  --gold:   #B8841A;
+  --gold2:  #DCAF50;
 
-  /* ---------- MATCH STRIP ---------- */
-  .match-strip{
-    background:#113228;
-    color:#eaf3ec;
-    border-bottom:1px solid var(--line);
-  }
-  .match-strip .wrap{
-    display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
-    gap:14px;padding:16px 24px;
-  }
-  .match-strip .ms-teams{font-family:'Fraunces',serif;font-weight:600;font-size:1.25rem}
-  .match-strip .ms-kick{
-    font-family:'Archivo Expanded','Archivo',sans-serif;font-weight:700;
-    letter-spacing:.04em;font-size:1rem;color:#f0c79a;text-align:right;
-  }
-  .match-strip .ms-kick span{display:block;font-size:.68rem;letter-spacing:.2em;color:#9db8a8;text-transform:uppercase;font-weight:600;margin-top:2px}
+  --accent:    var(--amber);
+  --accent-lt: var(--amber2);
+}
 
-  /* ---------- INTRO ---------- */
-  .intro{padding:40px 0 10px;text-align:center}
-  .intro p{max-width:65ch;font-size:1.05rem;color:#33433c;margin:0 auto 16px}
-  .intro .lede{font-family:'Fraunces',serif;font-size:1.35rem;line-height:1.4;color:var(--moss-deep);font-weight:500}
+/* ====== RESET ====== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--paper);
+  color: var(--body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  padding-top: 46px; /* reserved for fixed address bar */
+}
+.shell { max-width: 1080px; margin: 0 auto; padding: 0 18px; }
+a { color: inherit; }
 
-  /* ---------- TABS SYSTEM ---------- */
-  .tab-system { margin: 30px auto 60px; }
-  .tab-selectors {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: -1px;
-    position: relative;
-    z-index: 10;
-  }
-  .tab-label {
-    background: var(--paper-deep);
-    padding: 14px 28px;
-    font-family: 'Archivo Expanded', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    border-radius: 12px 12px 0 0;
-    cursor: pointer;
-    border: 1px solid var(--line);
-    border-bottom: none;
-    color: var(--moss);
-    transition: all 0.2s ease;
-  }
-  .tab-label:hover { background: #e0d8c6; }
-  .tab-radio { display: none; }
+/* ====== ADDRESS BAR ====== */
+.addr {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 46px;
+  background: var(--card);
+  border-bottom: 1px solid var(--edge);
+  box-shadow: 0 1px 8px rgba(28,23,16,.07);
+  display: flex; align-items: center; padding: 0 18px;
+}
+.addr-inner {
+  max-width: 1080px; margin: 0 auto; width: 100%;
+  display: flex; align-items: center; gap: 10px;
+}
+.addr-icon { font-size: .95rem; flex-shrink: 0; }
+.addr-text {
+  flex: 1; min-width: 0; font-size: .82rem; color: var(--body);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.addr-text strong { color: var(--ink); font-weight: 600; }
+.addr-text .dot { color: var(--edge); margin: 0 5px; }
+.addr-code { font-family: 'IBM Plex Mono', monospace; font-weight: 600; letter-spacing: .04em; }
+.addr-link {
+  flex-shrink: 0;
+  display: inline-flex; align-items: center; gap: 4px;
+  font: 600 .76rem 'Inter', sans-serif;
+  color: var(--amber); text-decoration: none;
+  padding: 5px 11px; border-radius: 8px;
+  border: 1.5px solid var(--amber2);
+  transition: background .14s, color .14s;
+  white-space: nowrap;
+}
+.addr-link:hover { background: var(--amber); color: #fff; border-color: var(--amber); }
 
-  .tab-panels {
-    background: var(--white);
-    border: 1px solid var(--line);
-    border-radius: 16px;
-    padding: 35px;
-    box-shadow: 0 12px 30px -15px rgba(22,36,31,0.12);
-  }
-  .tab-panel { display: none; }
+/* ====== HERO ====== */
+.hero {
+  background: var(--card);
+  border-bottom: 1px solid var(--edge);
+  padding: 28px 0 24px;
+}
+.hero-lbl {
+  font: 500 .78rem 'Inter', sans-serif;
+  color: var(--muted); margin-bottom: 14px;
+}
+.fixture {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.team {
+  font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800;
+  font-size: clamp(1.5rem, 6.5vw, 2.8rem); color: var(--ink); line-height: 1;
+}
+.vs {
+  font: 500 .76rem 'Inter', sans-serif;
+  color: var(--muted); border: 1.5px solid var(--edge);
+  padding: 5px 11px; border-radius: 999px;
+}
+.hero-details {
+  display: flex; flex-wrap: wrap; gap: 4px 0;
+  font: 400 .88rem 'Inter', sans-serif; color: var(--body);
+  align-items: center;
+}
+.hero-details .sep { color: var(--edge); margin: 0 8px; }
+.hero-details strong { color: var(--ink); font-weight: 600; }
+.hero-bar { width: 36px; height: 3px; background: var(--red); border-radius: 3px; margin-top: 18px; }
 
-  #tab-accom:checked ~ .tab-selectors label[for="tab-accom"],
-  #tab-day1:checked ~ .tab-selectors label[for="tab-day1"],
-  #tab-day2:checked ~ .tab-selectors label[for="tab-day2"],
-  #tab-day3:checked ~ .tab-selectors label[for="tab-day3"] {
-    background: var(--white);
-    color: var(--pitch);
-    padding-bottom: 15px;
-    margin-top: -4px;
-    border-top: 4px solid var(--sun);
+/* ====== INTRO ====== */
+.intro { padding: 20px 0 0; }
+.intro p { font-size: .96rem; color: var(--body); max-width: 60ch; }
+
+/* ====== TAB MECHANICS ====== */
+.tab-radio {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.tab-panel { display: none; }
+#tab-s:checked  ~ .tab-panels #panel-s,
+#tab-f:checked  ~ .tab-panels #panel-f,
+#tab-sa:checked ~ .tab-panels #panel-sa,
+#tab-su:checked ~ .tab-panels #panel-su { display: block; animation: fin .22s ease; }
+@keyframes fin { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; } }
+
+/* ====== TAB NAV — sticky top strip ====== */
+.tabs {
+  position: sticky; top: 46px; z-index: 100;
+  background: var(--card); border-bottom: 2px solid var(--edge);
+  display: flex; overflow-x: auto;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none;
+  padding: 0 18px;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tab-lbl {
+  flex: 0 0 auto;
+  padding: 13px 16px 12px;
+  font: 500 .88rem 'Inter', sans-serif;
+  color: var(--muted); cursor: pointer;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: color .14s, border-color .14s;
+  -webkit-tap-highlight-color: transparent;
+  display: flex; align-items: center; gap: 6px;
+}
+.tab-lbl .ic { font-size: .9rem; }
+.tab-lbl:hover { color: var(--ink); }
+
+#tab-s:checked  ~ .tabs .tl-s  { color: var(--sage); border-bottom-color: var(--sage);  font-weight: 600; }
+#tab-f:checked  ~ .tabs .tl-f  { color: var(--sage); border-bottom-color: var(--sage);  font-weight: 600; }
+#tab-sa:checked ~ .tabs .tl-sa { color: var(--blue); border-bottom-color: var(--blue);  font-weight: 600; }
+#tab-su:checked ~ .tabs .tl-su { color: var(--red);  border-bottom-color: var(--red);   font-weight: 600; }
+
+/* ====== PANEL GRID ====== */
+#panel-s  { --accent: var(--sage);  --accent-lt: var(--sage2); }
+#panel-f  { --accent: var(--sage);  --accent-lt: var(--sage2); }
+#panel-sa { --accent: var(--blue);  --accent-lt: var(--blue2); }
+#panel-su { --accent: var(--red);   --accent-lt: var(--red2);  }
+
+.pgrid {
+  display: flex; flex-direction: column; gap: 20px;
+  padding: 24px 18px; max-width: 1080px; margin: 0 auto;
+}
+
+/* Day header */
+.dhead { padding-bottom: 4px; }
+.dtag {
+  display: flex; align-items: center; gap: 7px;
+  font: 600 .76rem 'Inter', sans-serif; color: var(--accent);
+  margin-bottom: 7px;
+}
+.dtag::before {
+  content: ""; display: inline-block;
+  width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex-shrink: 0;
+}
+.dtitle {
+  font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800;
+  font-size: clamp(1.75rem, 6vw, 2.5rem); line-height: 1.05;
+  letter-spacing: -.02em; color: var(--ink); margin-bottom: 4px;
+}
+.dsub { font: 400 .86rem 'Inter', sans-serif; color: var(--muted); }
+
+/* Key map */
+.keymap {
+  background: var(--card); border: 1px solid var(--edge);
+  border-radius: 16px; overflow: hidden;
+  box-shadow: 0 2px 14px -5px rgba(28,23,16,.1);
+}
+.keymap iframe { width: 100%; height: 210px; border: 0; display: block; background: #ece9e1; }
+.keymap-cap { padding: 13px 16px; }
+.keymap-cap h4 { font: 600 .74rem 'Inter', sans-serif; color: var(--accent); margin-bottom: 3px; }
+.keymap-cap p  { font-size: .85rem; color: var(--muted); }
+
+/* ====== ROUTE ====== */
+.route { list-style: none; position: relative; padding: 4px 0; }
+.route::before {
+  content: ""; position: absolute;
+  left: 7px; top: 18px; bottom: 18px;
+  width: 2px; background: var(--edge); border-radius: 2px;
+}
+.stop { position: relative; padding: 0 0 28px 32px; }
+.stop:last-child { padding-bottom: 0; }
+.stop::before {
+  content: ""; position: absolute; left: 1px; top: 6px;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--card); border: 2.5px solid var(--accent);
+  box-shadow: 0 0 0 3px var(--paper);
+}
+.stop-hi::before { background: var(--accent); }
+
+.when { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 7px; }
+.when .t {
+  font: 600 .8rem 'IBM Plex Mono', monospace;
+  background: var(--ink); color: #fff; padding: 3px 9px; border-radius: 6px;
+}
+.when .d { font: 400 .76rem 'Inter', sans-serif; color: var(--muted); }
+
+.stop h3 {
+  font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700;
+  font-size: 1.12rem; line-height: 1.2; color: var(--ink); margin-bottom: 5px;
+}
+.stop p { font-size: .94rem; color: var(--body); max-width: 58ch; }
+.stop p strong { color: var(--ink); }
+
+/* Fan march callout */
+.march {
+  margin-top: 11px;
+  background: #FEF8F2; border: 1px solid #F0D5B5;
+  border-left: 4px solid var(--amber); border-radius: 11px;
+  padding: 13px 14px; font-size: .87rem; color: var(--body);
+}
+.march strong { color: var(--amber); display: block; margin-bottom: 4px; font-size: .9rem; }
+.march .addr-note { color: var(--muted); font-size: .82rem; margin-top: 5px; }
+
+.foot { display: flex; flex-wrap: wrap; gap: 9px; align-items: center; margin-top: 12px; }
+.dist { font: 400 .78rem 'Inter', sans-serif; color: var(--muted); }
+.acts { display: flex; gap: 8px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 5px;
+  font: 600 .78rem 'Inter', sans-serif; text-decoration: none;
+  padding: 0 14px; min-height: 40px; border-radius: 9px;
+  -webkit-tap-highlight-color: transparent;
+  transition: background .14s, color .14s, border-color .14s;
+}
+.btn-go  { background: var(--accent); color: #fff; }
+.btn-go:hover { filter: brightness(.9); }
+.btn-pin { background: var(--card); color: var(--accent); border: 1.5px solid var(--accent); }
+.btn-pin:hover { background: var(--accent); color: #fff; }
+
+details.map {
+  margin-top: 10px; border: 1px solid var(--edge);
+  border-radius: 12px; overflow: hidden; background: var(--card);
+}
+details.map > summary {
+  list-style: none; cursor: pointer; padding: 11px 14px;
+  font: 600 .78rem 'Inter', sans-serif; color: var(--accent);
+  display: flex; align-items: center; gap: 8px; min-height: 44px;
+}
+details.map > summary::-webkit-details-marker { display: none; }
+details.map > summary .plus { margin-left: auto; font-size: 1.1rem; transition: transform .18s; }
+details.map[open] > summary .plus { transform: rotate(45deg); }
+details.map iframe { width: 100%; height: 210px; border: 0; border-top: 1px solid var(--edge); display: block; background: #ece9e1; }
+
+/* ====== SPECIAL BOXES ====== */
+.codebox {
+  margin: 14px 0; padding: 18px;
+  background: var(--card); border: 2px dashed var(--sage2);
+  border-radius: 14px; text-align: center; max-width: 280px;
+}
+.codebox span {
+  display: block; font: 600 .66rem 'Inter', sans-serif;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--sage); margin-bottom: 7px;
+}
+.codebox .code {
+  font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800;
+  font-size: 3.2rem; line-height: 1; color: var(--ink); letter-spacing: .04em;
+}
+
+.ticket {
+  margin: 16px 0 4px; padding: 18px;
+  background: var(--ink); color: #EAF0EC;
+  border-radius: 14px; border-left: 5px solid var(--gold2);
+}
+.ticket h4 {
+  font: 600 .7rem 'Inter', sans-serif;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--gold2); margin-bottom: 10px;
+}
+.ticket .row {
+  display: flex; justify-content: space-between; gap: 12px;
+  font: 500 .86rem 'IBM Plex Mono', monospace;
+  padding: 5px 0; border-bottom: 1px dashed rgba(255,255,255,.1);
+}
+.ticket .row:last-of-type { border-bottom: none; }
+.ticket .row b { color: #fff; }
+.ticket .assigned { margin-top: 10px; font: 400 .82rem 'Inter', sans-serif; color: #A9C4B5; }
+
+/* Standings */
+.standings {
+  background: var(--card); border: 1px solid var(--edge);
+  border-radius: 14px; padding: 14px 16px; margin-top: 4px;
+}
+.standings h4 {
+  font: 600 .7rem 'Inter', sans-serif; letter-spacing: .05em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 2px;
+}
+.standings .note { font: 400 .68rem 'Inter', sans-serif; color: var(--muted); margin-bottom: 8px; }
+table.tbl { width: 100%; border-collapse: collapse; }
+table.tbl th {
+  text-align: center; padding: 6px 4px;
+  border-bottom: 2px solid var(--edge);
+  font: 600 .7rem 'Inter', sans-serif; color: var(--muted);
+}
+table.tbl th:first-child, table.tbl td:first-child { text-align: left; }
+table.tbl td {
+  text-align: center; padding: 7px 4px;
+  border-bottom: 1px solid var(--edge); font-size: .84rem;
+}
+table.tbl tr.hl td { background: #FEF8ED; font-weight: 600; color: var(--ink); }
+table.tbl tr.hl td:first-child { box-shadow: inset 3px 0 0 var(--gold2); }
+
+/* ====== YALETOWN CRAWL ====== */
+.crawl { margin-top: 14px; border: 1px solid var(--edge); border-radius: 16px; overflow: hidden; background: var(--card); }
+.crawl-h {
+  background: var(--blue); color: #fff;
+  padding: 11px 16px;
+  font: 600 .72rem 'Inter', sans-serif; letter-spacing: .05em; text-transform: uppercase;
+  display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap;
+}
+.bar {
+  display: flex; gap: 13px; padding: 15px 16px;
+  border-top: 1px solid var(--edge);
+  text-decoration: none; color: inherit;
+  -webkit-tap-highlight-color: transparent;
+  transition: background .12s;
+}
+.bar:hover { background: var(--paper); }
+.bar .n {
+  font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800;
+  font-size: 1.5rem; color: var(--blue); line-height: 1; min-width: .9em; flex-shrink: 0;
+}
+.bar .b { flex: 1; }
+.bar .b strong { display: block; font: 700 1.04rem 'Bricolage Grotesque', sans-serif; color: var(--ink); }
+.bar .b .tag {
+  font: 500 .66rem 'Inter', sans-serif;
+  text-transform: uppercase; letter-spacing: .06em; color: var(--blue);
+}
+.bar .b p { font-size: .87rem; color: var(--body); margin-top: 4px; }
+.bar .arrow { align-self: center; color: var(--blue); font-size: 1.05rem; flex-shrink: 0; }
+.br {
+  margin-top: 9px; padding: 9px 11px;
+  background: var(--paper); border-left: 3px solid var(--blue2);
+  border-radius: 8px;
+}
+.br .stars { font: 600 .65rem 'IBM Plex Mono', monospace; color: var(--gold); margin-bottom: 3px; }
+.br .q { font: italic 400 .82rem 'Inter', sans-serif; color: var(--muted); line-height: 1.45; }
+
+/* ====== GOOD TO KNOW ====== */
+.know { background: var(--warm); padding: 36px 0; margin-top: 8px; }
+.know h2 {
+  font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800;
+  font-size: 1.55rem; color: var(--ink); letter-spacing: -.01em; margin-bottom: 4px;
+}
+.know .ksub { font: 400 .84rem 'Inter', sans-serif; color: var(--muted); margin-bottom: 20px; }
+.kgrid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.kcard {
+  background: var(--card); border: 1px solid var(--edge);
+  border-radius: 15px; padding: 18px;
+  box-shadow: 0 1px 10px -4px rgba(28,23,16,.07);
+}
+.kcard h3 {
+  font: 600 .7rem 'Inter', sans-serif; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--amber); margin-bottom: 9px;
+}
+.kcard p { font-size: .9rem; color: var(--body); margin-bottom: 6px; }
+.kcard p:last-child { margin-bottom: 0; }
+.kcard b { color: var(--ink); font-weight: 600; }
+
+/* ====== CREW ====== */
+.crew-sec { padding: 32px 0 20px; }
+.crew-sec h2 {
+  font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800;
+  font-size: 1.4rem; color: var(--ink); margin-bottom: 14px; letter-spacing: -.01em;
+}
+.crew { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.cm { background: var(--card); border: 1px solid var(--edge); border-radius: 14px; padding: 14px; }
+.cm .init { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 1.25rem; color: var(--sage); line-height: 1; }
+.cm .who  { font: 600 .88rem 'Inter', sans-serif; color: var(--ink); margin-top: 5px; }
+.cm .from { font: 400 .72rem 'Inter', sans-serif; color: var(--muted); margin-top: 2px; }
+
+footer {
+  background: var(--ink); color: #8AA8A0;
+  text-align: center; padding: 26px 16px 34px;
+  font: 400 .8rem 'Inter', sans-serif;
+}
+footer b { color: var(--gold2); font-weight: 600; }
+
+/* ====== A11Y ====== */
+a:focus-visible, .tab-lbl:focus-visible,
+details.map > summary:focus-visible, .bar:focus-visible {
+  outline: 3px solid var(--amber); outline-offset: 2px; border-radius: 6px;
+}
+#tab-s:focus-visible  ~ .tabs .tl-s,
+#tab-f:focus-visible  ~ .tabs .tl-f,
+#tab-sa:focus-visible ~ .tabs .tl-sa,
+#tab-su:focus-visible ~ .tabs .tl-su { outline: 3px solid var(--amber); outline-offset: -3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}
+
+/* ====== DESKTOP ====== */
+@media (min-width: 820px) {
+  .hero { padding: 36px 0 32px; }
+  .pgrid {
+    display: grid;
+    grid-template-columns: 1.55fr 1fr;
+    grid-template-areas: "head map" "route map";
+    gap: 32px; padding: 28px 18px;
+  }
+  .dhead      { grid-area: head; }
+  .route-wrap { grid-area: route; }
+  .keymap     { grid-area: map; position: sticky; top: 98px; }
+  .keymap iframe { height: 280px; }
+  .kgrid { grid-template-columns: repeat(3, 1fr); }
+  .crew  { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ====== DARK MODE ====== */
+@media (prefers-color-scheme: dark) {
+
+  /* --- Re-map every token --- */
+  :root {
+    --paper:  #161310;          /* page background */
+    --card:   #1E1A14;          /* card surfaces */
+    --warm:   #1A1710;          /* section bg (Good to Know, etc.) */
+    --ink:    #EDE6DC;          /* headings / strong text */
+    --body:   #C0B8A8;          /* body copy */
+    --muted:  #7A7265;          /* captions, secondary labels */
+    --edge:   #32281E;          /* borders */
+
+    /* Accents — brightened to stay readable on dark surfaces */
+    --amber:  #D4884C;
+    --amber2: #7A4820;          /* used for soft borders only */
+    --sage:   #6AAD98;
+    --sage2:  #2E5848;
+    --blue:   #6AAED4;
+    --blue2:  #2E5878;
+    --red:    #E05850;
+    --red2:   #A83028;
+    --gold:   #D4A030;
+    --gold2:  #E8C060;
   }
 
-  #tab-accom:checked ~ .tab-panels #panel-accom,
-  #tab-day1:checked ~ .tab-panels #panel-day1,
-  #tab-day2:checked ~ .tab-panels #panel-day2,
-  #tab-day3:checked ~ .tab-panels #panel-day3 {
-    display: block;
-    animation: fadeIn 0.35s ease forwards;
-  }
+  /* --- Address bar --- */
+  .addr { box-shadow: 0 1px 8px rgba(0,0,0,.45); }
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(4px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ---------- LAYOUT GRID ---------- */
-  .panel-grid {
-    display: flex;
-    flex-direction: row;
-    gap: 35px;
-  }
-  .day-schedule {
-    flex: 1.4;
-  }
-  .map-sidebar { 
-    flex: 1;
-    position: relative; 
-  }
-
-  .day-header {
-    margin-bottom: 30px;
-    border-bottom: 1px solid var(--line);
-    padding-bottom: 16px;
-  }
-  .day-title {
-    font-family:'Fraunces',serif;
-    font-weight:900;
-    font-size:2rem;
-    color:var(--pitch);
-  }
-  .day-sub { color:#6c7d74; font-size:0.95rem; margin-top:4px; }
-  
-  /* Timeline */
-  .tl { list-style:none; position:relative; }
-  .tl::before { content:""; position:absolute; left:7px; top:6px; bottom:10px; width:2px; background:linear-gradient(var(--moss),transparent) }
-  .tl li { position:relative; padding:0 0 45px 32px; }
-  .tl li:last-child { padding-bottom:0; }
-  .tl li::before {
-    content:""; position:absolute; left:0; top:4px;
-    width:16px;height:16px; border-radius:50%;
-    background:var(--white); border:3px solid var(--moss);
-  }
-  
-  .time-block {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 4px;
-  }
-  .tl .tm {
-    font-family:'Archivo Expanded',sans-serif; font-weight:700;
-    font-size:.74rem; letter-spacing:.08em; color:var(--moss-deep); text-transform:uppercase;
-  }
-  .tl .duration-tag {
-    font-size: 0.7rem;
-    font-weight: 600;
-    background: var(--paper-deep);
+  /* --- Time badges: --ink was used as background; in dark mode --ink is now
+       near-white, so flip to use --edge as a surface with --ink text --- */
+  .when .t {
+    background: var(--edge);
     color: var(--ink);
-    padding: 2px 8px;
-    border-radius: 4px;
-  }
-  .tl .ev { font-weight:700; font-size:1.15rem; color:var(--ink); margin:2px 0 4px }
-  .tl .nt { font-size:.95rem; color:#4a5a51; margin-bottom:12px; max-width:55ch; }
-
-  /* Highlight Boxes */
-  .access-code-box {
-    margin: 15px 0;
-    padding: 20px;
-    background: #fdfaf3;
-    border: 2px dashed var(--sun);
-    border-radius: 12px;
-    text-align: center;
-    max-width: 300px;
-  }
-  .access-code-box span {
-    display: block;
-    font-family: 'Archivo Expanded', sans-serif;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    color: var(--moss);
-    margin-bottom: 8px;
-    letter-spacing: 0.1em;
-  }
-  .access-code {
-    font-family: 'Fraunces', serif;
-    font-size: 3.5rem;
-    font-weight: 900;
-    color: var(--moss-deep);
-    line-height: 1;
   }
 
-  .ticket-box {
-    margin: 20px 0 10px;
-    padding: 20px;
-    background: #113228;
-    color: #fdfaf3;
-    border-left: 4px solid var(--sun);
-    border-radius: 8px;
-  }
-  .ticket-box h4 {
-    font-family: 'Archivo Expanded', sans-serif;
-    color: #f0c79a;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 8px;
-  }
-  .ticket-box p { font-size: 0.95rem; margin-bottom: 4px; color: #eaf3ec; }
-  .ticket-box b { color: #fff; }
+  /* --- Stop dots: halo must match the dark paper --- */
+  .stop::before { box-shadow: 0 0 0 3px var(--paper); }
 
-  /* Map Buttons */
-  .rich-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--paper-deep);
-    color: var(--moss-deep);
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 0.95rem;
-    padding: 14px 20px;
-    border-radius: 12px;
-    border: 1px solid var(--line);
-    margin-top: 10px;
-    margin-bottom: 15px;
-    width: 100%;
-    max-width: 350px;
-    transition: background 0.2s;
-  }
-  .rich-btn:hover { background: #d8ceb9; }
-  .rich-btn span { margin-right: 8px; font-size: 1.2rem; }
-
-  /* Inline Small Map Widgets */
-  .inline-map-box {
-    margin: 14px 0 6px 0;
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    overflow: hidden;
-    background: #fdfdfd;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-  }
-  .inline-map-frame {
-    width: 100%;
-    height: 200px;
-    border: none;
-    display: block;
-    background: #eef1f0;
-  }
-  .inline-map-lbl {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #4a5a51;
-    background: var(--white);
-    padding: 12px 16px;
-    border-top: 1px solid var(--line);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .inline-map-lbl b { color: var(--moss-deep); }
-  
-  .map-actions {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
+  /* --- Fan march callout: hardcoded cream → dark amber tint --- */
+  .march {
+    background: #231810;
+    border-color: #4A3020;
+    border-left-color: var(--amber);
   }
 
-  /* Sticky Map Sidebar */
-  .map-sticky {
-    position: sticky;
-    top: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  /* --- Ticket box: used var(--ink) as background; now dark green-tinted --- */
+  .ticket {
+    background: #152018;
+    color: #D8EEE2;
+    border-left-color: var(--gold2);
   }
-  .map-frame {
-    width: 100%;
-    height: 540px;
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    background: #eef1f0;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
-  }
-  .map-meta {
-    background: var(--paper);
-    padding: 16px;
-    border-radius: 10px;
-    border: 1px solid var(--line);
-  }
-  .map-meta h4 {
-    font-family: 'Archivo Expanded', sans-serif;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--moss-deep);
-    margin-bottom: 4px;
-  }
-  .map-meta p { font-size: 0.85rem; color: #55645c; }
+  .ticket .row { border-bottom-color: rgba(255,255,255,.08); }
+  .ticket .assigned { color: #8AB4A5; }
 
-  .btn-map {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    color: var(--white);
-    background: var(--moss);
-    padding: 8px 12px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: 0.75rem;
-    font-weight: 600;
-    transition: all 0.2s;
-  }
-  .btn-map:hover { background: var(--pitch); }
-  
-  .btn-outline {
-    background: transparent;
-    color: var(--moss-deep);
-    border: 1px solid var(--moss);
-  }
-  .btn-outline:hover {
-    background: var(--moss);
-    color: var(--white);
-  }
+  /* --- Table Egypt highlight row: hardcoded warm cream → dark gold tint --- */
+  table.tbl tr.hl td { background: #28200C; }
 
-  /* Table Additions */
-  .squad-table { width: 100%; text-align: left; border-collapse: collapse; margin-top: 10px; font-size: 0.8rem;}
-  .squad-table th { padding: 6px; border-bottom: 2px solid var(--line); color: var(--moss-deep); }
-  .squad-table td { padding: 6px; border-bottom: 1px solid var(--line); }
-  
-  .standings-highlight {
-    background: #fdfaf3;
-    border-left: 3px solid var(--sun);
-  }
-  .standings-highlight td { font-weight: 700; color: var(--pitch); }
+  /* --- Bar review chips --- */
+  .br { background: var(--paper); border-left-color: var(--blue2); }
 
-  /* ---------- LOGISTICS & ROSTER ---------- */
-  .logi{background:var(--moss-deep); color:#e7f0e8; padding:55px 0; margin-top:40px; border-top: 4px solid var(--sun)}
-  .logi h2{font-family:'Fraunces',serif; font-weight:900; font-size:2rem; margin-bottom:6px; color:#fff}
-  .logi .sub{color:#a9c4b5; font-size:.95rem; margin-bottom:24px}
-  .logi-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px}
-  .lcard{background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:14px; padding:20px}
-  .lcard h3{font-family:'Archivo Expanded',sans-serif; font-size:.8rem; letter-spacing:.12em; text-transform:uppercase; color:#f0c79a; margin-bottom:10px}
-  .lcard p{font-size:.92rem; color:#dceadd}
-  .lcard b{color:#fff; font-weight:600}
+  /* --- Map iframe placeholder bg --- */
+  .keymap iframe,
+  details.map iframe { background: #1A1710; }
 
-  .roster{padding:50px 0 30px}
-  .roster h2{font-family:'Fraunces',serif; font-weight:900; font-size:1.6rem; margin-bottom:20px}
-  .crew{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:16px}
-  .cm{border:1px solid var(--line); border-radius:13px; padding:16px; background:#fcfaf3}
-  .cm .init{font-family:'Fraunces',serif; font-weight:900; font-size:1.3rem; color:var(--moss)}
-  .cm .who{font-weight:600; margin-top:2px; font-size:.95rem}
-  .cm .from{font-size:.82rem; color:#7a8b82}
+  /* --- Stronger shadows on dark for depth --- */
+  .keymap { box-shadow: 0 4px 20px -6px rgba(0,0,0,.55); }
+  .kcard  { box-shadow: 0 2px 14px -5px rgba(0,0,0,.45); }
 
-  footer{background:var(--pitch); color:#9db8a8; text-align:center; padding:35px 24px; font-size:.85rem}
-  footer b{color:#f0c79a;}
+  /* --- Footer: used var(--ink) as background; now near-black --- */
+  footer { background: #0E0C09; }
+}
 
-  @media (max-width:900px){
-    .panel-grid { flex-direction: column; }
-    .map-sidebar { order: -1; margin-bottom: 15px; }
-    .day-schedule { order: 2; }
-    .map-frame { height: 340px; }
-    .tab-label { padding: 12px 16px; font-size: 0.75rem; }
-    .tab-panels { padding: 20px; }
-    .map-actions { width: 100%; justify-content: flex-start; }
-  }
+/* ====== PRINT ====== */
+@media print {
+  *, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  @page { margin: 13mm; }
+  body { background: #fff; padding-top: 0; font-size: 11pt; }
+  .addr, .tabs { display: none !important; }
+  .tab-panel { display: block !important; animation: none !important; }
+  .tab-panel + .tab-panel { break-before: page; padding-top: 6mm; }
+  .pgrid { display: block; }
+  .keymap, details.map { display: none !important; }
+  .stop, .kcard, .cm, .ticket, .codebox, .crawl, .standings, .march { break-inside: avoid; }
+  .btn-go, .btn-pin { border: 1px solid #999; background: #fff !important; color: var(--ink) !important; }
+  a[href]::after { content: ""; }
+}
 </style>
 </head>
 <body>
 
-<header class="hero">
-  <div class="wrap hero-inner">
-    <div class="eyebrow">FIFA World Cup 2026 · Vancouver, BC</div>
-    <h1>Four Days<br>on the <em>West Coast</em></h1>
-    <div class="flags">🇳🇿  vs  🇪🇬</div>
-    <div class="hero-meta">
-      <span>📆 <b>June 19 – 21, 2026</b></span>
-      <span>📍 Base · <b>Kitsilano</b></span>
-      <span>⚽ Match · <b>New Zealand v Egypt</b></span>
-    </div>
-  </div>
-</header>
-
-<div class="match-strip">
-  <div class="wrap">
-    <div class="ms-teams">🇳🇿 New Zealand  ·  Egypt 🇪🇬</div>
-    <div class="ms-kick">6:00 PM PT · Sun Jun 21 <span>BC Place · Group Stage</span></div>
+<!-- ===== FIXED ADDRESS BAR ===== -->
+<div class="addr">
+  <div class="addr-inner">
+    <span class="addr-icon">🏠</span>
+    <span class="addr-text">
+      <strong>4589 Haggart St</strong><span class="dot">·</span>Code <span class="addr-code">9054</span>
+    </span>
+    <a class="addr-link"
+       href="https://www.google.com/maps/dir/?api=1&destination=4589+Haggart+Street+Vancouver+BC+V6L+2P8&travelmode=driving"
+       target="_blank" rel="noopener noreferrer">Directions ↗</a>
   </div>
 </div>
 
-<section class="intro">
-  <div class="wrap">
-    <p class="lede">A long weekend built around one match — and the city around it.</p>
-    <p>Seawall mornings, a suspension bridge over the rainforest, market breakfasts, and a Sunday evening at BC Place for the Pharaohs. Click through the pages below to view schedules and dynamically framed route maps for each day.</p>
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="shell">
+    <div class="hero-lbl">FIFA World Cup 2026 · Group G · Vancouver, BC</div>
+    <div class="fixture">
+      <div class="team">🇪🇬 Egypt</div>
+      <div class="vs">vs</div>
+      <div class="team">New Zealand 🇳🇿</div>
+    </div>
+    <div class="hero-details">
+      <strong>Sunday, June 21</strong>
+      <span class="sep">·</span>
+      <span>18:00</span>
+      <span class="sep">·</span>
+      <strong>BC Place</strong>
+      <span class="sep">·</span>
+      <span>Jun 18–22</span>
+    </div>
+    <div class="hero-bar"></div>
   </div>
+</header>
+
+<!-- ===== INTRO ===== -->
+<section class="shell intro" style="padding-bottom:8px">
+  <p>Old-growth rainforest, a market morning on the water, the Egyptian fan march through the city, and Sunday night at BC Place. Pick a day below.</p>
 </section>
 
-<main class="wrap">
-  <div class="tab-system">
-    
-    <input type="radio" id="tab-accom" name="agenda-pages" class="tab-radio" checked>
-    <input type="radio" id="tab-day1" name="agenda-pages" class="tab-radio">
-    <input type="radio" id="tab-day2" name="agenda-pages" class="tab-radio">
-    <input type="radio" id="tab-day3" name="agenda-pages" class="tab-radio">
+<!-- ===== TAB SYSTEM ===== -->
+<div class="tab-sys">
+  <input type="radio" id="tab-s"  name="agenda" class="tab-radio" checked>
+  <input type="radio" id="tab-f"  name="agenda" class="tab-radio">
+  <input type="radio" id="tab-sa" name="agenda" class="tab-radio">
+  <input type="radio" id="tab-su" name="agenda" class="tab-radio">
 
-    <div class="tab-selectors">
-      <label for="tab-accom" class="tab-label">Accommodation</label>
-      <label for="tab-day1" class="tab-label">Day 1: Friday</label>
-      <label for="tab-day2" class="tab-label">Day 2: Saturday</label>
-      <label for="tab-day3" class="tab-label">Day 3: Sunday</label>
-    </div>
+  <nav class="tabs" aria-label="Choose a day">
+    <label for="tab-s"  class="tab-lbl tl-s" ><span class="ic">🏠</span> Stay</label>
+    <label for="tab-f"  class="tab-lbl tl-f" ><span class="ic">🌲</span> Friday</label>
+    <label for="tab-sa" class="tab-lbl tl-sa"><span class="ic">⛵</span> Saturday</label>
+    <label for="tab-su" class="tab-lbl tl-su"><span class="ic">⚽</span> Match Day</label>
+  </nav>
 
-    <div class="tab-panels">
-      
-      <!-- ================= ACCOMMODATION ================= -->
-      <div class="tab-panel" id="panel-accom">
-        <div class="panel-grid">
-          <div class="day-schedule">
-            <div class="day-header">
-              <h2 class="day-title">Arrivals & Accommodations</h2>
-              <div class="day-sub">Logistics, Host Instructions & House Rules</div>
-            </div>
-            
-            <ul class="tl">
-              <li>
-                <div class="time-block">
-                  <div class="tm">Flight Schedule</div>
-                  <div class="duration-tag">✈️ Arrivals & Departures</div>
-                </div>
-                <div class="ev">YVR Airport Timelines</div>
-                <div class="nt">
-                  <strong>Thursday, June 18:</strong><br>
-                  • H&H Arrival: 12:00 PM<br>
-                  • MR & MS Arrival: 11:30 PM<br><br>
-                  <strong>Monday, June 22:</strong><br>
-                  • Airbnb Checkout: 11:00 AM<br>
-                  • Departure Flight to Toronto (All): 6:00 AM
-                </div>
-              </li>
-              <li>
-                <div class="time-block">
-                  <div class="tm">Airbnb Details</div>
-                  <div class="duration-tag">🏠 Kitsilano Unit</div>
-                </div>
-                <div class="ev">Access Instructions</div>
-                <div class="nt">
-                  <strong>📍 Address:</strong> 4589 Haggart Street, Vancouver, BC V6L 2P8<br><br>
-                  Upon arriving at the address, please go to the back side of the house using the path on the left side of the house. There will be a set of stairs going down to your Airbnb.
-                  <br>
-                  <a href="https://maps.app.goo.gl/oKZbQK5xVo7g6HEY6?g_st=ic" target="_blank" class="rich-btn">
-                    <span>📍</span> Open Location in Google Maps
-                  </a>
-                  
-                  <div class="access-code-box">
-                    <span>Your Entrance Code</span>
-                    <div class="access-code">9054</div>
-                  </div>
-                  
-                  Please press <strong>9054</strong> and then confirm the code by pressing the "Kwikset" Lock logo button. The door should unlock. To lock the door upon exiting the airbnb, please press the "Kwikset" Lock logo button again.
-                </div>
-              </li>
-              <li>
-                <div class="time-block">
-                  <div class="tm">House Rules</div>
-                  <div class="duration-tag">⚠️ Important</div>
-                </div>
-                <div class="ev">Host Requests</div>
-                <div class="nt">
-                  • <strong>Shoes:</strong> Please do not have shoes inside the house.<br><br>
-                  • <strong>Spills:</strong> Please be careful not to spill anything on the living room couch or carpet, otherwise there will be a $40 CAD charge for any stains found. If the stain isn't removable, we may have to replace the whole carpet/couch, and that may cost a lot.<br><br>
-                  • <strong>Hot Water:</strong> ⭐️🚿🛀 Just a quick note about hot water usage! Since our home doesn’t have a large commercial water heater like hotels, hot water is limited at times. To ensure everyone has a warm and comfortable shower, we kindly ask guests to keep showers brief or space them out.
-                </div>
-              </li>
-            </ul>
+  <div class="tab-panels">
+
+    <!-- =========== STAY =========== -->
+    <section class="tab-panel" id="panel-s">
+      <div class="pgrid">
+        <div class="dhead">
+          <div class="dtag">Base · Kitsilano</div>
+          <h2 class="dtitle">Arrivals &amp; the House</h2>
+          <p class="dsub">Flights · access code · house rules</p>
+        </div>
+
+        <aside class="keymap">
+          <iframe loading="lazy" title="Map of 4589 Haggart Street, Kitsilano" src="https://maps.google.com/maps?q=4589+Haggart+St,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+          <div class="keymap-cap">
+            <h4>Home Base · 4589 Haggart St</h4>
+            <p>Kitsilano — short walk to the beach and the West 4th café strip.</p>
           </div>
-          
-          <div class="map-sidebar">
-            <div class="map-sticky">
-              <div class="map-meta" style="background: var(--pitch); color: var(--white); border: none;">
-                <h4 style="color: var(--sun);">Contact Host</h4>
-                <p style="color: #a9c4b5;">"Please feel to reach out over text if you have any questions and we will answer as soon as possible!"</p>
+        </aside>
+
+        <div class="route-wrap">
+          <ul class="route">
+            <li class="stop">
+              <div class="when"><span class="t">Flights</span><span class="d">✈️ In &amp; out</span></div>
+              <h3>YVR Airport Timeline</h3>
+              <p><strong>Thu Jun 18</strong> — H&amp;H arrive 12:00 PM · M&amp;R + M&amp;S arrive 11:30 PM.<br>
+              <strong>Mon Jun 22</strong> — Checkout 11 AM · group departure 6:00 AM.</p>
+            </li>
+
+            <li class="stop">
+              <div class="when"><span class="t">Check-in</span><span class="d">🏠 Kitsilano</span></div>
+              <h3>Getting In</h3>
+              <p><strong>4589 Haggart Street, Vancouver, BC V6L 2P8.</strong> Take the path down the left side of the house to the back — stairs lead down to the suite.</p>
+              <div class="codebox">
+                <span>Entrance code</span>
+                <div class="code">9054</div>
               </div>
-            </div>
-          </div>
+              <p>Enter <strong>9054</strong> and press the <strong>Kwikset</strong> logo to unlock. Press it again to lock up when you leave.</p>
+              <div class="foot">
+                <div class="acts">
+                  <a class="btn btn-go" href="https://maps.app.goo.gl/oKZbQK5xVo7g6HEY6?g_st=ic" target="_blank" rel="noopener noreferrer">📍 Open in Maps</a>
+                </div>
+              </div>
+            </li>
+
+            <li class="stop">
+              <div class="when"><span class="t">House</span><span class="d">⚠️ Please read</span></div>
+              <h3>Host Requests</h3>
+              <p><strong>Shoes off</strong> inside always.<br><br>
+              <strong>Mind the couch &amp; carpet</strong> — spills carry a $40 CAD cleaning charge; stains may mean replacing the piece.<br><br>
+              <strong>Hot water is limited</strong> — space out showers so everyone gets a warm one. 🚿</p>
+            </li>
+
+            <li class="stop">
+              <div class="when"><span class="t">Contact</span><span class="d">💬 Anytime</span></div>
+              <h3>Reaching the Host</h3>
+              <p>Please feel free to reach out over text — they'll answer as soon as they can.</p>
+            </li>
+          </ul>
         </div>
       </div>
+    </section>
 
-      <!-- ================= PAGE 1: FRIDAY ================= -->
-      <div class="tab-panel" id="panel-day1">
-        <div class="panel-grid">
-          
-          <div class="map-sidebar">
-            <div class="map-sticky">
-              <iframe class="map-frame" src="https://maps.google.com/maps?q=Capilano+Suspension+Bridge+Park,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
-              <div class="map-meta">
-                <h4>🗺️ Friday Target Highlight</h4>
-                <p>Features the massive suspension canyon located directly across the Lions Gate Bridge from the downtown core.</p>
+    <!-- =========== FRIDAY =========== -->
+    <section class="tab-panel" id="panel-f">
+      <div class="pgrid">
+        <div class="dhead">
+          <div class="dtag">Friday · Jun 19</div>
+          <h2 class="dtitle">The Big Outdoor Loop</h2>
+          <p class="dsub">Rainforest → Seawall → Gastown</p>
+        </div>
+
+        <aside class="keymap">
+          <iframe loading="lazy" title="Map of Capilano Suspension Bridge Park" src="https://maps.google.com/maps?q=Capilano+Suspension+Bridge+Park,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+          <div class="keymap-cap">
+            <h4>Day Highlight · Capilano</h4>
+            <p>Old-growth rainforest canyon on the North Shore, across the Lions Gate Bridge.</p>
+          </div>
+        </aside>
+
+        <div class="route-wrap">
+          <ul class="route">
+            <li class="stop">
+              <div class="when"><span class="t">09:00</span><span class="d">⏱ 2 hrs</span></div>
+              <h3>Breakfast · Café Medina</h3>
+              <p>Start downtown with Medina's lavender lattes and Moroccan-spiced tagine brunch bowls.</p>
+              <div class="foot">
+                <span class="dist">🚗 12 min from base</span>
+                <div class="acts">
+                  <a class="btn btn-pin" href="https://www.google.com/maps/search/?api=1&query=Cafe+Medina+Vancouver" target="_blank" rel="noopener noreferrer">📍 Spot</a>
+                  <a class="btn btn-go" href="https://www.google.com/maps/dir/?api=1&origin=4589+Haggart+St,+Vancouver&destination=Cafe+Medina,+Vancouver&travelmode=driving" target="_blank" rel="noopener noreferrer">🗺 Route</a>
+                </div>
               </div>
-            </div>
-          </div>
+              <details class="map"><summary>View map <span class="plus">+</span></summary>
+                <iframe loading="lazy" title="Map of Café Medina" src="https://maps.google.com/maps?q=Cafe+Medina,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+              </details>
+            </li>
 
-          <div class="day-schedule">
-            <div class="day-header">
-              <h2 class="day-title">The Big Epic Outdoor Loop</h2>
-              <div class="day-sub">Friday, June 19 · Rainforest, Seawall & Gastown</div>
-            </div>
-            
-            <ul class="tl">
-              <li>
-                <div class="time-block">
-                  <div class="tm">09:00 AM</div>
-                  <div class="duration-tag">⏱️ 2 Hours</div>
+            <li class="stop">
+              <div class="when"><span class="t">11:30</span><span class="d">⏱ 3 hrs</span></div>
+              <h3>Capilano Suspension Bridge Park</h3>
+              <p>Cross into the old-growth rainforest canyon. Walk the swaying bridge and the high Cliffwalk boardwalk through the trees.</p>
+              <div class="foot">
+                <span class="dist">🚗 20 min from Medina</span>
+                <div class="acts">
+                  <a class="btn btn-pin" href="https://maps.app.goo.gl/Eabg94hHjfq2ovn86?g_st=ic" target="_blank" rel="noopener noreferrer">📍 Spot</a>
+                  <a class="btn btn-go" href="https://www.google.com/maps/dir/?api=1&origin=Cafe+Medina,+Vancouver&destination=Capilano+Suspension+Bridge+Park&travelmode=driving" target="_blank" rel="noopener noreferrer">🗺 Route</a>
                 </div>
-                <div class="ev">Breakfast at Café Medina</div>
-                <div class="nt">Start downtown with Medina's signature lavender lattes and Moroccan-spiced tagine brunch bowls.</div>
-                
-                <div class="inline-map-box">
-                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?q=Cafe+Medina,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
-                  <div class="inline-map-lbl">
-                    <span>🚗 <b>12 mins</b> from base</span>
-                    <div class="map-actions">
-                      <a href="https://www.google.com/maps/search/?api=1&query=Cafe+Medina+Vancouver" target="_blank" class="btn-map btn-outline">📍 Location</a>
-                      <a href="https://www.google.com/maps/dir/?api=1&origin=4589+Haggart+St,+Vancouver&destination=Cafe+Medina,+Vancouver&travelmode=driving" target="_blank" class="btn-map">🗺️ Route</a>
-                    </div>
-                  </div>
-                </div>
-              </li>
+              </div>
+              <details class="map"><summary>View map <span class="plus">+</span></summary>
+                <iframe loading="lazy" title="Map of Capilano Suspension Bridge Park" src="https://maps.google.com/maps?q=Capilano+Suspension+Bridge+Park&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+              </details>
+            </li>
 
-              <li>
-                <div class="time-block">
-                  <div class="tm">11:30 AM</div>
-                  <div class="duration-tag">⏱️ 3 Hours</div>
+            <li class="stop">
+              <div class="when"><span class="t">15:30</span><span class="d">⏱ 2.5 hrs</span></div>
+              <h3>Stanley Park Seawall &amp; English Bay</h3>
+              <p>Back from the North Shore into Stanley Park. Stroll or cycle the ocean seawall, finishing at English Bay beach.</p>
+              <div class="foot">
+                <span class="dist">🚗 18 min from Bridge</span>
+                <div class="acts">
+                  <a class="btn btn-pin" href="https://www.google.com/maps/search/?api=1&query=English+Bay+Beach+Vancouver" target="_blank" rel="noopener noreferrer">📍 Spot</a>
+                  <a class="btn btn-go" href="https://www.google.com/maps/dir/?api=1&origin=Capilano+Suspension+Bridge+Park&destination=English+Bay+Beach,+Vancouver&travelmode=driving" target="_blank" rel="noopener noreferrer">🗺 Route</a>
                 </div>
-                <div class="ev">Capilano Suspension Bridge Park</div>
-                <div class="nt">Cross the Lions Gate Bridge into the old-growth rainforest canyon. Walk the sweeping suspension wire and explore high boardwalk paths.</div>
-                
-                <div class="inline-map-box">
-                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?q=Capilano+Suspension+Bridge+Park&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
-                  <div class="inline-map-lbl">
-                    <span>🚗 <b>20 mins</b> from Cafe Medina</span>
-                    <div class="map-actions">
-                      <a href="https://maps.app.goo.gl/Eabg94hHjfq2ovn86?g_st=ic" target="_blank" class="btn-map btn-outline">📍 Location</a>
-                      <a href="https://www.google.com/maps/dir/?api=1&origin=Cafe+Medina,+Vancouver&destination=Capilano+Suspension+Bridge+Park&travelmode=driving" target="_blank" class="btn-map">🗺️ Route</a>
-                    </div>
-                  </div>
-                </div>
-              </li>
+              </div>
+              <details class="map"><summary>View map <span class="plus">+</span></summary>
+                <iframe loading="lazy" title="Map of English Bay Beach" src="https://maps.google.com/maps?q=English+Bay+Beach,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+              </details>
+            </li>
 
-              <li>
-                <div class="time-block">
-                  <div class="tm">03:30 PM</div>
-                  <div class="duration-tag">⏱️ 2.5 Hours</div>
+            <li class="stop">
+              <div class="when"><span class="t">19:00</span><span class="d">⏱ 3 hrs+</span></div>
+              <h3>Dinner &amp; Drinks · Gastown</h3>
+              <p>Vancouver's oldest brick neighbourhood — Northwest dining among heritage architecture and the steam clock.</p>
+              <div class="foot">
+                <span class="dist">🚗 12 min from English Bay</span>
+                <div class="acts">
+                  <a class="btn btn-pin" href="https://www.google.com/maps/search/?api=1&query=Gastown+Steam+Clock+Vancouver" target="_blank" rel="noopener noreferrer">📍 Spot</a>
+                  <a class="btn btn-go" href="https://www.google.com/maps/dir/?api=1&origin=English+Bay+Beach,+Vancouver&destination=Gastown+Steam+Clock,+Vancouver&travelmode=driving" target="_blank" rel="noopener noreferrer">🗺 Route</a>
                 </div>
-                <div class="ev">Stanley Park Seawall & English Bay</div>
-                <div class="nt">Head back from the North Shore into Stanley Park. Cycle or stroll the iconic ocean seawall corridor, finishing right where the beach opens up at English Bay.</div>
-                
-                <div class="inline-map-box">
-                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?q=English+Bay+Beach,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
-                  <div class="inline-map-lbl">
-                    <span>🚗 <b>18 mins</b> from Bridge</span>
-                    <div class="map-actions">
-                      <a href="https://www.google.com/maps/search/?api=1&query=English+Bay+Beach+Vancouver" target="_blank" class="btn-map btn-outline">📍 Location</a>
-                      <a href="https://www.google.com/maps/dir/?api=1&origin=Capilano+Suspension+Bridge+Park&destination=English+Bay+Beach,+Vancouver&travelmode=driving" target="_blank" class="btn-map">🗺️ Route</a>
-                    </div>
-                  </div>
-                </div>
-              </li>
-
-              <li>
-                <div class="time-block">
-                  <div class="tm">07:00 PM</div>
-                  <div class="duration-tag">⏱️ 3 Hours+</div>
-                </div>
-                <div class="ev">Dinner & Drinks in Gastown</div>
-                <div class="nt">Wind down in Vancouver's oldest brick neighborhood. Sample clean Northwest dining options right alongside the heritage architecture.</div>
-                
-                <div class="inline-map-box">
-                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?q=Gastown+Steam+Clock,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
-                  <div class="inline-map-lbl">
-                    <span>🚗 <b>12 mins</b> from English Bay</span>
-                    <div class="map-actions">
-                      <a href="https://www.google.com/maps/search/?api=1&query=Gastown+Steam+Clock+Vancouver" target="_blank" class="btn-map btn-outline">📍 Location</a>
-                      <a href="https://www.google.com/maps/dir/?api=1&origin=English+Bay+Beach,+Vancouver&destination=Gastown+Steam+Clock,+Vancouver&travelmode=driving" target="_blank" class="btn-map">🗺️ Route</a>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
+              </div>
+              <details class="map"><summary>View map <span class="plus">+</span></summary>
+                <iframe loading="lazy" title="Map of Gastown" src="https://maps.google.com/maps?q=Gastown+Steam+Clock,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+              </details>
+            </li>
+          </ul>
         </div>
       </div>
+    </section>
 
-      <!-- ================= PAGE 2: SATURDAY ================= -->
-      <div class="tab-panel" id="panel-day2">
-        <div class="panel-grid">
-          
-          <div class="map-sidebar">
-            <div class="map-sticky">
-              <iframe class="map-frame" src="https://maps.google.com/maps?q=Granville+Island+Public+Market,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
-              <div class="map-meta">
-                <h4>🗺️ Saturday Target Highlight</h4>
-                <p>Pinpoints the Granville Island public zone where you will start the day touring local food stalls and craft roasters.</p>
+    <!-- =========== SATURDAY =========== -->
+    <section class="tab-panel" id="panel-sa">
+      <div class="pgrid">
+        <div class="dhead">
+          <div class="dtag">Saturday · Jun 20</div>
+          <h2 class="dtitle">Markets &amp; the Yaletown Crawl</h2>
+          <p class="dsub">Granville Island → Kitsilano → Yaletown</p>
+        </div>
+
+        <aside class="keymap">
+          <iframe loading="lazy" title="Map of Granville Island Public Market" src="https://maps.google.com/maps?q=Granville+Island+Public+Market,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+          <div class="keymap-cap">
+            <h4>Day Highlight · Granville Island</h4>
+            <p>Public market food stalls on the inlet — reached by the little Aquabus ferry.</p>
+          </div>
+        </aside>
+
+        <div class="route-wrap">
+          <ul class="route">
+            <li class="stop">
+              <div class="when"><span class="t">09:30</span><span class="d">⏱ 2.5 hrs</span></div>
+              <h3>Granville Island Public Market</h3>
+              <p>Take the Aquabus ferry (or Evo) across False Creek to the market. Fresh baked treats and morning coffee.</p>
+              <div class="foot">
+                <span class="dist">🚗 8 min from base</span>
+                <div class="acts">
+                  <a class="btn btn-pin" href="https://maps.app.goo.gl/TuQcGMcFpsrx8P8r8?g_st=ic" target="_blank" rel="noopener noreferrer">📍 Spot</a>
+                  <a class="btn btn-go" href="https://www.google.com/maps/dir/?api=1&origin=4589+Haggart+St,+Vancouver&destination=Granville+Island+Public+Market,+Vancouver&travelmode=driving" target="_blank" rel="noopener noreferrer">🗺 Route</a>
+                </div>
               </div>
-            </div>
-          </div>
+              <details class="map"><summary>View map <span class="plus">+</span></summary>
+                <iframe loading="lazy" title="Map of Granville Island Public Market" src="https://maps.google.com/maps?q=Granville+Island+Public+Market,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+              </details>
+            </li>
 
-          <div class="day-schedule">
-            <div class="day-header">
-              <h2 class="day-title">Markets & Late Night Bar Hop</h2>
-              <div class="day-sub">Saturday, June 20 · Granville Island & Urban Bar Crawl</div>
-            </div>
-            
-            <ul class="tl">
-              <li>
-                <div class="time-block">
-                  <div class="tm">09:30 AM</div>
-                  <div class="duration-tag">⏱️ 2.5 Hours</div>
+            <li class="stop">
+              <div class="when"><span class="t">12:30</span><span class="d">⏱ 1.5 hrs</span></div>
+              <h3>Sam's Pick · Pallet Coffee</h3>
+              <p>A top specialty espresso stop on W Broadway, chosen by our Vancouver local. Cozy room, seriously good brewing.</p>
+              <div class="foot">
+                <span class="dist">🚗 6 min from the Island</span>
+                <div class="acts">
+                  <a class="btn btn-pin" href="https://www.google.com/maps/search/?api=1&query=Pallet+Coffee+Roasters+W+Broadway+Vancouver" target="_blank" rel="noopener noreferrer">📍 Spot</a>
+                  <a class="btn btn-go" href="https://www.google.com/maps/dir/?api=1&origin=Granville+Island+Public+Market,+Vancouver&destination=Pallet+Coffee+Roasters,+2002+W+Broadway,+Vancouver&travelmode=driving" target="_blank" rel="noopener noreferrer">🗺 Route</a>
                 </div>
-                <div class="ev">Granville Island Public Market</div>
-                <div class="nt">Take the pedestrian Aquabus ferry or Evo across False Creek to search the lively public market stalls. Grab fresh baked treats and morning fuel.</div>
-                
-                <div class="inline-map-box">
-                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?q=Granville+Island+Public+Market,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
-                  <div class="inline-map-lbl">
-                    <span>🚗 <b>8 mins</b> from base</span>
-                    <div class="map-actions">
-                      <a href="https://maps.app.goo.gl/TuQcGMcFpsrx8P8r8?g_st=ic" target="_blank" class="btn-map btn-outline">📍 Location</a>
-                      <a href="https://www.google.com/maps/dir/?api=1&origin=4589+Haggart+St,+Vancouver&destination=Granville+Island+Public+Market,+Vancouver&travelmode=driving" target="_blank" class="btn-map">🗺️ Route</a>
-                    </div>
-                  </div>
-                </div>
-              </li>
+              </div>
+              <details class="map"><summary>View map <span class="plus">+</span></summary>
+                <iframe loading="lazy" title="Map of Pallet Coffee Roasters" src="https://maps.google.com/maps?q=Pallet+Coffee+Roasters,2002+W+Broadway,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+              </details>
+            </li>
 
-              <li>
-                <div class="time-block">
-                  <div class="tm">12:30 PM</div>
-                  <div class="duration-tag">⏱️ 1.5 Hours</div>
+            <li class="stop">
+              <div class="when"><span class="t">15:00</span><span class="d">⏱ 2 hrs</span></div>
+              <h3>Kitsilano Beach Downtime</h3>
+              <p>Just down from the house. Sit on the big driftwood logs, watch the water, rest up before the evening.</p>
+              <div class="foot">
+                <span class="dist">🚶 12 min from Coffee</span>
+                <div class="acts">
+                  <a class="btn btn-pin" href="https://www.google.com/maps/search/?api=1&query=Kitsilano+Beach+Vancouver" target="_blank" rel="noopener noreferrer">📍 Spot</a>
+                  <a class="btn btn-go" href="https://www.google.com/maps/dir/?api=1&origin=Pallet+Coffee+Roasters,+2002+W+Broadway,+Vancouver&destination=Kitsilano+Beach,+Vancouver&travelmode=walking" target="_blank" rel="noopener noreferrer">🗺 Route</a>
                 </div>
-                <div class="ev">Sam's Must-Visit Coffee Spot</div>
-                <div class="nt">Pallet Coffee Kitsilano: A top specialty espresso destination specifically selected by local crew member Sam. Cozy interior vibes paired with highly technical brewing methods.</div>
-                
-                <div class="inline-map-box">
-                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?q=Pallet+Coffee+Roasters,2002+W+Broadway,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
-                  <div class="inline-map-lbl">
-                    <span>🚗 <b>6 mins</b> from Island</span>
-                    <div class="map-actions">
-                      <a href="https://www.google.com/maps/search/?api=1&query=Pallet+Coffee+Roasters+W+Broadway+Vancouver" target="_blank" class="btn-map btn-outline">📍 Location</a>
-                      <a href="https://www.google.com/maps/dir/?api=1&origin=Granville+Island+Public+Market,+Vancouver&destination=Pallet+Coffee+Roasters,+2002+W+Broadway,+Vancouver&travelmode=driving" target="_blank" class="btn-map">🗺️ Route</a>
-                    </div>
-                  </div>
-                </div>
-              </li>
+              </div>
+              <details class="map"><summary>View map <span class="plus">+</span></summary>
+                <iframe loading="lazy" title="Map of Kitsilano Beach" src="https://maps.google.com/maps?q=Kitsilano+Beach,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+              </details>
+            </li>
 
-              <li>
-                <div class="time-block">
-                  <div class="tm">03:00 PM</div>
-                  <div class="duration-tag">⏱️ 2 Hours</div>
-                </div>
-                <div class="ev">Kitsilano Beach Downtime</div>
-                <div class="nt">A relaxed seaside pocket right down from the house. Rest up on the giant beach logs and check out the open water views before the night begins.</div>
-                
-                <div class="inline-map-box">
-                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?q=Kitsilano+Beach,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
-                  <div class="inline-map-lbl">
-                    <span>🚶 <b>12 mins</b> from Coffee</span>
-                    <div class="map-actions">
-                      <a href="https://www.google.com/maps/search/?api=1&query=Kitsilano+Beach+Vancouver" target="_blank" class="btn-map btn-outline">📍 Location</a>
-                      <a href="https://www.google.com/maps/dir/?api=1&origin=Pallet+Coffee+Roasters,+2002+W+Broadway,+Vancouver&destination=Kitsilano+Beach,+Vancouver&travelmode=walking" target="_blank" class="btn-map">🗺️ Route</a>
-                    </div>
-                  </div>
-                </div>
-              </li>
+            <li class="stop">
+              <div class="when"><span class="t">19:00</span><span class="d">⏱ 4 hrs+</span></div>
+              <h3>Yaletown Bar Hop</h3>
+              <p>Cross into Yaletown — Vancouver's converted brick-and-beam warehouse district. Four stops in walking distance along Mainland Street.</p>
 
-              <li>
-                <div class="time-block">
-                  <div class="tm">07:00 PM</div>
-                  <div class="duration-tag">⏱️ 4 Hours+</div>
-                </div>
-                <div class="ev">Granville & Gastown Bar Hop Circuit</div>
-                <div class="nt">Transition into a high-energy evening. Start on the main Granville Street neon strip hitting legendary watering holes, then trace east into Gastown for specialized underground cocktail bars and draft rooms.</div>
-                
-                <div class="inline-map-box">
-                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?q=Granville+Street,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
-                  <div class="inline-map-lbl">
-                    <span>🚗 <b>7 mins</b> from Beach</span>
-                    <div class="map-actions">
-                      <a href="https://www.google.com/maps/search/?api=1&query=Granville+Street+Entertainment+District+Vancouver" target="_blank" class="btn-map btn-outline">📍 Location</a>
-                      <a href="https://www.google.com/maps/dir/?api=1&origin=Kitsilano+Beach,+Vancouver&destination=Granville+Street+Entertainment+District,+Vancouver&travelmode=driving" target="_blank" class="btn-map">🗺️ Route</a>
+              <div class="crawl">
+                <div class="crawl-h"><span>The Crawl · 4 stops</span><span>Yaletown, Vancouver</span></div>
+
+                <a class="bar" href="https://www.google.com/maps/search/?api=1&query=Parker+Rooftop+Vancouver" target="_blank" rel="noopener noreferrer">
+                  <span class="n">1</span>
+                  <span class="b">
+                    <strong>Parker Rooftop</strong><span class="tag">Rooftop · cocktails · views</span>
+                    <p>Golden-hour opener — a 9th-floor lounge with city-and-water views and strong happy-hour pours. Arrive early for the sunset.</p>
+                    <div class="br">
+                      <div class="stars">★ 4.2 · 610 reviews</div>
+                      <div class="q">Feels like stepping into a high-end Manhattan lounge. Incredible views, well-crafted cocktails, and the afternoon happy hour is genuinely great value.</div>
                     </div>
-                  </div>
+                  </span>
+                  <span class="arrow">↗</span>
+                </a>
+
+                <a class="bar" href="https://www.google.com/maps/search/?api=1&query=Yaletown+Brewing+Company+Vancouver" target="_blank" rel="noopener noreferrer">
+                  <span class="n">2</span>
+                  <span class="b">
+                    <strong>Yaletown Brewing Co.</strong><span class="tag">Brewpub · patio · food</span>
+                    <p>The district's OG brewery. House craft beer, a patio, and pizzas + pretzels to line the stomach.</p>
+                    <div class="br">
+                      <div class="stars">★ 4.0 · 1,456 reviews</div>
+                      <div class="q">The beer pretzels are heavenly. Excellent house craft brews and a great patio for settling in before the night begins.</div>
+                    </div>
+                  </span>
+                  <span class="arrow">↗</span>
+                </a>
+
+                <a class="bar" href="https://www.google.com/maps/search/?api=1&query=Bartholomew+Bar+Mainland+Street+Vancouver" target="_blank" rel="noopener noreferrer">
+                  <span class="n">3</span>
+                  <span class="b">
+                    <strong>Bartholomew</strong><span class="tag">Craft cocktails · intimate</span>
+                    <p>A small, moody room doing clarified cocktails with house syrups and tinctures. Worth reserving the bar seats.</p>
+                    <div class="br">
+                      <div class="stars">★ 4.5 · 787 reviews</div>
+                      <div class="q">The kind of place where you plan to stay for one drink and somehow lose track of time. Silky, herbaceous cocktails made with real craft.</div>
+                    </div>
+                  </span>
+                  <span class="arrow">↗</span>
+                </a>
+
+                <a class="bar" href="https://www.google.com/maps/search/?api=1&query=Banter+Room+Yaletown+Vancouver" target="_blank" rel="noopener noreferrer">
+                  <span class="n">4</span>
+                  <span class="b">
+                    <strong>Banter Room</strong><span class="tag">Late lounge · open to 2 AM</span>
+                    <p>Close it out at the buzzy resto-lounge — theatrical drinks and the latest last call of the four.</p>
+                    <div class="br">
+                      <div class="stars">★ 4.0 · 1,316 reviews</div>
+                      <div class="q">Stylish and genuinely fun. The Tipsy Ted — a Baileys espresso martini in a teddy-bear glass — is the signature order. Open until 2 AM.</div>
+                    </div>
+                  </span>
+                  <span class="arrow">↗</span>
+                </a>
+              </div>
+
+              <div class="foot">
+                <span class="dist">🚗 12 min from Kits Beach</span>
+                <div class="acts">
+                  <a class="btn btn-go" href="https://www.google.com/maps/dir/?api=1&origin=Kitsilano+Beach,+Vancouver&destination=Parker+Rooftop,+Vancouver&travelmode=driving" target="_blank" rel="noopener noreferrer">🗺 Route to start</a>
                 </div>
-              </li>
-            </ul>
-          </div>
+              </div>
+              <details class="map"><summary>View Yaletown map <span class="plus">+</span></summary>
+                <iframe loading="lazy" title="Map of Yaletown, Vancouver" src="https://maps.google.com/maps?q=Mainland+Street,Yaletown,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+              </details>
+            </li>
+          </ul>
         </div>
       </div>
+    </section>
 
-      <!-- ================= PAGE 3: SUNDAY ================= -->
-      <div class="tab-panel" id="panel-day3">
-        <div class="panel-grid">
-          
-          <div class="map-sidebar">
-            <div class="map-sticky">
-              
-              <!-- Group G Standings -->
-              <div class="map-meta" style="margin-bottom: 16px; padding-bottom: 8px;">
-                <h4>📊 World Cup 2026 Group G</h4>
-                <p style="font-size: 0.7rem; color: #7a8b82; margin-bottom: 6px;"><em>*Current Standings</em></p>
-                <table class="squad-table" style="text-align: center;">
-                  <tr>
-                    <th style="text-align: left;">Team</th>
-                    <th>MP</th>
-                    <th>GD</th>
-                    <th>Pts</th>
-                  </tr>
-                  <tr>
-                    <td style="text-align: left;">1. 🇳🇿 New Zealand</td>
-                    <td>1</td>
-                    <td>0</td>
-                    <td><b>1</b></td>
-                  </tr>
-                  <tr>
-                    <td style="text-align: left;">2. 🇮🇷 Iran</td>
-                    <td>1</td>
-                    <td>0</td>
-                    <td><b>1</b></td>
-                  </tr>
-                  <tr>
-                    <td style="text-align: left;">3. 🇧🇪 Belgium</td>
-                    <td>1</td>
-                    <td>0</td>
-                    <td><b>1</b></td>
-                  </tr>
-                  <tr class="standings-highlight">
-                    <td style="text-align: left;">4. 🇪🇬 Egypt</td>
-                    <td>1</td>
-                    <td>0</td>
-                    <td><b>1</b></td>
-                  </tr>
-                </table>
-              </div>
+    <!-- =========== SUNDAY / MATCH DAY =========== -->
+    <section class="tab-panel" id="panel-su">
+      <div class="pgrid">
+        <div class="dhead">
+          <div class="dtag">Sunday · Jun 21 · Match Day</div>
+          <h2 class="dtitle">Egypt vs New Zealand</h2>
+          <p class="dsub">Kickoff 18:00 · BC Place · Gate B · Entrance 2/3</p>
+        </div>
 
-              <iframe class="map-frame" style="height: 380px;" src="https://maps.google.com/maps?q=BC+Place,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
-              <div class="map-meta">
-                <h4>🗺️ Match Venue Highlight</h4>
-                <p>The iconic multi-purpose stadium directly adjacent to the False Creek water basin in the city core.</p>
-              </div>
-            </div>
+        <aside class="keymap">
+          <iframe loading="lazy" title="Map of BC Place, Vancouver" src="https://maps.google.com/maps?q=BC+Place,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+          <div class="keymap-cap" style="border-bottom:1px solid var(--edge)">
+            <h4>The Venue · BC Place</h4>
+            <p>Retractable-roof stadium on the False Creek basin, right in the city core.</p>
           </div>
-
-          <div class="day-schedule">
-            <div class="day-header">
-              <h2 class="day-title">🏆 Match Day: Egypt vs New Zealand</h2>
-              <div class="day-sub">Sunday, June 21 · The Official Spectator Corridor</div>
-            </div>
-            
-            <ul class="tl">
-              <li>
-                <div class="time-block">
-                  <div class="tm">11:00 AM</div>
-                  <div class="duration-tag">⏱️ 2 Hours</div>
-                </div>
-                <div class="ev">Pre-Match Brunch at Brunch Vancouver</div>
-                <div class="nt">Fuel up directly on Granville Street with thick French toast stacks, eggs benedict variations, and hot coffee.</div>
-                
-                <div class="inline-map-box">
-                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?q=Brunch+Vancouver,Granville+Street&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
-                  <div class="inline-map-lbl">
-                    <span>🚗 <b>10 mins</b> from base</span>
-                    <div class="map-actions">
-                      <a href="https://www.google.com/maps/search/?api=1&query=Brunch+Vancouver+Granville+Street" target="_blank" class="btn-map btn-outline">📍 Location</a>
-                      <a href="https://www.google.com/maps/dir/?api=1&origin=4589+Haggart+St,+Vancouver&destination=Brunch+Vancouver,+Granville+Street&travelmode=driving" target="_blank" class="btn-map">🗺️ Route</a>
-                    </div>
-                  </div>
-                </div>
-              </li>
-
-              <li>
-                <div class="time-block">
-                  <div class="tm">04:00 PM</div>
-                  <div class="duration-tag">⏱️ 30 Mins</div>
-                </div>
-                <div class="ev">Transit Hub Entry: Main Street–Science World</div>
-                <div class="nt">Take SkyTrain transit straight to Main Street Station (marked by the massive geometric Science World orb). This serves as the primary spectator entry corridor.</div>
-                
-                <div class="inline-map-box">
-                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?q=Science+World,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
-                  <div class="inline-map-lbl">
-                    <span>🚗 <b>6 mins</b> from Brunch</span>
-                    <div class="map-actions">
-                      <a href="https://www.google.com/maps/search/?api=1&query=Science+World+Vancouver" target="_blank" class="btn-map btn-outline">📍 Location</a>
-                      <a href="https://www.google.com/maps/dir/?api=1&origin=Brunch+Vancouver,+Granville+Street&destination=Science+World,+Vancouver&travelmode=driving" target="_blank" class="btn-map">🗺️ Route</a>
-                    </div>
-                  </div>
-                </div>
-              </li>
-
-              <li>
-                <div class="time-block">
-                  <div class="tm">04:30 PM</div>
-                  <div class="duration-tag">⏱️ 45 Mins</div>
-                </div>
-                <div class="ev">The Immersive Fan Walk ("The Last Mile")</div>
-                <div class="nt">Follow the vehicle-free pedestrian pathway moving north along Quebec Street and routing west straight down Pacific Boulevard directly to the stadium doors.</div>
-                
-                <div class="inline-map-box">
-                  <iframe class="inline-map-frame" src="https://maps.google.com/maps?q=BC+Place,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
-                  <div class="inline-map-lbl">
-                    <span>🚶 <b>14 mins</b> walking</span>
-                    <div class="map-actions">
-                      <a href="https://www.google.com/maps/dir/?api=1&origin=Science+World,+Vancouver&destination=BC+Place,+Vancouver&travelmode=walking" target="_blank" class="btn-map">🗺️ Route</a>
-                    </div>
-                  </div>
-                </div>
-              </li>
-
-              <li>
-                <div class="time-block">
-                  <div class="tm">06:00 PM</div>
-                  <div class="duration-tag">⏱️ 3 Hours</div>
-                </div>
-                <div class="ev">Kickoff: New Zealand vs Egypt</div>
-                <div class="nt">
-                  Take your stadium seats inside BC Place via the southeast gates. Ensure strict compliance with the stadium clear-bag policy guidelines.
-                  
-                  <div class="ticket-box">
-                    <h4>🎟️ Official Match Tickets</h4>
-                    <p><b>Category 1:</b> Main Stand - Lower Tier</p>
-                    <p><b>Block:</b> 212  |  <b>Row:</b> V</p>
-                    <p><b>Seats:</b> 107, 108, 109, 110</p>
-                    <p style="margin-top: 8px; font-size: 0.85rem; color: #a9c4b5;">Assigned to: Hatem, Habiba, Mohamed S., and Rania.</p>
-                  </div>
-                </div>
-              </li>
-            </ul>
+          <div class="standings" style="border:none;border-radius:0;box-shadow:none">
+            <h4>Group G · Standings</h4>
+            <div class="note">* Placeholder — update after MD1</div>
+            <table class="tbl">
+              <tr><th>Team</th><th>MP</th><th>GD</th><th>Pts</th></tr>
+              <tr><td>1. 🇳🇿 New Zealand</td><td>1</td><td>0</td><td>1</td></tr>
+              <tr><td>2. 🇮🇷 Iran</td><td>1</td><td>0</td><td>1</td></tr>
+              <tr><td>3. 🇧🇪 Belgium</td><td>1</td><td>0</td><td>1</td></tr>
+              <tr class="hl"><td>4. 🇪🇬 Egypt</td><td>1</td><td>0</td><td>1</td></tr>
+            </table>
           </div>
+        </aside>
+
+        <div class="route-wrap">
+          <ul class="route">
+
+            <li class="stop">
+              <div class="when"><span class="t">11:00</span><span class="d">⏱ 2 hrs</span></div>
+              <h3>Pre-Match Brunch</h3>
+              <p>Fuel up on Granville Street — thick French toast, eggs benedict, strong coffee. Beat the matchday rush.</p>
+              <div class="foot">
+                <span class="dist">🚗 10 min from base</span>
+                <div class="acts">
+                  <a class="btn btn-pin" href="https://www.google.com/maps/search/?api=1&query=Brunch+Granville+Street+Vancouver" target="_blank" rel="noopener noreferrer">📍 Spot</a>
+                  <a class="btn btn-go" href="https://www.google.com/maps/dir/?api=1&origin=4589+Haggart+St,+Vancouver&destination=Granville+Street+Vancouver&travelmode=driving" target="_blank" rel="noopener noreferrer">🗺 Route</a>
+                </div>
+              </div>
+              <details class="map"><summary>View map <span class="plus">+</span></summary>
+                <iframe loading="lazy" title="Map of Granville Street, Vancouver" src="https://maps.google.com/maps?q=Granville+Street,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+              </details>
+            </li>
+
+            <li class="stop stop-hi">
+              <div class="when"><span class="t">14:30</span><span class="d">⏱ ~1.5 hrs</span></div>
+              <h3>🇪🇬 Join the Egyptian Fan March</h3>
+              <p>Thousands of Egyptian supporters are marching through the city to the stadium — organized by the <strong>Egyptian Canadian Cultural Society (ECCS-BC)</strong>. Flags, drums, chants, and the full pre-match atmosphere.</p>
+              <div class="march">
+                <strong>📍 Jonathan Rogers Park — join here</strong>
+                110 W 7th Ave, Vancouver, BC V5Y 1N2<br>
+                <span class="addr-note">The march began at 1 PM — we meet the crowd at 2:30. Look for the Egyptian flags and follow the drums. The march walks ~20 min to BC Place from here.</span>
+              </div>
+              <div class="foot">
+                <span class="dist">🚗 5 min from Brunch</span>
+                <div class="acts">
+                  <a class="btn btn-pin" href="https://www.google.com/maps/search/?api=1&query=Jonathan+Rogers+Park+Vancouver" target="_blank" rel="noopener noreferrer">📍 Meet point</a>
+                  <a class="btn btn-go" href="https://www.google.com/maps/dir/?api=1&origin=Granville+Street+Vancouver&destination=Jonathan+Rogers+Park+Vancouver&travelmode=driving" target="_blank" rel="noopener noreferrer">🗺 Route</a>
+                </div>
+              </div>
+              <details class="map"><summary>View map <span class="plus">+</span></summary>
+                <iframe loading="lazy" title="Map of Jonathan Rogers Park" src="https://maps.google.com/maps?q=Jonathan+Rogers+Park,110+W+7th+Ave,Vancouver&t=&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+              </details>
+            </li>
+
+            <li class="stop">
+              <div class="when"><span class="t">16:30</span><span class="d">⏱ Stadium entry</span></div>
+              <h3>Arrive &amp; Enter BC Place</h3>
+              <p>The march arrives near the stadium. Head to <strong>Gate B · Entrance 2/3</strong>. Clear vinyl bags only — no other bags through the gates.</p>
+              <div class="ticket">
+                <h4>🎟️ Official Match Tickets</h4>
+                <div class="row"><span>Category</span><b>1 · Main Stand · Lower</b></div>
+                <div class="row"><span>Block</span><b>212</b></div>
+                <div class="row"><span>Row</span><b>V</b></div>
+                <div class="row"><span>Seats</span><b>107–110</b></div>
+                <div class="row"><span>Entrance</span><b>2 / 3</b></div>
+                <div class="row"><span>Gate</span><b>B</b></div>
+                <div class="assigned">Hatem, Habiba, Mohamed S. &amp; Rania.</div>
+              </div>
+            </li>
+
+            <li class="stop">
+              <div class="when"><span class="t">18:00</span><span class="d">⏱ Kickoff</span></div>
+              <h3>Egypt vs New Zealand 🏆</h3>
+              <p>Settle into Block 212, Row V, and enjoy every minute. يلا يا مصر!</p>
+            </li>
+
+          </ul>
         </div>
       </div>
+    </section>
 
-    </div>
-  </div>
-</main>
+  </div><!-- /tab-panels -->
+</div><!-- /tab-sys -->
 
-<section class="logi">
-  <div class="wrap">
+<!-- ===== GOOD TO KNOW ===== -->
+<section class="know">
+  <div class="shell">
     <h2>Good to Know</h2>
-    <p class="sub">Essential parameters to guarantee structural cohesion for the group.</p>
-    <div class="logi-grid">
-      <div class="lcard">
-        <h3>Home Base Location</h3>
-        <p><b>4589 Haggart Street</b>, Kitsilano</p>
-        <p>Entry Code · <b>9054</b> · Check-In 4:00 PM</p>
-        <p>Convenient walking corridors straight to Kitsilano Shore and localized café rows.</p>
+    <p class="ksub">Quick reference for the group</p>
+    <div class="kgrid">
+      <div class="kcard">
+        <h3>Home Base</h3>
+        <p><b>4589 Haggart Street</b>, Kitsilano.</p>
+        <p>Entry code <b>9054</b> · check-in 4:00 PM.</p>
+        <p>Short walk to Kits Beach and the West 4th café strip.</p>
       </div>
-      <div class="lcard">
-        <h3>Mobility Blueprint</h3>
-        <p>Friday uses a vehicle setup to reach the suspension canyon comfortably. Utilize the local shared EVO car fleet (built-in gas and park matching rules apply).</p>
-        <p>Saturday and Matchday operate cleanly via localized train routing and footpaths.</p>
+      <div class="kcard">
+        <h3>Getting Around</h3>
+        <p>Friday needs a car for the canyon — use the shared <b>Evo</b> fleet (gas + parking included).</p>
+        <p>Saturday and matchday are easy on foot and SkyTrain.</p>
       </div>
-      <div class="lcard">
-        <h3>Match Day Entry</h3>
-        <p>Avoid lower access points along Expo Blvd. Route exclusively via the Main Street–Science World walking lane. Only clear vinyl bags permitted inside the gates.</p>
+      <div class="kcard">
+        <h3>Match Day Notes</h3>
+        <p>Fan march meets at <b>Jonathan Rogers Park</b> — we join at <b>2:30 PM</b>.</p>
+        <p>Only <b>clear vinyl bags</b> are allowed inside the stadium.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="roster">
-  <div class="wrap">
-    <h2>The Crew</h2>
-    <div class="crew">
-      <div class="cm"><div class="init">H&H</div><div class="who">Hatem & Habiba</div><div class="from">Austin Hub · Arriving Early</div></div>
-      <div class="cm"><div class="init">M&R</div><div class="who">Mohamed S. & Rania</div><div class="from">Toronto Crew</div></div>
-      <div class="cm"><div class="init">M&K</div><div class="who">Mohamed G. & Kristine</div><div class="from">Toronto Crew</div></div>
-      <div class="cm"><div class="init">S</div><div class="who">Sam</div><div class="from">Vancouver · On-Site Liaison</div></div>
-    </div>
+<!-- ===== CREW ===== -->
+<section class="shell crew-sec">
+  <h2>The Crew</h2>
+  <div class="crew">
+    <div class="cm"><div class="init">H&amp;H</div><div class="who">Hatem &amp; Habiba</div><div class="from">Austin · arriving early</div></div>
+    <div class="cm"><div class="init">M&amp;R</div><div class="who">Mohamed S. &amp; Rania</div><div class="from">Toronto crew</div></div>
+    <div class="cm"><div class="init">M&amp;K</div><div class="who">Mohamed G. &amp; Kristine</div><div class="from">Toronto crew</div></div>
+    <div class="cm"><div class="init">S</div><div class="who">Sam</div><div class="from">Vancouver · local guide</div></div>
   </div>
 </section>
 
 <footer>
-  <p><b>New Zealand vs Egypt</b> · FIFA World Cup 2026 · BC Place</p>
+  <b>Egypt vs New Zealand</b> · FIFA World Cup 2026 · BC Place · Vancouver
 </footer>
 
 </body>
